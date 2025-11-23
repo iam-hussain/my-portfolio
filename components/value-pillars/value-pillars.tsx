@@ -8,15 +8,15 @@ export function ValuePillars() {
     <section
       id="value-pillars"
       className="py-20 px-4 sm:px-6 lg:px-8"
-      aria-label="Value pillars section"
+      aria-label="What I Do section"
     >
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-4">
-            Why Hire Me?
+            What I Do
           </h2>
           <p className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto">
-            Four core strengths that drive my approach to building exceptional products
+            Core capabilities and expertise that drive my approach to building exceptional products
           </p>
         </div>
         

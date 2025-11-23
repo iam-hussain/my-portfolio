@@ -13,16 +13,16 @@ export function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex flex-col md:flex-row gap-4 md:gap-8">
             <Link href="#snapshot" className="text-text-secondary hover:text-text-primary transition-colors">
-              Snapshot
+              Home
             </Link>
             <Link href="#value-pillars" className="text-text-secondary hover:text-text-primary transition-colors">
-              Value Pillars
-            </Link>
-            <Link href="#impact-gallery" className="text-text-secondary hover:text-text-primary transition-colors">
-              Impact
+              What I Do
             </Link>
             <Link href="#storyline" className="text-text-secondary hover:text-text-primary transition-colors">
-              Storyline
+              Work
+            </Link>
+            <Link href="#impact-gallery" className="text-text-secondary hover:text-text-primary transition-colors">
+              Highlights
             </Link>
             <Link href="#playground" className="text-text-secondary hover:text-text-primary transition-colors">
               Playground

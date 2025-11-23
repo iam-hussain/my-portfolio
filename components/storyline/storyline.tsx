@@ -23,15 +23,15 @@ export function Storyline() {
       <section
         id="storyline"
         className="py-20 px-4 sm:px-6 lg:px-8"
-        aria-label="Experience timeline section"
+        aria-label="Work section"
       >
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-4">
-              Storyline
+              Work
             </h2>
             <p className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto">
-              A journey through experience, impact, and growth
+              Professional experience and projects that showcase my expertise
             </p>
           </div>
           

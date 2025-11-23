@@ -22,7 +22,7 @@ export const experiences: Experience[] = [
     id: 'conde-nast',
     company: 'Conde Nast Technology Lab',
     role: 'Software Engineer II',
-    period: 'JUNE 2023 - NOV 2024',
+    period: 'JUNE 2021 - NOV 2024',
     location: 'Bangalore, Karnataka, India',
     bullets: [
       'Engineered a full-stack AI personalization platform for The New Yorker Caption Contest, integrating ML-driven recommendation models with dynamic React rendering based on realtime prediction data.',
