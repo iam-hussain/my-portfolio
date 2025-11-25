@@ -13,3 +13,4 @@ export const personalInfo: PersonalInfo = {
   resumeUrl: '/jakir_full_stack_resume.pdf',
 }
 
+

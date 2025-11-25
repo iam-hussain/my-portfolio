@@ -81,3 +81,4 @@ export function CaseStudySpotlight({ caseStudy, isOpen, onClose }: CaseStudySpot
   )
 }
 
+

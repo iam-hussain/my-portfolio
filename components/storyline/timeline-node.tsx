@@ -99,3 +99,4 @@ export function TimelineNode({ experience, index, onCaseStudyClick }: TimelineNo
   )
 }
 
+
