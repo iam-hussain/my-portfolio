@@ -1,16 +1,25 @@
 @import "tailwindcss";
 
 :root {
-  /* Gradient Accent Colors (shared between themes) */
+  /* Gemini AI Inspired Color Palette */
+  --color-star-blue: #2196f3;
+  --color-orbit-pink: #f48fb1;
+  --color-galaxy-black: #0d0d0d;
+  --color-lens-yellow: #ffeb3b;
+  --color-astro-aqua: #80deea;
+  --color-ai-ivory: #fdfdfd;
+
+  /* Gradient Accent Colors (enhanced with Gemini palette) */
   --color-gradient-purple: #8b5cf6;
-  --color-gradient-blue: #3b82f6;
-  --color-gradient-pink: #ec4899;
-  --color-gradient-cyan: #06b6d4;
+  --color-gradient-blue: #2196f3;
+  --color-gradient-pink: #f48fb1;
+  --color-gradient-cyan: #80deea;
+  --color-gradient-yellow: #ffeb3b;
   --color-gradient-magenta: #d946ef;
 
   /* Interactive States (shared) */
-  --color-hover-glow: rgba(139, 92, 246, 0.3);
-  --color-focus-ring: rgba(59, 130, 246, 0.5);
+  --color-hover-glow: rgba(33, 150, 243, 0.3);
+  --color-focus-ring: rgba(33, 150, 243, 0.5);
 
   /* Semantic Colors (shared) */
   --primary: var(--color-gradient-purple);
@@ -34,11 +43,21 @@
   --color-bg-card: rgba(255, 255, 255, 0.9);
   --color-bg-overlay: rgba(255, 255, 255, 0.95);
 
-  /* Text Colors */
-  --color-text-primary: #0a0a0a;
-  --color-text-secondary: #4a4a4a;
-  --color-text-muted: #6b6b6b;
-  --color-text-accent: #8b5cf6;
+  /* Text Colors - Darker for better contrast */
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #3a3a3a;
+  --color-text-muted: #5a5a5a;
+  --color-text-accent: #2196f3;
+  
+  /* Gradient colors for hero title - darker blue for light theme */
+  --gradient-hero-start: #1a1a1a;
+  --gradient-hero-mid: #0d47a1;
+  --gradient-hero-end: #01579b;
+  
+  /* Gradient colors for hero subtitle - darker blue/pink for light theme */
+  --gradient-subtitle-start: #0d47a1;
+  --gradient-subtitle-mid: #880e4f;
+  --gradient-subtitle-end: #004d40;
 
   /* Interactive States */
   --color-border-subtle: rgba(0, 0, 0, 0.1);
@@ -58,24 +77,34 @@
 }
 
 
-/* Dark Theme Variables (default) */
+/* Dark Theme Variables (default) - Gemini AI inspired */
 .dark {
-  /* Base Background Colors */
-  --color-bg-primary: #0a0a0a;
-  --color-bg-secondary: #0f0f23;
+  /* Base Background Colors - Galaxy Black base */
+  --color-bg-primary: #0d0d0d;
+  --color-bg-secondary: #151520;
   --color-bg-tertiary: #1a1a2e;
-  --color-bg-card: rgba(15, 15, 35, 0.8);
-  --color-bg-overlay: rgba(10, 10, 10, 0.9);
+  --color-bg-card: rgba(21, 21, 32, 0.85);
+  --color-bg-overlay: rgba(13, 13, 13, 0.95);
 
-  /* Text Colors */
-  --color-text-primary: #ffffff;
-  --color-text-secondary: #a1a1aa;
-  --color-text-muted: #71717a;
-  --color-text-accent: #8b5cf6;
+  /* Text Colors - Darker for better contrast on gradient backgrounds */
+  --color-text-primary: #e8e8e8;
+  --color-text-secondary: #c8c8c8;
+  --color-text-muted: #a8a8a8;
+  --color-text-accent: #2196f3;
+  
+  /* Gradient colors for hero title - lighter for dark theme */
+  --gradient-hero-start: #fdfdfd;
+  --gradient-hero-mid: #2196f3;
+  --gradient-hero-end: #80deea;
+  
+  /* Gradient colors for hero subtitle - lighter for dark theme */
+  --gradient-subtitle-start: #2196f3;
+  --gradient-subtitle-mid: #f48fb1;
+  --gradient-subtitle-end: #80deea;
 
   /* Interactive States */
   --color-border-subtle: rgba(255, 255, 255, 0.1);
-  --color-border-accent: rgba(139, 92, 246, 0.5);
+  --color-border-accent: rgba(33, 150, 243, 0.5);
 
   /* Semantic Colors (for shadcn/ui compatibility) */
   --background: var(--color-bg-primary);
@@ -105,38 +134,50 @@
   --color-gradient-purple: var(--color-gradient-purple);
   --color-gradient-blue: var(--color-gradient-blue);
   --color-gradient-pink: var(--color-gradient-pink);
+  --color-gradient-cyan: var(--color-gradient-cyan);
+  --color-gradient-yellow: var(--color-gradient-yellow);
+  --color-star-blue: var(--color-star-blue);
+  --color-orbit-pink: var(--color-orbit-pink);
+  --color-astro-aqua: var(--color-astro-aqua);
+  --color-lens-yellow: var(--color-lens-yellow);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-/* Gradient Utilities */
+/* Gradient Utilities - Gemini AI inspired */
 .gradient-hero {
   background: radial-gradient(
     circle at 30% 50%,
-    rgba(139, 92, 246, 0.3),
-    rgba(59, 130, 246, 0.2),
-    rgba(236, 72, 153, 0.2)
+    rgba(33, 150, 243, 0.35),
+    rgba(244, 143, 177, 0.25),
+    rgba(128, 222, 234, 0.2)
   );
 }
 
 .gradient-card-hover {
   background: linear-gradient(
     135deg,
-    rgba(139, 92, 246, 0.1),
-    rgba(59, 130, 246, 0.1)
+    rgba(33, 150, 243, 0.12),
+    rgba(244, 143, 177, 0.1)
   );
 }
 
 .gradient-button-primary {
-  background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+  background: linear-gradient(135deg, #2196f3, #80deea);
+  box-shadow: 0 4px 20px rgba(33, 150, 243, 0.3);
+}
+
+.gradient-button-primary:hover {
+  background: linear-gradient(135deg, #1e88e5, #4dd0e1);
+  box-shadow: 0 6px 30px rgba(33, 150, 243, 0.5);
 }
 
 .glow-effect {
-  box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+  box-shadow: 0 0 20px rgba(33, 150, 243, 0.4);
 }
 
 .glow-effect-hover:hover {
-  box-shadow: 0 0 30px rgba(139, 92, 246, 0.6);
+  box-shadow: 0 0 30px rgba(33, 150, 243, 0.6);
 }
 
 /* Animations */
@@ -172,11 +213,11 @@
 @keyframes pulse-glow {
   0%, 100% {
     opacity: 1;
-    box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+    box-shadow: 0 0 20px rgba(33, 150, 243, 0.4);
   }
   50% {
     opacity: 0.8;
-    box-shadow: 0 0 40px rgba(139, 92, 246, 0.6);
+    box-shadow: 0 0 40px rgba(33, 150, 243, 0.6);
   }
 }
 

@@ -16,7 +16,7 @@ export function ValuePillars() {
             What I Do
           </h2>
           <p className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto">
-            Core capabilities and expertise that drive my approach to building exceptional products
+            Core engineering strengths shaped by real-world experience building AI-powered products, cloud-native platforms, and high-scale API systems.
           </p>
         </div>
         

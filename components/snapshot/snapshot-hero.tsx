@@ -2,12 +2,10 @@
 
 import { personalInfo } from '@/lib/data/personal-info'
 import { StatChips } from './stat-chips'
-import { GradientOrb } from '@/components/shared/gradient-orb'
-import { HeroBackgroundBlob } from '@/components/shared/hero-background-blob'
-import { Tech3DScene } from '@/components/shared/3d-tech-scene'
+import { GradientPortraitBackground } from '@/components/shared/gradient-portrait-background'
 import { Button } from '@/components/ui/button'
 import { Github, Linkedin, Mail, MessageCircle, Calendar } from 'lucide-react'
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
+import { motion, useMotionValue, useSpring } from 'framer-motion'
 import Link from 'next/link'
 import { useRef } from 'react'
 
@@ -42,54 +40,32 @@ export function SnapshotHero() {
       aria-label="Hero section"
       onMouseMove={handleMouseMove}
     >
-      <GradientOrb />
-      <HeroBackgroundBlob />
+      {/* Gradient Portrait Background */}
+      <GradientPortraitBackground />
       
-      {/* Large volumetric glow behind card and scene */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none" style={{ zIndex: 1 }}>
-        <motion.div
-          className="absolute w-[1200px] h-[1200px] rounded-full blur-3xl opacity-40"
-          style={{
-            background: 'radial-gradient(circle, rgba(139, 92, 246, 0.6), rgba(59, 130, 246, 0.4), rgba(6, 182, 212, 0.3), transparent 70%)',
-          }}
-          animate={{
-            scale: [1, 1.1, 1],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-        />
-      </div>
-      
-      {/* 3D Tech Scene - Background Layer */}
-      <Tech3DScene />
-      
-      <div className="relative z-20 max-w-7xl w-full">
+      <div className="relative z-20 max-w-6xl w-full">
         <motion.div
           ref={cardRef}
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
           style={{
             x: cardSpringX,
             y: cardSpringY,
-            boxShadow: '0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(139, 92, 246, 0.3)',
+            maxWidth: '900px',
           }}
-          className="relative bg-bg-card/90 backdrop-blur-2xl rounded-2xl border border-border-subtle p-8 md:p-12 lg:p-16 shadow-2xl"
+          className="relative bg-transparent rounded-3xl p-10 md:p-14 lg:p-20 mx-auto"
         >
-          <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-center lg:items-center relative z-10">
+          <div className="flex flex-col items-center text-center relative z-10">
             {/* Content */}
-            <div className="flex-1 text-center lg:text-left lg:max-w-2xl">
+            <div className="w-full max-w-3xl">
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
+                className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8"
                 style={{
-                  background: 'linear-gradient(to right, #ffffff, #8b5cf6, #3b82f6)',
+                  background: 'linear-gradient(to right, var(--gradient-hero-start, var(--color-text-primary)), var(--gradient-hero-mid, #2196f3), var(--gradient-hero-end, #80deea))',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
                   backgroundClip: 'text',
@@ -102,7 +78,13 @@ export function SnapshotHero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="text-xl md:text-2xl text-text-accent mb-3 font-semibold"
+                className="text-xl md:text-2xl mb-6 font-semibold"
+                style={{
+                  background: 'linear-gradient(to right, var(--gradient-subtitle-start, #2196f3), var(--gradient-subtitle-mid, #f48fb1), var(--gradient-subtitle-end, #80deea))',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                }}
               >
                 Senior Full-Stack Engineer — Product-Focused & Performance-Driven
               </motion.p>
@@ -111,7 +93,8 @@ export function SnapshotHero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.25 }}
-                className="text-base md:text-lg text-text-secondary mb-6"
+                className="text-base md:text-lg mb-8 font-medium"
+                style={{ color: 'var(--color-text-primary)' }}
               >
                 Node.js · React · TypeScript · GraphQL · AWS
               </motion.p>
@@ -120,7 +103,8 @@ export function SnapshotHero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="text-lg md:text-xl text-text-secondary mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
+                className="text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed"
+                style={{ color: 'var(--color-text-primary)' }}
               >
                 I build modern, high-performance digital experiences by combining strong UI engineering, production-grade backend development, and cloud-native architectures. My work focuses on delivering smooth user flows, clean system design, and scalable platforms that evolve with real product needs.
               </motion.p>
@@ -129,7 +113,7 @@ export function SnapshotHero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
-                className="mb-10"
+                className="mb-12"
               >
                 <StatChips />
               </motion.div>
@@ -138,20 +122,38 @@ export function SnapshotHero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
-                className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-10"
+                className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
               >
                 <Button
                   asChild
-                  className="gradient-button-primary text-white hover:opacity-90 glow-effect-hover min-h-[44px]"
+                  className="gradient-button-primary text-white hover:opacity-90 min-h-[44px] transition-all duration-300"
                   size="lg"
+                  style={{
+                    boxShadow: '0 4px 20px rgba(33, 150, 243, 0.3)',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.boxShadow = '0 6px 30px rgba(33, 150, 243, 0.5)'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.boxShadow = '0 4px 20px rgba(33, 150, 243, 0.3)'
+                  }}
                 >
                   <Link href="#storyline">Explore My Work</Link>
                 </Button>
                 <Button
                   asChild
                   variant="outline"
-                  className="border-border-accent hover:bg-bg-card hover:border-border-accent min-h-[44px]"
+                  className="border-border-accent hover:bg-bg-card hover:border-border-accent min-h-[44px] transition-all duration-300"
                   size="lg"
+                  style={{
+                    boxShadow: '0 4px 20px rgba(33, 150, 243, 0.15)',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.boxShadow = '0 6px 30px rgba(33, 150, 243, 0.3)'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.boxShadow = '0 4px 20px rgba(33, 150, 243, 0.15)'
+                  }}
                 >
                   <a href={personalInfo.resumeUrl} download>
                     Open Resume
@@ -164,7 +166,7 @@ export function SnapshotHero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6 }}
-                className="flex gap-4 justify-center lg:justify-start"
+                className="flex gap-4 justify-center"
               >
                 <a
                   href={personalInfo.github}

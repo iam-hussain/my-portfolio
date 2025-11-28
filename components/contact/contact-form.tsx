@@ -42,12 +42,22 @@ export function ContactForm() {
     setSubmitStatus('idle')
 
     try {
-      // TODO: Integrate with email service (e.g., Resend, SendGrid)
-      console.log('Form submitted:', values)
-      
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1000))
-      
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: values.name,
+          email: values.email,
+          message: values.message,
+        }),
+      })
+
+      if (!response.ok) {
+        throw new Error('Failed to send message')
+      }
+
       setSubmitStatus('success')
       form.reset()
     } catch (error) {
@@ -119,9 +129,13 @@ export function ContactForm() {
           )}
         />
         
+        <p className="text-sm text-text-muted mb-2">
+          This form sends directly to my inbox at itsjakirhussain@gmail.com.
+        </p>
+        
         {submitStatus === 'success' && (
           <p className="text-green-400 text-sm" role="alert">
-            Message sent successfully! I'll get back to you soon.
+            Thanks! I'll get back to you soon.
           </p>
         )}
         
@@ -139,6 +153,10 @@ export function ContactForm() {
         >
           {isSubmitting ? 'Sending...' : 'Send Message'}
         </Button>
+        
+        <p className="text-xs text-text-muted text-center mt-4">
+          For the fastest response, reach me via Email or WhatsApp using the quick actions.
+        </p>
       </form>
     </Form>
   )
