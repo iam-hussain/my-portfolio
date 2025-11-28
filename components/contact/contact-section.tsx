@@ -1,6 +1,6 @@
 'use client'
 
-import { personalInfo } from '@/lib/data/personal-info'
+import { siteConfig } from '@/src/config/site'
 import { ContactForm } from './contact-form'
 import { Button } from '@/components/ui/button'
 import { Mail, MessageCircle, Download, Calendar, Linkedin, Github } from 'lucide-react'
@@ -12,22 +12,22 @@ export function ContactSection() {
     <>
       <section
         id="contact"
-        className="py-20 px-4 sm:px-6 lg:px-8"
+        className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8"
         aria-label="Contact section"
       >
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-4">
-              Contact
-            </h2>
-            <p className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto mb-8">
-              Open to Senior Frontend / Senior Full-Stack roles — Dubai / Remote worldwide.
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-3 sm:mb-4">
+            Contact
+          </h2>
+          <p className="text-base sm:text-lg md:text-xl text-text-secondary max-w-2xl mx-auto mb-6 sm:mb-8 px-2 sm:px-0">
+              {siteConfig.personal.openToRoles}
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-12">
             <div className="space-y-4">
-              <h3 className="text-xl font-semibold text-text-primary mb-4">Quick Actions</h3>
+              <h3 className="text-lg sm:text-xl font-semibold text-text-primary mb-3 sm:mb-4">Quick Actions</h3>
               <div className="space-y-3">
                 <Button
                   asChild
@@ -35,9 +35,9 @@ export function ContactSection() {
                   className="w-full border-border-accent hover:bg-bg-card hover:border-border-accent justify-start min-h-[44px]"
                   size="lg"
                 >
-                  <a href="mailto:itsjakirhussain@gmail.com">
+                  <a href={`mailto:${siteConfig.contact.email}`}>
                     <Mail className="mr-2 h-5 w-5" />
-                    Email Me
+                    {siteConfig.ctaLabels.contactEmail}
                   </a>
                 </Button>
                 <Button
@@ -46,9 +46,9 @@ export function ContactSection() {
                   className="w-full border-border-accent hover:bg-bg-card hover:border-border-accent justify-start min-h-[44px]"
                   size="lg"
                 >
-                  <a href="https://wa.me/971585591060" target="_blank" rel="noopener noreferrer">
+                  <a href={siteConfig.contact.whatsappLink} target="_blank" rel="noopener noreferrer">
                     <MessageCircle className="mr-2 h-5 w-5" />
-                    WhatsApp
+                    {siteConfig.ctaLabels.contactWhatsApp}
                   </a>
                 </Button>
                 <Button
@@ -57,9 +57,9 @@ export function ContactSection() {
                   className="w-full border-border-accent hover:bg-bg-card hover:border-border-accent justify-start min-h-[44px]"
                   size="lg"
                 >
-                  <a href="/Jakir_Hussain_Resume.pdf" download>
+                  <a href={siteConfig.links.resumeUrl} download>
                     <Download className="mr-2 h-5 w-5" />
-                    Download Resume
+                    {siteConfig.ctaLabels.contactDownloadResume}
                   </a>
                 </Button>
                 <Button
@@ -68,9 +68,9 @@ export function ContactSection() {
                   className="w-full border-border-accent hover:bg-bg-card hover:border-border-accent justify-start min-h-[44px]"
                   size="lg"
                 >
-                  <a href="https://calendly.com/iamhussain" target="_blank" rel="noopener noreferrer">
+                  <a href={siteConfig.contact.calendly} target="_blank" rel="noopener noreferrer">
                     <Calendar className="mr-2 h-5 w-5" />
-                    Book a Call
+                    {siteConfig.ctaLabels.contactBookCall}
                   </a>
                 </Button>
                 <Button
@@ -79,7 +79,7 @@ export function ContactSection() {
                   className="w-full border-border-accent hover:bg-bg-card hover:border-border-accent justify-start min-h-[44px]"
                   size="lg"
                 >
-                  <a href="https://linkedin.com/in/jakirhussain18" target="_blank" rel="noopener noreferrer">
+                  <a href={siteConfig.links.linkedin} target="_blank" rel="noopener noreferrer">
                     <Linkedin className="mr-2 h-5 w-5" />
                     LinkedIn
                   </a>
@@ -90,49 +90,49 @@ export function ContactSection() {
                   className="w-full border-border-accent hover:bg-bg-card hover:border-border-accent justify-start min-h-[44px]"
                   size="lg"
                 >
-                  <a href="https://github.com/jakirhussain18" target="_blank" rel="noopener noreferrer">
+                  <a href={siteConfig.links.github} target="_blank" rel="noopener noreferrer">
                     <Github className="mr-2 h-5 w-5" />
                     GitHub
                   </a>
                 </Button>
               </div>
               
-              <div className="mt-8 p-4 rounded-lg border border-border-subtle bg-bg-card/30 backdrop-blur-sm">
-                <div className="space-y-2 text-sm text-text-secondary">
+              <div className="mt-6 sm:mt-8 p-4 rounded-lg border border-border-subtle bg-bg-card/30 backdrop-blur-sm">
+                <div className="space-y-2 text-xs sm:text-sm text-text-secondary">
                   <p className="flex items-center gap-2">
                     <span>📍</span>
-                    <span>Dubai — GMT+4</span>
+                    <span>{siteConfig.personal.location}</span>
                   </p>
-                  <p className="flex items-center gap-2">
+                  <p className="flex items-center gap-2 flex-wrap">
                     <span>📧</span>
-                    <a href="mailto:itsjakirhussain@gmail.com" className="text-text-accent hover:text-text-primary transition-colors">
-                      itsjakirhussain@gmail.com
+                    <a href={`mailto:${siteConfig.contact.email}`} className="text-text-accent hover:text-text-primary transition-colors break-all">
+                      {siteConfig.contact.email}
                     </a>
                   </p>
-                  <p className="flex items-center gap-2">
+                  <p className="flex items-center gap-2 flex-wrap">
                     <span>📱</span>
-                    <a href="https://wa.me/971585591060" className="text-text-accent hover:text-text-primary transition-colors">
-                      +971 58 559 1060
+                    <a href={siteConfig.contact.whatsappLink} className="text-text-accent hover:text-text-primary transition-colors min-h-[44px] flex items-center">
+                      {siteConfig.contact.phone}
                     </a>
                   </p>
-                  <p className="flex items-center gap-2">
+                  <p className="flex items-start gap-2 flex-wrap">
                     <span>🔗</span>
-                    <span>LinkedIn: <a href="https://linkedin.com/in/jakirhussain18" target="_blank" rel="noopener noreferrer" className="text-text-accent hover:text-text-primary transition-colors">linkedin.com/in/jakirhussain18</a></span>
+                    <span className="flex-1 min-w-0">LinkedIn: <a href={siteConfig.links.linkedin} target="_blank" rel="noopener noreferrer" className="text-text-accent hover:text-text-primary transition-colors break-all">{siteConfig.links.linkedin.replace('https://', '')}</a></span>
                   </p>
-                  <p className="flex items-center gap-2">
+                  <p className="flex items-start gap-2 flex-wrap">
                     <span>💻</span>
-                    <span>GitHub: <a href="https://github.com/jakirhussain18" target="_blank" rel="noopener noreferrer" className="text-text-accent hover:text-text-primary transition-colors">github.com/jakirhussain18</a></span>
+                    <span className="flex-1 min-w-0">GitHub: <a href={siteConfig.links.github} target="_blank" rel="noopener noreferrer" className="text-text-accent hover:text-text-primary transition-colors break-all">{siteConfig.links.github.replace('https://', '')}</a></span>
                   </p>
-                  <p className="flex items-center gap-2">
+                  <p className="flex items-start gap-2 flex-wrap">
                     <span>📅</span>
-                    <span>Book a Call: <a href="https://calendly.com/iamhussain" target="_blank" rel="noopener noreferrer" className="text-text-accent hover:text-text-primary transition-colors">calendly.com/iamhussain</a></span>
+                    <span className="flex-1 min-w-0">Book a Call: <a href={siteConfig.contact.calendly} target="_blank" rel="noopener noreferrer" className="text-text-accent hover:text-text-primary transition-colors break-all">{siteConfig.contact.calendly.replace('https://', '')}</a></span>
                   </p>
                 </div>
               </div>
             </div>
             
             <div>
-              <h3 className="text-xl font-semibold text-text-primary mb-4">Send a Message</h3>
+              <h3 className="text-lg sm:text-xl font-semibold text-text-primary mb-3 sm:mb-4">Send a Message</h3>
               <ContactForm />
             </div>
           </div>

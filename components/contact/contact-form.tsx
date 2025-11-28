@@ -1,5 +1,6 @@
 'use client'
 
+import { siteConfig } from '@/src/config/site'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
@@ -80,7 +81,7 @@ export function ContactForm() {
                 <Input
                   {...field}
                   placeholder="Your name"
-                  className="bg-bg-card border-border-subtle text-text-primary placeholder:text-text-muted focus:border-border-accent min-h-[44px]"
+                  className="bg-bg-card border-border-subtle text-text-primary placeholder:text-text-muted focus:border-border-accent min-h-[44px] w-full"
                   aria-required="true"
                 />
               </FormControl>
@@ -100,7 +101,7 @@ export function ContactForm() {
                   {...field}
                   type="email"
                   placeholder="your.email@example.com"
-                  className="bg-bg-card border-border-subtle text-text-primary placeholder:text-text-muted focus:border-border-accent min-h-[44px]"
+                  className="bg-bg-card border-border-subtle text-text-primary placeholder:text-text-muted focus:border-border-accent min-h-[44px] w-full"
                   aria-required="true"
                 />
               </FormControl>
@@ -120,7 +121,7 @@ export function ContactForm() {
                   {...field}
                   placeholder="Your message..."
                   rows={6}
-                  className="bg-bg-card border-border-subtle text-text-primary placeholder:text-text-muted focus:border-border-accent resize-none"
+                  className="bg-bg-card border-border-subtle text-text-primary placeholder:text-text-muted focus:border-border-accent resize-none w-full"
                   aria-required="true"
                 />
               </FormControl>
@@ -130,7 +131,7 @@ export function ContactForm() {
         />
         
         <p className="text-sm text-text-muted mb-2">
-          This form sends directly to my inbox at itsjakirhussain@gmail.com.
+          This form sends directly to my inbox at {siteConfig.contact.email}.
         </p>
         
         {submitStatus === 'success' && (

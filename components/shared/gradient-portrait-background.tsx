@@ -1,8 +1,19 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { useEffect, useState } from 'react'
 
 export function GradientPortraitBackground() {
+  const [particleCount, setParticleCount] = useState(40)
+
+  useEffect(() => {
+    const updateParticleCount = () => {
+      setParticleCount(window.innerWidth < 768 ? 20 : 40)
+    }
+    updateParticleCount()
+    window.addEventListener('resize', updateParticleCount)
+    return () => window.removeEventListener('resize', updateParticleCount)
+  }, [])
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       {/* Full-screen animated gradient background - Gemini AI colors */}
@@ -25,7 +36,7 @@ export function GradientPortraitBackground() {
 
       {/* Large blurred gradient halo on right side - Gemini AI colors */}
       <motion.div
-        className="absolute right-0 top-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full blur-3xl opacity-50"
+        className="absolute right-0 top-1/2 -translate-y-1/2 w-[400px] h-[400px] sm:w-[600px] sm:h-[600px] md:w-[800px] md:h-[800px] rounded-full blur-3xl opacity-50"
         style={{
           background: 'radial-gradient(circle, rgba(33, 150, 243, 0.6), rgba(244, 143, 177, 0.4), rgba(128, 222, 234, 0.3), transparent)',
         }}
@@ -75,8 +86,8 @@ export function GradientPortraitBackground() {
         />
       ))}
 
-      {/* Small floating particles - Gemini AI colors */}
-      {[...Array(40)].map((_, i) => {
+      {/* Small floating particles - Gemini AI colors (reduced on mobile for performance) */}
+      {[...Array(particleCount)].map((_, i) => {
         const delay = Math.random() * 5
         const duration = Math.random() * 8 + 6
         const colors = ['#2196f3', '#f48fb1', '#80deea', '#ffeb3b']

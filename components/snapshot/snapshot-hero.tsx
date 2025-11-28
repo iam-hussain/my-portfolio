@@ -1,17 +1,18 @@
 'use client'
 
-import { personalInfo } from '@/lib/data/personal-info'
+import { siteConfig } from '@/src/config/site'
 import { StatChips } from './stat-chips'
 import { GradientPortraitBackground } from '@/components/shared/gradient-portrait-background'
 import { Button } from '@/components/ui/button'
 import { Github, Linkedin, Mail, MessageCircle, Calendar } from 'lucide-react'
 import { motion, useMotionValue, useSpring } from 'framer-motion'
 import Link from 'next/link'
-import { useRef } from 'react'
+import { useRef, useEffect, useState } from 'react'
 
 export function SnapshotHero() {
   const cardRef = useRef<HTMLDivElement>(null)
   const sectionRef = useRef<HTMLElement>(null)
+  const [isMobile, setIsMobile] = useState(false)
 
   const cardX = useMotionValue(0)
   const cardY = useMotionValue(0)
@@ -20,7 +21,18 @@ export function SnapshotHero() {
   const cardSpringX = useSpring(cardX, springConfig)
   const cardSpringY = useSpring(cardY, springConfig)
 
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
   const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+    // Disable parallax on mobile for better performance
+    if (window.innerWidth < 768) return
     if (!sectionRef.current) return
     const rect = sectionRef.current.getBoundingClientRect()
     const centerX = rect.left + rect.width / 2
@@ -35,8 +47,8 @@ export function SnapshotHero() {
   return (
     <section
       ref={sectionRef}
-      id="snapshot"
-      className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20 overflow-hidden"
+      id="home"
+      className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-16 sm:py-20 overflow-hidden"
       aria-label="Hero section"
       onMouseMove={handleMouseMove}
     >
@@ -50,11 +62,11 @@ export function SnapshotHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
           style={{
-            x: cardSpringX,
-            y: cardSpringY,
+            x: !isMobile ? cardSpringX : 0,
+            y: !isMobile ? cardSpringY : 0,
             maxWidth: '900px',
           }}
-          className="relative bg-transparent rounded-3xl p-10 md:p-14 lg:p-20 mx-auto"
+          className="relative bg-transparent rounded-3xl p-6 sm:p-8 md:p-14 lg:p-20 mx-auto"
         >
           <div className="flex flex-col items-center text-center relative z-10">
             {/* Content */}
@@ -63,7 +75,7 @@ export function SnapshotHero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 sm:mb-8"
                 style={{
                   background: 'linear-gradient(to right, var(--gradient-hero-start, var(--color-text-primary)), var(--gradient-hero-mid, #2196f3), var(--gradient-hero-end, #80deea))',
                   WebkitBackgroundClip: 'text',
@@ -71,14 +83,14 @@ export function SnapshotHero() {
                   backgroundClip: 'text',
                 }}
               >
-                JAKIR HUSSAIN
+                {siteConfig.personal.fullName.toUpperCase()}
               </motion.h1>
               
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="text-xl md:text-2xl mb-6 font-semibold"
+                className="text-lg sm:text-xl md:text-2xl mb-4 sm:mb-6 font-semibold"
                 style={{
                   background: 'linear-gradient(to right, var(--gradient-subtitle-start, #2196f3), var(--gradient-subtitle-mid, #f48fb1), var(--gradient-subtitle-end, #80deea))',
                   WebkitBackgroundClip: 'text',
@@ -86,34 +98,34 @@ export function SnapshotHero() {
                   backgroundClip: 'text',
                 }}
               >
-                Senior Full-Stack Engineer — Product-Focused & Performance-Driven
+                {siteConfig.personal.role}
               </motion.p>
               
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.25 }}
-                className="text-base md:text-lg mb-8 font-medium"
+                className="text-sm sm:text-base md:text-lg mb-6 sm:mb-8 font-medium"
                 style={{ color: 'var(--color-text-primary)' }}
               >
-                Node.js · React · TypeScript · GraphQL · AWS
+                {siteConfig.personal.heroTechLine}
               </motion.p>
               
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed"
+                className="text-base sm:text-lg md:text-xl mb-8 sm:mb-12 max-w-2xl mx-auto leading-relaxed px-2 sm:px-0"
                 style={{ color: 'var(--color-text-primary)' }}
               >
-                I build modern, high-performance digital experiences by combining strong UI engineering, production-grade backend development, and cloud-native architectures. My work focuses on delivering smooth user flows, clean system design, and scalable platforms that evolve with real product needs.
+                {siteConfig.personal.headline}
               </motion.p>
               
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
-                className="mb-12"
+                className="mb-8 sm:mb-12"
               >
                 <StatChips />
               </motion.div>
@@ -122,7 +134,7 @@ export function SnapshotHero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
-                className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
+                className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-8 sm:mb-12 w-full"
               >
                 <Button
                   asChild
@@ -138,7 +150,7 @@ export function SnapshotHero() {
                     e.currentTarget.style.boxShadow = '0 4px 20px rgba(33, 150, 243, 0.3)'
                   }}
                 >
-                  <Link href="#storyline">Explore My Work</Link>
+                  <Link href={siteConfig.navigation.main[2].href}>{siteConfig.ctaLabels.primaryHero}</Link>
                 </Button>
                 <Button
                   asChild
@@ -155,8 +167,8 @@ export function SnapshotHero() {
                     e.currentTarget.style.boxShadow = '0 4px 20px rgba(33, 150, 243, 0.15)'
                   }}
                 >
-                  <a href={personalInfo.resumeUrl} download>
-                    Open Resume
+                  <a href={siteConfig.links.resumeUrl} download>
+                    {siteConfig.ctaLabels.secondaryHero}
                   </a>
                 </Button>
               </motion.div>
@@ -166,51 +178,29 @@ export function SnapshotHero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6 }}
-                className="flex gap-4 justify-center"
+                className="flex flex-wrap gap-3 sm:gap-4 justify-center"
               >
-                <a
-                  href={personalInfo.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-3 rounded-full border border-border-subtle bg-bg-card/50 hover:border-border-accent hover:glow-effect-hover transition-all"
-                  aria-label="GitHub profile"
-                >
-                  <Github className="h-5 w-5 text-text-secondary hover:text-text-primary" />
-                </a>
-                <a
-                  href={personalInfo.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-3 rounded-full border border-border-subtle bg-bg-card/50 hover:border-border-accent hover:glow-effect-hover transition-all"
-                  aria-label="LinkedIn profile"
-                >
-                  <Linkedin className="h-5 w-5 text-text-secondary hover:text-text-primary" />
-                </a>
-                <a
-                  href={`mailto:${personalInfo.email}`}
-                  className="p-3 rounded-full border border-border-subtle bg-bg-card/50 hover:border-border-accent hover:glow-effect-hover transition-all"
-                  aria-label="Send email"
-                >
-                  <Mail className="h-5 w-5 text-text-secondary hover:text-text-primary" />
-                </a>
-                <a
-                  href={`https://wa.me/${personalInfo.phone.replace(/[^0-9]/g, '')}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-3 rounded-full border border-border-subtle bg-bg-card/50 hover:border-border-accent hover:glow-effect-hover transition-all"
-                  aria-label="WhatsApp"
-                >
-                  <MessageCircle className="h-5 w-5 text-text-secondary hover:text-text-primary" />
-                </a>
-                <a
-                  href={`https://calendly.com/${personalInfo.email.split('@')[0]}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-3 rounded-full border border-border-subtle bg-bg-card/50 hover:border-border-accent hover:glow-effect-hover transition-all"
-                  aria-label="Calendly"
-                >
-                  <Calendar className="h-5 w-5 text-text-secondary hover:text-text-primary" />
-                </a>
+                {siteConfig.socialIcons.map((social) => {
+                  const IconComponent = 
+                    social.type === 'github' ? Github :
+                    social.type === 'linkedin' ? Linkedin :
+                    social.type === 'email' ? Mail :
+                    social.type === 'whatsapp' ? MessageCircle :
+                    Calendar
+                  
+                  return (
+                    <a
+                      key={social.type}
+                      href={social.href}
+                      target={social.type !== 'email' ? '_blank' : undefined}
+                      rel={social.type !== 'email' ? 'noopener noreferrer' : undefined}
+                      className="p-2.5 sm:p-3 rounded-full border border-border-subtle bg-bg-card/50 hover:border-border-accent hover:glow-effect-hover transition-all min-h-[44px] min-w-[44px] flex items-center justify-center"
+                      aria-label={`${social.type} profile`}
+                    >
+                      <IconComponent className="h-5 w-5 text-text-secondary hover:text-text-primary" />
+                    </a>
+                  )
+                })}
               </motion.div>
             </div>
           </div>

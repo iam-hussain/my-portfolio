@@ -24,10 +24,10 @@ export function ImpactTile({ metric, index }: ImpactTileProps) {
     >
       <Card className="h-full border-border-subtle bg-bg-card/50 backdrop-blur-sm hover:border-border-accent hover:glow-effect-hover transition-all cursor-pointer group overflow-hidden relative">
         <div className={`absolute inset-0 gradient-card-hover opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
-        <CardContent className="p-6 md:p-8 relative z-10">
-          <div className="mb-4">
+        <CardContent className="p-5 sm:p-6 md:p-8 relative z-10">
+          <div className="mb-3 sm:mb-4">
             <motion.div
-              className="text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-gradient-purple to-gradient-blue bg-clip-text text-transparent"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-gradient-purple to-gradient-blue bg-clip-text text-transparent"
               initial={{ scale: 0.8 }}
               whileInView={{ scale: 1 }}
               viewport={{ once: true }}
@@ -36,10 +36,10 @@ export function ImpactTile({ metric, index }: ImpactTileProps) {
               {metric.value}
             </motion.div>
           </div>
-          <h3 className="text-xl md:text-2xl font-semibold text-text-primary mb-2">
+          <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-text-primary mb-2">
             {metric.label}
           </h3>
-          <p className="text-text-secondary mb-3">
+          <p className="text-sm sm:text-base text-text-secondary mb-3 leading-relaxed">
             {metric.description}
           </p>
           {metric.context && (

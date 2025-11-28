@@ -6,15 +6,9 @@ import { Menu, X } from 'lucide-react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { ThemeToggle } from '@/components/theme/theme-toggle'
+import { siteConfig } from '@/src/config/site'
 
-const navItems = [
-  { label: 'Home', href: '#snapshot' },
-  { label: 'What I Do', href: '#value-pillars' },
-  { label: 'Work', href: '#storyline' },
-  { label: 'Highlights', href: '#impact-gallery' },
-  { label: 'Playground', href: '#playground' },
-  { label: 'Contact', href: '#contact' },
-]
+const navItems = siteConfig.navigation.main
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -47,17 +41,17 @@ export function Navigation() {
       aria-label="Main navigation"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="flex items-center justify-between h-14 sm:h-16 md:h-20">
           <Link
-            href="#snapshot"
+            href={siteConfig.navigation.main[0].href}
             onClick={(e) => {
               e.preventDefault()
-              handleNavClick('#snapshot')
+              handleNavClick(siteConfig.navigation.main[0].href)
             }}
-            className="text-xl md:text-2xl font-bold text-text-primary hover:text-text-accent transition-colors"
+            className="text-lg sm:text-xl md:text-2xl font-bold text-text-primary hover:text-text-accent transition-colors"
             aria-label="Go to homepage"
           >
-            Jakir Hussain
+            {siteConfig.personal.fullName}
           </Link>
 
           {/* Desktop Navigation */}

@@ -29,22 +29,22 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       <Card className="h-full border-border-subtle bg-bg-card/50 backdrop-blur-sm hover:border-border-accent hover:glow-effect-hover transition-all group">
         <CardHeader>
           <div className="flex items-start justify-between gap-4 mb-2">
-            <CardTitle className="text-2xl font-bold text-text-primary">
+            <CardTitle className="text-xl sm:text-2xl font-bold text-text-primary">
               {project.name}
             </CardTitle>
-            <Badge className={statusColors[project.status]}>
+            <Badge className={`${statusColors[project.status]} text-xs sm:text-sm`}>
               {project.status}
             </Badge>
           </div>
-          <CardDescription className="text-text-accent font-medium text-base">
+          <CardDescription className="text-text-accent font-medium text-sm sm:text-base">
             {project.tagline}
           </CardDescription>
         </CardHeader>
         <CardContent>
           <ul className="space-y-2 mb-4">
             {project.description.map((desc, i) => (
-              <li key={i} className="text-text-secondary flex items-start gap-2">
-                <span className="text-gradient-purple mt-1.5">•</span>
+              <li key={i} className="text-sm sm:text-base text-text-secondary flex items-start gap-2 leading-relaxed">
+                <span className="text-gradient-purple mt-1.5 flex-shrink-0">•</span>
                 <span>{desc}</span>
               </li>
             ))}

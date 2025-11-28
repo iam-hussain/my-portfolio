@@ -26,6 +26,7 @@ export function TimelineNode({ experience, index, onCaseStudyClick }: TimelineNo
       className={`flex flex-col md:flex-row gap-4 md:gap-8 items-start ${
         isEven ? 'md:flex-row-reverse' : ''
       }`}
+      style={{ maxWidth: '100%', overflowX: 'hidden' }}
     >
       {/* Timeline Line */}
       <div className="hidden md:flex flex-col items-center w-12 flex-shrink-0">
@@ -40,11 +41,11 @@ export function TimelineNode({ experience, index, onCaseStudyClick }: TimelineNo
         <CardHeader>
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
             <div>
-              <CardTitle className="text-2xl font-bold text-text-primary mb-1">
+              <CardTitle className="text-xl sm:text-2xl font-bold text-text-primary mb-1">
                 {experience.company}
               </CardTitle>
-              <p className="text-lg text-text-accent font-semibold">{experience.role}</p>
-              <p className="text-sm text-text-secondary mt-1">
+              <p className="text-base sm:text-lg text-text-accent font-semibold">{experience.role}</p>
+              <p className="text-xs sm:text-sm text-text-secondary mt-1">
                 {experience.period} · {experience.location}
               </p>
             </div>
@@ -53,8 +54,8 @@ export function TimelineNode({ experience, index, onCaseStudyClick }: TimelineNo
         <CardContent>
           <ul className="space-y-2 mb-4">
             {experience.bullets.slice(0, isExpanded ? experience.bullets.length : 3).map((bullet, i) => (
-              <li key={i} className="text-text-secondary flex items-start gap-2">
-                <span className="text-gradient-purple mt-1.5">•</span>
+              <li key={i} className="text-sm sm:text-base text-text-secondary flex items-start gap-2 leading-relaxed">
+                <span className="text-gradient-purple mt-1.5 flex-shrink-0">•</span>
                 <span>{bullet}</span>
               </li>
             ))}
