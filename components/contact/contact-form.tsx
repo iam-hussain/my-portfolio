@@ -76,12 +76,12 @@ export function ContactForm() {
           name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-text-primary">Name</FormLabel>
+              <FormLabel className="!text-black dark:!text-white">Name</FormLabel>
               <FormControl>
                 <Input
                   {...field}
                   placeholder="Your name"
-                  className="bg-bg-card/90 dark:bg-bg-card/90 border-border-subtle text-text-primary placeholder:text-text-muted focus:border-border-accent focus:ring-2 focus:ring-border-accent/20 min-h-[44px] w-full"
+                  className="bg-bg-card/90 dark:bg-bg-card/90 border-border-subtle !text-black dark:!text-white placeholder:!text-slate-500 dark:placeholder:!text-slate-400 focus:border-border-accent focus:ring-2 focus:ring-border-accent/20 min-h-[44px] w-full"
                   aria-required="true"
                 />
               </FormControl>
@@ -95,13 +95,13 @@ export function ContactForm() {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-text-primary">Email</FormLabel>
+              <FormLabel className="!text-black dark:!text-white">Email</FormLabel>
               <FormControl>
                 <Input
                   {...field}
                   type="email"
                   placeholder="your.email@example.com"
-                  className="bg-bg-card/90 dark:bg-bg-card/90 border-border-subtle text-text-primary placeholder:text-text-muted focus:border-border-accent focus:ring-2 focus:ring-border-accent/20 min-h-[44px] w-full"
+                  className="bg-bg-card/90 dark:bg-bg-card/90 border-border-subtle !text-black dark:!text-white placeholder:!text-slate-500 dark:placeholder:!text-slate-400 focus:border-border-accent focus:ring-2 focus:ring-border-accent/20 min-h-[44px] w-full"
                   aria-required="true"
                 />
               </FormControl>
@@ -115,13 +115,13 @@ export function ContactForm() {
           name="message"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-text-primary">Message</FormLabel>
+              <FormLabel className="!text-black dark:!text-white">Message</FormLabel>
               <FormControl>
                 <Textarea
                   {...field}
                   placeholder="Your message..."
                   rows={6}
-                  className="bg-bg-card/90 dark:bg-bg-card/90 border-border-subtle text-text-primary placeholder:text-text-muted focus:border-border-accent focus:ring-2 focus:ring-border-accent/20 resize-none w-full"
+                  className="bg-bg-card/90 dark:bg-bg-card/90 border-border-subtle !text-black dark:!text-white placeholder:!text-slate-500 dark:placeholder:!text-slate-400 focus:border-border-accent focus:ring-2 focus:ring-border-accent/20 resize-none w-full"
                   aria-required="true"
                 />
               </FormControl>
@@ -130,8 +130,8 @@ export function ContactForm() {
           )}
         />
         
-        <p className="text-sm text-text-muted mb-2">
-          This form sends directly to my inbox at {siteConfig.contact.email}.
+        <p className="text-sm !text-black dark:!text-white mb-2">
+          This form sends directly to my inbox.
         </p>
         
         {submitStatus === 'success' && (
@@ -149,13 +149,13 @@ export function ContactForm() {
         <Button
           type="submit"
           disabled={isSubmitting}
-          className="gradient-button-primary text-white hover:opacity-90 glow-effect-hover w-full min-h-[44px]"
+          className="bg-[var(--color-gradient-blue)] text-white hover:bg-[var(--color-gradient-blue)]/90 w-full min-h-[48px] sm:min-h-[52px] rounded-lg text-base font-semibold transition-all duration-300 hover:scale-[1.02]"
           size="lg"
         >
           {isSubmitting ? 'Sending...' : 'Send Message'}
         </Button>
         
-        <p className="text-xs text-text-muted text-center mt-4">
+        <p className="text-xs !text-black dark:!text-white text-center mt-4">
           For the fastest response, reach me via Email or WhatsApp using the quick actions.
         </p>
       </form>

@@ -16,7 +16,7 @@ export function Footer() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-sm sm:text-base text-text-secondary hover:text-text-primary transition-colors min-h-[44px] flex items-center"
+                className="text-sm sm:text-base !text-black dark:!text-white hover:opacity-80 transition-colors min-h-[44px] flex items-center"
               >
                 {item.label}
               </Link>
@@ -41,7 +41,7 @@ export function Footer() {
                     className="p-2.5 sm:p-2 rounded-full border border-border-subtle bg-bg-card/70 dark:bg-bg-card/80 hover:border-border-accent hover:glow-effect-hover transition-all min-h-[44px] min-w-[44px] flex items-center justify-center shadow-sm"
                     aria-label={`${social.type} profile`}
                   >
-                    <IconComponent className="h-5 w-5 text-text-secondary hover:text-text-primary" />
+                    <IconComponent className="h-5 w-5 !text-black dark:!text-white hover:opacity-80" />
                   </a>
                 )
               })}
@@ -49,7 +49,7 @@ export function Footer() {
         </div>
         
         <div className="pt-3 sm:pt-4 border-t border-border-subtle text-center">
-          <p className="text-text-muted text-xs sm:text-sm">
+          <p className="!text-black dark:!text-white text-xs sm:text-sm">
             © {currentYear} {siteConfig.personal.fullName}. All rights reserved.
           </p>
         </div>

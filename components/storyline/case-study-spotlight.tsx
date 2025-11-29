@@ -23,25 +23,25 @@ export function CaseStudySpotlight({ caseStudy, isOpen, onClose }: CaseStudySpot
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto bg-bg-card border-border-subtle">
         <DialogHeader>
-          <DialogTitle className="text-3xl font-bold text-text-primary">
+          <DialogTitle className="text-3xl font-bold !text-black dark:!text-white">
             {caseStudy.title}
           </DialogTitle>
-          <DialogDescription className="text-text-secondary text-lg">
+          <DialogDescription className="!text-black dark:!text-white text-lg">
             {caseStudy.company}
           </DialogDescription>
         </DialogHeader>
         
         <div className="space-y-6 mt-4">
           <div>
-            <h3 className="text-xl font-semibold text-text-primary mb-2">Context</h3>
-            <p className="text-text-secondary leading-relaxed">{caseStudy.context}</p>
+            <h3 className="text-xl font-semibold !text-black dark:!text-white mb-2">Context</h3>
+            <p className="!text-black dark:!text-white leading-relaxed">{caseStudy.context}</p>
           </div>
           
           <div>
-            <h3 className="text-xl font-semibold text-text-primary mb-2">What I Did</h3>
+            <h3 className="text-xl font-semibold !text-black dark:!text-white mb-2">What I Did</h3>
             <ul className="space-y-2">
               {caseStudy.whatIDid.map((item, i) => (
-                <li key={i} className="text-text-secondary flex items-start gap-2">
+                <li key={i} className="!text-black dark:!text-white flex items-start gap-2">
                   <span className="text-gradient-purple mt-1.5">•</span>
                   <span>{item}</span>
                 </li>
@@ -50,10 +50,10 @@ export function CaseStudySpotlight({ caseStudy, isOpen, onClose }: CaseStudySpot
           </div>
           
           <div>
-            <h3 className="text-xl font-semibold text-text-primary mb-2">Impact</h3>
+            <h3 className="text-xl font-semibold !text-black dark:!text-white mb-2">Impact</h3>
             <ul className="space-y-2">
               {caseStudy.impact.map((item, i) => (
-                <li key={i} className="text-text-secondary flex items-start gap-2">
+                <li key={i} className="!text-black dark:!text-white flex items-start gap-2">
                   <span className="text-gradient-blue mt-1.5">✓</span>
                   <span>{item}</span>
                 </li>
@@ -62,13 +62,13 @@ export function CaseStudySpotlight({ caseStudy, isOpen, onClose }: CaseStudySpot
           </div>
           
           <div>
-            <h3 className="text-xl font-semibold text-text-primary mb-2">Tech Stack</h3>
+            <h3 className="text-xl font-semibold !text-black dark:!text-white mb-2">Tech Stack</h3>
             <div className="flex flex-wrap gap-2">
               {caseStudy.techStack.map((tech) => (
                 <Badge
                   key={tech}
                   variant="outline"
-                  className="border-border-accent text-text-primary"
+                  className="border-border-accent !text-black dark:!text-white"
                 >
                   {tech}
                 </Badge>

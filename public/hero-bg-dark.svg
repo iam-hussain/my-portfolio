@@ -1,92 +1,469 @@
-<svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+<svg width="1440" height="900" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
   <defs>
-    <!-- Sky Gradients -->
-    <linearGradient id="skyNight" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#020617" /> <!-- Slate 950 -->
-      <stop offset="0.5" stop-color="#0F172A" /> <!-- Slate 900 -->
-      <stop offset="1" stop-color="#1E293B" /> <!-- Slate 800 -->
+    <!-- Base Background Gradient -->
+    <linearGradient id="bgDark" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#020617" />
+      <stop offset="50%" stop-color="#0b1120" />
+      <stop offset="100%" stop-color="#1e293b" />
     </linearGradient>
 
-    <!-- Neon Gradients -->
-    <linearGradient id="neonPurple" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#C084FC" />
-      <stop offset="1" stop-color="#7C3AED" />
-    </linearGradient>
-    <linearGradient id="neonBlue" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#38BDF8" />
-      <stop offset="1" stop-color="#0EA5E9" />
+    <!-- Wave Gradients with More Depth -->
+    <linearGradient id="wave1Dark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" stop-opacity="0.8" />
+      <stop offset="50%" stop-color="#1e1b4b" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#312e81" stop-opacity="0.4" />
     </linearGradient>
 
-    <!-- Mountain Gradients -->
-    <linearGradient id="mtnDark" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#1E1B4B" stop-opacity="0.9" />
-      <stop offset="1" stop-color="#020617" stop-opacity="1" />
+    <linearGradient id="wave2Dark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#164e63" stop-opacity="0.7" />
+      <stop offset="50%" stop-color="#0e7490" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.3" />
     </linearGradient>
+
+    <linearGradient id="wave3Dark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#581c87" stop-opacity="0.6" />
+      <stop offset="50%" stop-color="#7c3aed" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#a78bfa" stop-opacity="0.2" />
+    </linearGradient>
+
+    <!-- Enhanced Circle Gradients -->
+    <radialGradient id="circle1Dark" cx="50%" cy="50%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.5" />
+      <stop offset="70%" stop-color="#0e7490" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#164e63" stop-opacity="0" />
+    </radialGradient>
+
+    <radialGradient id="circle2Dark" cx="50%" cy="50%">
+      <stop offset="0%" stop-color="#7c3aed" stop-opacity="0.4" />
+      <stop offset="70%" stop-color="#581c87" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#312e81" stop-opacity="0" />
+    </radialGradient>
+
+    <radialGradient id="circle3Dark" cx="50%" cy="50%">
+      <stop offset="0%" stop-color="#14b8a6" stop-opacity="0.45" />
+      <stop offset="70%" stop-color="#0d9488" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#134e4a" stop-opacity="0" />
+    </radialGradient>
 
     <!-- Glow Filters -->
-    <filter id="neonGlow" x="-50%" y="-50%" width="200%" height="200%">
+    <filter id="glowDark" x="-50%" y="-50%" width="200%" height="200%">
       <feGaussianBlur stdDeviation="4" result="coloredBlur" />
       <feMerge>
         <feMergeNode in="coloredBlur" />
         <feMergeNode in="SourceGraphic" />
       </feMerge>
     </filter>
+
+    <filter id="glowStrongDark" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur" />
+      <feMerge>
+        <feMergeNode in="coloredBlur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Pattern for Dotted Areas -->
+    <pattern id="dotPattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="10" cy="10" r="1.5" fill="#06b6d4" opacity="0.3" />
+    </pattern>
   </defs>
 
-  <!-- Background -->
-  <rect width="1920" height="1080" fill="url(#skyNight)" />
+  <!-- Base Background -->
+  <rect width="1440" height="900" fill="url(#bgDark)" />
 
-  <!-- Stars -->
-  <g fill="#FFF" opacity="0.6">
-    <circle cx="100" cy="100" r="1.5" />
-    <circle cx="500" cy="200" r="1" />
-    <circle cx="1500" cy="150" r="2" />
-    <circle cx="1800" cy="300" r="1.5" />
-    <!-- Random stars -->
-    <circle cx="300" cy="50" r="1" opacity="0.5" />
-    <circle cx="800" cy="80" r="1" opacity="0.5" />
-    <circle cx="1200" cy="250" r="1.5" opacity="0.7" />
-  </g>
+  <!-- Animated Background Gradient Overlay -->
+  <rect width="1440" height="900" fill="url(#bgDark)">
+    <animate attributeName="opacity" values="1;0.95;1" dur="8s" repeatCount="indefinite" />
+  </rect>
 
-  <!-- Moon / Planet -->
-  <circle cx="1600" cy="200" r="80" fill="url(#neonPurple)" opacity="0.2" filter="url(#neonGlow)" />
-  <circle cx="1580" cy="180" r="10" fill="#FFF" opacity="0.1" />
-
-  <!-- Grid Landscape (Retro-futuristic floor) -->
-  <g transform="translate(0, 600) perspective(1000)">
-     <path d="M0 480 L1920 480 L1920 0 L0 0 Z" fill="url(#skyNight)" opacity="0.5" />
-     <!-- Horizontal Grid Lines -->
-     <line x1="0" y1="100" x2="1920" y2="100" stroke="#6366F1" stroke-width="1" opacity="0.2" />
-     <line x1="0" y1="200" x2="1920" y2="200" stroke="#6366F1" stroke-width="1" opacity="0.2" />
-     <line x1="0" y1="300" x2="1920" y2="300" stroke="#6366F1" stroke-width="1" opacity="0.2" />
-     <!-- Perspective Lines -->
-     <line x1="960" y1="0" x2="-500" y2="480" stroke="#6366F1" stroke-width="2" opacity="0.2" />
-     <line x1="960" y1="0" x2="2420" y2="480" stroke="#6366F1" stroke-width="2" opacity="0.2" />
-     <line x1="960" y1="0" x2="200" y2="480" stroke="#6366F1" stroke-width="1" opacity="0.1" />
-     <line x1="960" y1="0" x2="1720" y2="480" stroke="#6366F1" stroke-width="1" opacity="0.1" />
-  </g>
-
-  <!-- Silhouette Mountains with Neon Edges -->
-  <path d="M-100 1080 L500 500 L1100 1080 H-100Z" fill="url(#mtnDark)" stroke="#8B5CF6" stroke-width="2" stroke-opacity="0.5" filter="url(#neonGlow)" />
-  <path d="M800 1080 L1400 600 L2020 1080 H800Z" fill="url(#mtnDark)" stroke="#38BDF8" stroke-width="2" stroke-opacity="0.5" filter="url(#neonGlow)" />
-
-  <!-- Floating Hexagons (Tech Elements) -->
-  <g filter="url(#neonGlow)">
-    <path d="M300 300 L330 280 L360 300 L360 340 L330 360 L300 340 Z" fill="none" stroke="#2DD4BF" stroke-width="2" opacity="0.6">
-       <animateTransform attributeName="transform" type="translate" values="0 0; 0 -10; 0 0" dur="4s" repeatCount="indefinite" />
-    </path>
-    <path d="M1400 400 L1440 370 L1480 400 L1480 460 L1440 490 L1400 460 Z" fill="none" stroke="#F472B6" stroke-width="2" opacity="0.6">
-       <animateTransform attributeName="transform" type="translate" values="0 0; 0 -15; 0 0" dur="5s" repeatCount="indefinite" />
-    </path>
-  </g>
-
-  <!-- Glowing Data Streams -->
-  <path d="M500 1080 C 500 900, 600 600, 600 400" stroke="url(#neonBlue)" stroke-width="2" fill="none" opacity="0.3" stroke-dasharray="10 20">
-    <animate attributeName="stroke-dashoffset" from="100" to="0" dur="2s" repeatCount="indefinite" />
+  <!-- Large Flowing Wave 1 (Bottom Left) - Enhanced Morphing -->
+  <path d="M-200 900 Q 200 700, 400 750 T 800 800 T 1200 850 T 1640 900 L 1640 900 L -200 900 Z" fill="url(#wave1Dark)" opacity="0.6">
+    <animateTransform
+      attributeName="transform"
+      type="translate"
+      values="0 0; 25 5; -5 -10; 0 0"
+      dur="24s"
+      repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0.6;0.7;0.5;0.6" dur="18s" repeatCount="indefinite" />
   </path>
-  
-  <path d="M1500 1080 C 1500 900, 1400 600, 1400 400" stroke="url(#neonPurple)" stroke-width="2" fill="none" opacity="0.3" stroke-dasharray="10 20">
-    <animate attributeName="stroke-dashoffset" from="100" to="0" dur="3s" repeatCount="indefinite" />
+
+  <!-- Large Flowing Wave 2 (Middle Right) - Complex Motion -->
+  <path d="M 800 900 Q 1000 600, 1200 650 T 1600 700 T 1640 900 L 1640 900 L 800 900 Z" fill="url(#wave2Dark)" opacity="0.5">
+    <animateTransform
+      attributeName="transform"
+      type="translate"
+      values="0 0; -20 8; 5 -5; 0 0"
+      dur="22s"
+      repeatCount="indefinite" />
+    <animateTransform
+      attributeName="transform"
+      type="rotate"
+      values="0 1000 700; 2 1000 700; -1 1000 700; 0 1000 700"
+      dur="20s"
+      repeatCount="indefinite"
+      additive="sum" />
   </path>
+
+  <!-- Large Flowing Wave 3 (Top Right) - Vertical Flow -->
+  <path d="M 1000 900 Q 1200 400, 1400 450 T 1640 500 L 1640 900 L 1000 900 Z" fill="url(#wave3Dark)" opacity="0.4">
+    <animateTransform
+      attributeName="transform"
+      type="translate"
+      values="0 0; 15 -15; -10 5; 0 0"
+      dur="26s"
+      repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0.4;0.5;0.35;0.4" dur="16s" repeatCount="indefinite" />
+  </path>
+
+  <!-- Medium Wave (Left Side) - Flowing Motion -->
+  <path d="M-100 900 Q 100 500, 300 550 T 600 600 T 900 650 T 1200 700 L 1200 900 L -100 900 Z" fill="url(#wave2Dark)" opacity="0.4">
+    <animateTransform
+      attributeName="transform"
+      type="translate"
+      values="0 0; 30 0; -5 10; 0 0"
+      dur="28s"
+      repeatCount="indefinite" />
+  </path>
+
+  <!-- Additional Flowing Wave (Top Center) -->
+  <path d="M 400 900 Q 600 300, 800 350 T 1200 400 T 1440 450 L 1440 900 L 400 900 Z" fill="url(#wave1Dark)" opacity="0.35">
+    <animateTransform
+      attributeName="transform"
+      type="translate"
+      values="0 0; 0 -20; 10 10; 0 0"
+      dur="30s"
+      repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0.35;0.45;0.3;0.35" dur="14s" repeatCount="indefinite" />
+  </path>
+
+  <!-- Large Pulsing Circles -->
+  <circle cx="200" cy="600" r="120" fill="url(#circle1Dark)" filter="url(#glowDark)">
+    <animateTransform
+      attributeName="transform"
+      type="translate"
+      values="0 0; 0 -35; 10 10; 0 0"
+      dur="18s"
+      repeatCount="indefinite" />
+    <animate attributeName="r" values="120;135;115;120" dur="12s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0.6;0.8;0.5;0.6" dur="10s" repeatCount="indefinite" />
+  </circle>
+
+  <circle cx="1200" cy="500" r="100" fill="url(#circle2Dark)" filter="url(#glowDark)">
+    <animateTransform
+      attributeName="transform"
+      type="translate"
+      values="0 0; 25 -25; -10 15; 0 0"
+      dur="20s"
+      repeatCount="indefinite" />
+    <animateTransform
+      attributeName="transform"
+      type="rotate"
+      values="0 1200 500; 360 1200 500"
+      dur="40s"
+      repeatCount="indefinite"
+      additive="sum" />
+    <animate attributeName="r" values="100;115;95;100" dur="14s" repeatCount="indefinite" />
+  </circle>
+
+  <circle cx="300" cy="750" r="80" fill="url(#circle3Dark)" filter="url(#glowDark)">
+    <animateTransform
+      attributeName="transform"
+      type="translate"
+      values="0 0; -20 20; 15 -10; 0 0"
+      dur="22s"
+      repeatCount="indefinite" />
+    <animate attributeName="r" values="80;95;75;80" dur="11s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Medium Circles with Rotation -->
+  <circle cx="1100" cy="700" r="60" fill="#06b6d4" opacity="0.25">
+    <animateTransform
+      attributeName="transform"
+      type="translate"
+      values="0 0; 0 30; -15 -15; 0 0"
+      dur="15s"
+      repeatCount="indefinite" />
+    <animateTransform
+      attributeName="transform"
+      type="rotate"
+      values="0 1100 700; 180 1100 700; 360 1100 700"
+      dur="25s"
+      repeatCount="indefinite"
+      additive="sum" />
+    <animate attributeName="opacity" values="0.25;0.4;0.2;0.25" dur="8s" repeatCount="indefinite" />
+  </circle>
+
+  <circle cx="500" cy="550" r="50" fill="#7c3aed" opacity="0.25">
+    <animateTransform
+      attributeName="transform"
+      type="translate"
+      values="0 0; 35 0; -10 20; 0 0"
+      dur="18s"
+      repeatCount="indefinite" />
+    <animate attributeName="r" values="50;60;45;50" dur="9s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Hexagons with Rotation -->
+  <g transform="translate(900, 400)">
+    <path d="M 0 -40 L 35 -20 L 35 20 L 0 40 L -35 20 L -35 -20 Z" fill="none" stroke="#14b8a6" stroke-width="2" opacity="0.3" filter="url(#glowDark)">
+      <animateTransform
+        attributeName="transform"
+        type="rotate"
+        values="0; 360"
+        dur="30s"
+        repeatCount="indefinite" />
+      <animateTransform
+        attributeName="transform"
+        type="translate"
+        values="0 0; 20 -20; -10 10; 0 0"
+        dur="16s"
+        repeatCount="indefinite"
+        additive="sum" />
+    </path>
+  </g>
+
+  <g transform="translate(600, 300)">
+    <path d="M 0 -30 L 26 -15 L 26 15 L 0 30 L -26 15 L -26 -15 Z" fill="none" stroke="#7c3aed" stroke-width="1.5" opacity="0.25" filter="url(#glowDark)">
+      <animateTransform
+        attributeName="transform"
+        type="rotate"
+        values="0; -360"
+        dur="35s"
+        repeatCount="indefinite" />
+      <animateTransform
+        attributeName="transform"
+        type="translate"
+        values="0 0; -15 15; 10 -10; 0 0"
+        dur="19s"
+        repeatCount="indefinite"
+        additive="sum" />
+    </path>
+  </g>
+
+  <!-- Animated Semi-circles with Morphing -->
+  <path d="M 1300 300 Q 1300 200, 1400 200 Q 1500 200, 1500 300" fill="none" stroke="#14b8a6" stroke-width="2.5" opacity="0.35" filter="url(#glowDark)">
+    <animateTransform
+      attributeName="transform"
+      type="translate"
+      values="0 0; 0 25; -5 -10; 0 0"
+      dur="17s"
+      repeatCount="indefinite" />
+    <animate attributeName="stroke-width" values="2.5;3.5;2;2.5" dur="7s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0.35;0.5;0.25;0.35" dur="9s" repeatCount="indefinite" />
+  </path>
+
+  <path d="M 400 400 Q 400 300, 500 300 Q 600 300, 600 400" fill="none" stroke="#7c3aed" stroke-width="2" opacity="0.3" filter="url(#glowDark)">
+    <animateTransform
+      attributeName="transform"
+      type="translate"
+      values="0 0; -25 0; 10 15; 0 0"
+      dur="20s"
+      repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0.3;0.45;0.2;0.3" dur="11s" repeatCount="indefinite" />
+  </path>
+
+  <!-- Enhanced Dotted Clusters with Individual Animation -->
+  <g fill="#06b6d4" opacity="0.45">
+    <circle cx="800" cy="400" r="2.5">
+      <animate attributeName="cy" values="400;385;400" dur="13s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0.45;0.7;0.3;0.45" dur="5s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="820" cy="410" r="2.5">
+      <animate attributeName="cy" values="410;395;410" dur="13.5s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0.45;0.7;0.3;0.45" dur="5.5s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="840" cy="400" r="2.5">
+      <animate attributeName="cy" values="400;385;400" dur="13s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0.45;0.7;0.3;0.45" dur="5s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="810" cy="390" r="2.5">
+      <animate attributeName="cy" values="390;375;390" dur="12.5s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0.45;0.7;0.3;0.45" dur="4.5s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="830" cy="420" r="2.5">
+      <animate attributeName="cy" values="420;405;420" dur="13.8s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0.45;0.7;0.3;0.45" dur="5.8s" repeatCount="indefinite" />
+    </circle>
+  </g>
+
+  <g fill="#7c3aed" opacity="0.4">
+    <circle cx="1000" cy="600" r="3">
+      <animate attributeName="cx" values="1000;1015;1000" dur="19s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0.4;0.65;0.25;0.4" dur="6s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="1020" cy="610" r="3">
+      <animate attributeName="cx" values="1020;1035;1020" dur="19.2s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0.4;0.65;0.25;0.4" dur="6.2s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="1040" cy="600" r="3">
+      <animate attributeName="cx" values="1040;1055;1040" dur="19s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0.4;0.65;0.25;0.4" dur="6s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="1010" cy="590" r="3">
+      <animate attributeName="cx" values="1010;1025;1010" dur="18.8s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0.4;0.65;0.25;0.4" dur="5.8s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="1030" cy="620" r="3">
+      <animate attributeName="cx" values="1030;1045;1030" dur="19.5s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0.4;0.65;0.25;0.4" dur="6.5s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="990" cy="600" r="3">
+      <animate attributeName="cx" values="990;1005;990" dur="18.5s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0.4;0.65;0.25;0.4" dur="5.5s" repeatCount="indefinite" />
+    </circle>
+  </g>
+
+  <g fill="#14b8a6" opacity="0.35">
+    <circle cx="600" cy="650" r="2.5">
+      <animateTransform
+        attributeName="transform"
+        type="translate"
+        values="0 0; -12 12; 0 0"
+        dur="23s"
+        repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0.35;0.6;0.2;0.35" dur="7s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="620" cy="660" r="2.5">
+      <animateTransform
+        attributeName="transform"
+        type="translate"
+        values="0 0; -12 12; 0 0"
+        dur="23.2s"
+        repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0.35;0.6;0.2;0.35" dur="7.2s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="640" cy="650" r="2.5">
+      <animateTransform
+        attributeName="transform"
+        type="translate"
+        values="0 0; -12 12; 0 0"
+        dur="23s"
+        repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0.35;0.6;0.2;0.35" dur="7s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="610" cy="640" r="2.5">
+      <animateTransform
+        attributeName="transform"
+        type="translate"
+        values="0 0; -12 12; 0 0"
+        dur="22.8s"
+        repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0.35;0.6;0.2;0.35" dur="6.8s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="630" cy="670" r="2.5">
+      <animateTransform
+        attributeName="transform"
+        type="translate"
+        values="0 0; -12 12; 0 0"
+        dur="23.5s"
+        repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0.35;0.6;0.2;0.35" dur="7.5s" repeatCount="indefinite" />
+    </circle>
+  </g>
+
+  <!-- Rotating Geometric Elements -->
+  <g stroke="#06b6d4" stroke-width="1.5" fill="none" opacity="0.3" transform="translate(200, 300)">
+    <line x1="0" y1="0" x2="50" y2="50" />
+    <line x1="50" y1="0" x2="0" y2="50" />
+    <animateTransform
+      attributeName="transform"
+      type="rotate"
+      values="0 200 300; 360 200 300"
+      dur="20s"
+      repeatCount="indefinite" />
+    <animateTransform
+      attributeName="transform"
+      type="translate"
+      values="0 0; 0 -25; 0 0"
+      dur="13s"
+      repeatCount="indefinite"
+      additive="sum" />
+    <animate attributeName="opacity" values="0.3;0.5;0.2;0.3" dur="8s" repeatCount="indefinite" />
+  </g>
+
+  <g stroke="#7c3aed" stroke-width="1.5" fill="none" opacity="0.25" transform="translate(1350, 450)">
+    <rect x="0" y="0" width="40" height="40" rx="5" />
+    <animateTransform
+      attributeName="transform"
+      type="rotate"
+      values="0 1370 470; 360 1370 470"
+      dur="25s"
+      repeatCount="indefinite" />
+    <animateTransform
+      attributeName="transform"
+      type="translate"
+      values="0 0; 25 0; 0 0"
+      dur="17s"
+      repeatCount="indefinite"
+      additive="sum" />
+  </g>
+
+  <!-- Triangles with Rotation -->
+  <g transform="translate(1300, 600)">
+    <path d="M 0 -20 L 17 10 L -17 10 Z" fill="#14b8a6" opacity="0.2" filter="url(#glowDark)">
+      <animateTransform
+        attributeName="transform"
+        type="rotate"
+        values="0; 360"
+        dur="22s"
+        repeatCount="indefinite" />
+      <animateTransform
+        attributeName="transform"
+        type="translate"
+        values="0 0; 15 15; 0 0"
+        dur="14s"
+        repeatCount="indefinite"
+        additive="sum" />
+    </path>
+  </g>
+
+  <!-- Additional Small Circles with Pulsing -->
+  <circle cx="150" cy="450" r="25" fill="#14b8a6" opacity="0.2">
+    <animateTransform
+      attributeName="transform"
+      type="translate"
+      values="0 0; 0 35; -10 -10; 0 0"
+      dur="12s"
+      repeatCount="indefinite" />
+    <animate attributeName="r" values="25;32;22;25" dur="8s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0.2;0.35;0.15;0.2" dur="6s" repeatCount="indefinite" />
+  </circle>
+
+  <circle cx="1250" cy="350" r="30" fill="#7c3aed" opacity="0.2">
+    <animateTransform
+      attributeName="transform"
+      type="translate"
+      values="0 0; -30 0; 10 20; 0 0"
+      dur="14s"
+      repeatCount="indefinite" />
+    <animate attributeName="r" values="30;38;26;30" dur="9s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Flowing Path Lines -->
+  <path d="M 100 200 Q 300 300, 500 250 T 900 200" stroke="url(#wave2Dark)" stroke-width="2" fill="none" opacity="0.2" stroke-dasharray="10 15">
+    <animate attributeName="stroke-dashoffset" values="0; 50; 0" dur="15s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0.2;0.35;0.15;0.2" dur="10s" repeatCount="indefinite" />
+  </path>
+
+  <path d="M 1100 250 Q 1300 350, 1440 300" stroke="url(#wave3Dark)" stroke-width="2" fill="none" opacity="0.2" stroke-dasharray="8 12">
+    <animate attributeName="stroke-dashoffset" values="0; 40; 0" dur="18s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0.2;0.3;0.15;0.2" dur="12s" repeatCount="indefinite" />
+  </path>
+
+  <!-- Particle Stream Effect -->
+  <g opacity="0.3">
+    <circle cx="700" cy="200" r="3" fill="#06b6d4">
+      <animate attributeName="cy" values="200;800;200" dur="20s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0.3;0.6;0;0.3" dur="20s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="750" cy="150" r="2.5" fill="#7c3aed">
+      <animate attributeName="cy" values="150;850;150" dur="22s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0.3;0.6;0;0.3" dur="22s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="800" cy="180" r="2" fill="#14b8a6">
+      <animate attributeName="cy" values="180;880;180" dur="24s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0.3;0.6;0;0.3" dur="24s" repeatCount="indefinite" />
+    </circle>
+  </g>
 
 </svg>

@@ -48,7 +48,7 @@ export function Navigation() {
               e.preventDefault()
               handleNavClick(siteConfig.navigation.main[0].href)
             }}
-            className="text-lg sm:text-xl md:text-2xl font-bold text-text-primary hover:text-text-accent transition-colors"
+            className="text-lg sm:text-xl md:text-2xl font-bold !text-black dark:!text-white hover:!text-blue-600 dark:hover:!text-blue-400 transition-colors"
             aria-label="Go to homepage"
           >
             {siteConfig.personal.fullName}
@@ -63,7 +63,7 @@ export function Navigation() {
                   e.preventDefault()
                   handleNavClick(item.href)
                 }}
-                className="text-text-secondary hover:text-text-primary transition-colors font-medium text-sm lg:text-base min-h-[44px] px-2"
+                className="!text-black dark:!text-white hover:opacity-80 transition-colors font-medium text-sm lg:text-base min-h-[44px] px-2"
                 aria-label={`Navigate to ${item.label} section`}
               >
                 {item.label}
@@ -76,7 +76,7 @@ export function Navigation() {
           <div className="md:hidden flex items-center gap-2">
             <ThemeToggle />
             <button
-              className="p-2 text-text-primary hover:text-text-accent transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
+              className="p-2 !text-black dark:!text-white hover:!text-blue-600 dark:hover:!text-blue-400 transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label="Toggle mobile menu"
               aria-expanded={isMobileMenuOpen}
@@ -109,7 +109,7 @@ export function Navigation() {
                     e.preventDefault()
                     handleNavClick(item.href)
                   }}
-                  className="block w-full text-left px-4 py-3 text-text-secondary hover:text-text-primary hover:bg-bg-secondary rounded-lg transition-colors font-medium min-h-[44px]"
+                  className="block w-full text-left px-4 py-3 !text-black dark:!text-white hover:opacity-80 hover:bg-bg-secondary rounded-lg transition-colors font-medium min-h-[44px]"
                   aria-label={`Navigate to ${item.label} section`}
                 >
                   {item.label}

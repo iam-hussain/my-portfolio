@@ -36,10 +36,10 @@ export function ImpactTile({ metric, index }: ImpactTileProps) {
               {metric.value}
             </motion.div>
           </div>
-          <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-text-primary mb-2">
+          <h3 className="text-lg sm:text-xl md:text-2xl font-semibold !text-black dark:!text-white mb-2">
             {metric.label}
           </h3>
-          <p className="text-sm sm:text-base text-text-secondary mb-3 leading-relaxed">
+          <p className="text-sm sm:text-base !text-black dark:!text-white mb-3 leading-relaxed">
             {metric.description}
           </p>
           {metric.context && (
@@ -50,7 +50,7 @@ export function ImpactTile({ metric, index }: ImpactTileProps) {
                 height: isHovered ? 'auto' : 0,
               }}
               transition={{ duration: 0.3 }}
-              className="text-sm text-text-muted overflow-hidden"
+              className="text-sm !text-black dark:!text-white overflow-hidden"
             >
               {metric.context}
             </motion.p>

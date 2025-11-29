@@ -17,22 +17,22 @@ export function ContactSection() {
       >
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-3 sm:mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold !text-black dark:!text-white mb-3 sm:mb-4">
             Contact
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-text-secondary max-w-2xl mx-auto mb-6 sm:mb-8 px-2 sm:px-0">
+          <p className="text-base sm:text-lg md:text-xl !text-black dark:!text-white max-w-2xl mx-auto mb-6 sm:mb-8 px-2 sm:px-0 font-medium">
               {siteConfig.personal.openToRoles}
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-12">
             <div className="space-y-4">
-              <h3 className="text-lg sm:text-xl font-semibold text-text-primary mb-3 sm:mb-4">Quick Actions</h3>
+              <h3 className="text-lg sm:text-xl font-semibold !text-black dark:!text-white mb-3 sm:mb-4">Quick Actions</h3>
               <div className="space-y-3">
                 <Button
                   asChild
                   variant="outline"
-                  className="w-full border-border-accent hover:bg-bg-card hover:border-border-accent justify-start min-h-[44px]"
+                  className="w-full border-border-accent hover:bg-bg-card hover:border-border-accent justify-start min-h-[44px] text-foreground hover:text-[var(--color-gradient-blue)]"
                   size="lg"
                 >
                   <a href={`mailto:${siteConfig.contact.email}`}>
@@ -43,7 +43,7 @@ export function ContactSection() {
                 <Button
                   asChild
                   variant="outline"
-                  className="w-full border-border-accent hover:bg-bg-card hover:border-border-accent justify-start min-h-[44px]"
+                  className="w-full border-border-accent hover:bg-bg-card hover:border-border-accent justify-start min-h-[44px] text-foreground hover:text-[var(--color-gradient-blue)]"
                   size="lg"
                 >
                   <a href={siteConfig.contact.whatsappLink} target="_blank" rel="noopener noreferrer">
@@ -54,7 +54,7 @@ export function ContactSection() {
                 <Button
                   asChild
                   variant="outline"
-                  className="w-full border-border-accent hover:bg-bg-card hover:border-border-accent justify-start min-h-[44px]"
+                  className="w-full border-border-accent hover:bg-bg-card hover:border-border-accent justify-start min-h-[44px] text-foreground hover:text-[var(--color-gradient-blue)]"
                   size="lg"
                 >
                   <a href={siteConfig.links.resumeUrl} download>
@@ -65,7 +65,7 @@ export function ContactSection() {
                 <Button
                   asChild
                   variant="outline"
-                  className="w-full border-border-accent hover:bg-bg-card hover:border-border-accent justify-start min-h-[44px]"
+                  className="w-full border-border-accent hover:bg-bg-card hover:border-border-accent justify-start min-h-[44px] text-foreground hover:text-[var(--color-gradient-blue)]"
                   size="lg"
                 >
                   <a href={siteConfig.contact.calendly} target="_blank" rel="noopener noreferrer">
@@ -76,7 +76,7 @@ export function ContactSection() {
                 <Button
                   asChild
                   variant="outline"
-                  className="w-full border-border-accent hover:bg-bg-card hover:border-border-accent justify-start min-h-[44px]"
+                  className="w-full border-border-accent hover:bg-bg-card hover:border-border-accent justify-start min-h-[44px] text-foreground hover:text-[var(--color-gradient-blue)]"
                   size="lg"
                 >
                   <a href={siteConfig.links.linkedin} target="_blank" rel="noopener noreferrer">
@@ -87,7 +87,7 @@ export function ContactSection() {
                 <Button
                   asChild
                   variant="outline"
-                  className="w-full border-border-accent hover:bg-bg-card hover:border-border-accent justify-start min-h-[44px]"
+                  className="w-full border-border-accent hover:bg-bg-card hover:border-border-accent justify-start min-h-[44px] text-foreground hover:text-[var(--color-gradient-blue)]"
                   size="lg"
                 >
                   <a href={siteConfig.links.github} target="_blank" rel="noopener noreferrer">
@@ -98,41 +98,41 @@ export function ContactSection() {
               </div>
               
               <div className="mt-6 sm:mt-8 p-4 rounded-lg border border-border-subtle bg-bg-card/70 dark:bg-bg-card/80 backdrop-blur-sm shadow-sm">
-                <div className="space-y-2 text-xs sm:text-sm text-text-secondary">
+                <div className="space-y-2 text-xs sm:text-sm !text-black dark:!text-white">
                   <p className="flex items-center gap-2">
                     <span>📍</span>
                     <span>{siteConfig.personal.location}</span>
                   </p>
                   <p className="flex items-center gap-2 flex-wrap">
                     <span>📧</span>
-                    <a href={`mailto:${siteConfig.contact.email}`} className="text-text-accent hover:text-text-primary transition-colors break-all">
+                    <a href={`mailto:${siteConfig.contact.email}`} className="!text-blue-600 dark:!text-blue-400 hover:!text-black dark:hover:!text-white transition-colors break-all">
                       {siteConfig.contact.email}
                     </a>
                   </p>
                   <p className="flex items-center gap-2 flex-wrap">
                     <span>📱</span>
-                    <a href={siteConfig.contact.whatsappLink} className="text-text-accent hover:text-text-primary transition-colors min-h-[44px] flex items-center">
+                    <a href={siteConfig.contact.whatsappLink} className="!text-blue-600 dark:!text-blue-400 hover:!text-black dark:hover:!text-white transition-colors min-h-[44px] flex items-center">
                       {siteConfig.contact.phone}
                     </a>
                   </p>
                   <p className="flex items-start gap-2 flex-wrap">
                     <span>🔗</span>
-                    <span className="flex-1 min-w-0">LinkedIn: <a href={siteConfig.links.linkedin} target="_blank" rel="noopener noreferrer" className="text-text-accent hover:text-text-primary transition-colors break-all">{siteConfig.links.linkedin.replace('https://', '')}</a></span>
+                    <span className="flex-1 min-w-0">LinkedIn: <a href={siteConfig.links.linkedin} target="_blank" rel="noopener noreferrer" className="!text-blue-600 dark:!text-blue-400 hover:!text-black dark:hover:!text-white transition-colors break-all">{siteConfig.links.linkedin.replace('https://', '')}</a></span>
                   </p>
                   <p className="flex items-start gap-2 flex-wrap">
                     <span>💻</span>
-                    <span className="flex-1 min-w-0">GitHub: <a href={siteConfig.links.github} target="_blank" rel="noopener noreferrer" className="text-text-accent hover:text-text-primary transition-colors break-all">{siteConfig.links.github.replace('https://', '')}</a></span>
+                    <span className="flex-1 min-w-0">GitHub: <a href={siteConfig.links.github} target="_blank" rel="noopener noreferrer" className="!text-blue-600 dark:!text-blue-400 hover:!text-black dark:hover:!text-white transition-colors break-all">{siteConfig.links.github.replace('https://', '')}</a></span>
                   </p>
                   <p className="flex items-start gap-2 flex-wrap">
                     <span>📅</span>
-                    <span className="flex-1 min-w-0">Book a Call: <a href={siteConfig.contact.calendly} target="_blank" rel="noopener noreferrer" className="text-text-accent hover:text-text-primary transition-colors break-all">{siteConfig.contact.calendly.replace('https://', '')}</a></span>
+                    <span className="flex-1 min-w-0">Book a Call: <a href={siteConfig.contact.calendly} target="_blank" rel="noopener noreferrer" className="!text-blue-600 dark:!text-blue-400 hover:!text-black dark:hover:!text-white transition-colors break-all">{siteConfig.contact.calendly.replace('https://', '')}</a></span>
                   </p>
                 </div>
               </div>
             </div>
             
             <div>
-              <h3 className="text-lg sm:text-xl font-semibold text-text-primary mb-3 sm:mb-4">Send a Message</h3>
+              <h3 className="text-lg sm:text-xl font-semibold !text-black dark:!text-white mb-3 sm:mb-4">Send a Message</h3>
               <ContactForm />
             </div>
           </div>

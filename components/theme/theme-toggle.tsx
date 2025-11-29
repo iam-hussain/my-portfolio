@@ -23,7 +23,7 @@ export function ThemeToggle() {
         aria-label="Toggle theme"
         disabled
       >
-        <Sun className="h-5 w-5 text-text-primary" />
+        <Sun className="h-5 w-5 !text-black dark:!text-white" />
       </Button>
     )
   }
@@ -42,9 +42,9 @@ export function ThemeToggle() {
         transition={{ duration: 0.3 }}
       >
         {theme === 'dark' ? (
-          <Sun className="h-5 w-5 text-text-primary" />
+          <Sun className="h-5 w-5 !text-black dark:!text-white" />
         ) : (
-          <Moon className="h-5 w-5 text-text-primary" />
+          <Moon className="h-5 w-5 !text-black dark:!text-white" />
         )}
       </motion.div>
     </Button>

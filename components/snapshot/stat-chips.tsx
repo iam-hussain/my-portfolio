@@ -12,9 +12,9 @@ export function StatChips() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: index * 0.1, duration: 0.5 }}
-          className="px-4 py-1.5 rounded-full border border-border-subtle bg-bg-card/60 dark:bg-bg-card/60 hover:bg-bg-card/80 dark:hover:bg-bg-card/80 backdrop-blur-sm transition-all duration-300 shadow-sm"
+          className="px-4 py-1.5 rounded-full border border-slate-300/80 dark:border-slate-700/50 bg-white/95 dark:bg-slate-800/60 hover:bg-slate-50 dark:hover:bg-slate-700/70 hover:border-slate-400 dark:hover:border-slate-600 backdrop-blur-sm transition-all duration-300 shadow-md hover:shadow-lg"
         >
-          <span className="text-text-primary text-sm font-medium tracking-wide">
+          <span className="text-slate-800 dark:text-slate-200 text-sm font-semibold tracking-wide">
             {chip.value}
           </span>
         </motion.div>

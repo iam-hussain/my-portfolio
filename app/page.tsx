@@ -15,7 +15,7 @@ export default function Home() {
       />
       
       {/* Global Gradient Overlay - Theme-aware */}
-      <div className="fixed inset-0 z-0 bg-gradient-to-b from-background/40 via-background/20 to-transparent dark:from-background/90 dark:via-background/50 dark:to-transparent" />
+      <div className="fixed inset-0 z-0 bg-gradient-to-b from-background/60 via-background/30 to-transparent dark:from-background/90 dark:via-background/50 dark:to-transparent" />
       
       <div className="relative z-10">
         <Navigation />

@@ -41,11 +41,11 @@ export function TimelineNode({ experience, index, onCaseStudyClick }: TimelineNo
         <CardHeader>
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
             <div>
-              <CardTitle className="text-xl sm:text-2xl font-bold text-text-primary mb-1">
+              <CardTitle className="text-xl sm:text-2xl font-bold !text-black dark:!text-white mb-1">
                 {experience.company}
               </CardTitle>
-              <p className="text-base sm:text-lg text-text-accent font-semibold">{experience.role}</p>
-              <p className="text-xs sm:text-sm text-text-secondary mt-1">
+              <p className="text-base sm:text-lg !text-blue-600 dark:!text-blue-400 font-semibold">{experience.role}</p>
+              <p className="text-xs sm:text-sm !text-black dark:!text-white mt-1">
                 {experience.period} · {experience.location}
               </p>
             </div>
@@ -54,7 +54,7 @@ export function TimelineNode({ experience, index, onCaseStudyClick }: TimelineNo
         <CardContent>
           <ul className="space-y-2 mb-4">
             {experience.bullets.slice(0, isExpanded ? experience.bullets.length : 3).map((bullet, i) => (
-              <li key={i} className="text-sm sm:text-base text-text-secondary flex items-start gap-2 leading-relaxed">
+              <li key={i} className="text-sm sm:text-base !text-black dark:!text-white flex items-start gap-2 leading-relaxed">
                 <span className="text-gradient-purple mt-1.5 flex-shrink-0">•</span>
                 <span>{bullet}</span>
               </li>
@@ -64,7 +64,7 @@ export function TimelineNode({ experience, index, onCaseStudyClick }: TimelineNo
             <Button
               variant="ghost"
               onClick={() => setIsExpanded(!isExpanded)}
-              className="text-text-accent hover:text-text-primary"
+              className="!text-blue-600 dark:!text-blue-400 hover:!text-black dark:hover:!text-white"
             >
               {isExpanded ? 'Show Less' : 'Show More'}
               <ChevronRight className={`ml-2 h-4 w-4 transition-transform ${isExpanded ? 'rotate-90' : ''}`} />
@@ -83,13 +83,13 @@ export function TimelineNode({ experience, index, onCaseStudyClick }: TimelineNo
             {experience.techStack.slice(0, 6).map((tech) => (
               <span
                 key={tech}
-                className="px-2 py-1 rounded text-xs font-medium bg-gradient-to-r from-gradient-purple/20 to-gradient-blue/20 text-text-primary border border-border-subtle"
+                className="px-2 py-1 rounded text-xs font-medium bg-gradient-to-r from-gradient-purple/20 to-gradient-blue/20 !text-black dark:!text-white border border-border-subtle"
               >
                 {tech}
               </span>
             ))}
             {experience.techStack.length > 6 && (
-              <span className="px-2 py-1 rounded text-xs font-medium text-text-muted">
+              <span className="px-2 py-1 rounded text-xs font-medium !text-black dark:!text-white">
                 +{experience.techStack.length - 6} more
               </span>
             )}
