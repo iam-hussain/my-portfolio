@@ -98,11 +98,11 @@ export function SnapshotHero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-          className="relative xl:backdrop-blur-xl rounded-[0.5rem] px-4 xl:p-16 mx-auto border-none sm:border xl:border-slate-200/60 dark:xl:border-white/10 lg:bg-white/5 dark:bg-slate-900/10 bg-transparent lg:dark:bg-transparent shadow-none xl:[box-shadow:0_10px_20px_rgba(0,0,0,0.1)]"
+          className="relative rounded-[0.5rem] px-4 xl:p-16 mx-auto border-none bg-transparent dark:bg-transparent shadow-none"
         >
           {/* Inner Highlight */}
           <div 
-            className="absolute inset-0 rounded-[0.5rem] pointer-events-none bg-transparent xl:bg-gradient-to-b xl:from-white/30 xl:to-transparent dark:xl:from-white/5 dark:xl:to-transparent"
+            className="absolute inset-0 rounded-[0.5rem] pointer-events-none bg-transparent"
           />
 
           <div className="flex flex-col items-center text-center relative z-10">
@@ -125,10 +125,10 @@ export function SnapshotHero() {
                 className="text-lg sm:text-xl md:text-2xl mb-4 sm:mb-6 font-medium flex flex-col"
               >
                 <span className="text-slate-900 dark:text-white font-bold">
-                  Senior Full-Stack Engineer
+                  {siteConfig.personal.roleTitle}
                 </span>
-                <span className="text-slate-800 dark:text-slate-100 mt-1 font-semibold">
-                  Product-Focused & Performance-Driven
+                <span className="text-slate-800 dark:text-slate-100 mt-1 font-medium text-sm lg:text-xl">
+                  {siteConfig.personal.roleTagline}
                 </span>
               </motion.div>
               
@@ -137,7 +137,7 @@ export function SnapshotHero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.8 }}
-                className="text-sm sm:text-base md:text-lg mb-6 sm:mb-8 font-semibold text-slate-700 dark:text-slate-50"
+                className="text-sm sm:text-base md:text-lg mb-6 font-semibold text-slate-700 dark:text-slate-50"
               >
                 {siteConfig.personal.heroTechLine}
               </motion.p>
@@ -147,7 +147,7 @@ export function SnapshotHero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.8 }}
-                className="text-base sm:text-lg md:text-xl mb-8 sm:mb-12 max-w-2xl mx-auto leading-relaxed text-slate-700 dark:text-slate-200 font-medium"
+                className="text-base sm:text-lg md:text-xl mb-8 sm:mb-12 max-w-4xl mx-auto leading-relaxed text-slate-700 dark:text-slate-200 font-medium"
               >
                 {siteConfig.personal.headline}
               </motion.p>
