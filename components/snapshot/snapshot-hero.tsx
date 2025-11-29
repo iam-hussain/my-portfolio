@@ -44,165 +44,138 @@ export function SnapshotHero() {
     cardY.set(yPercent * 3)
   }
 
+  const roleParts = siteConfig.personal.role.split(' — ')
+  const primaryRole = roleParts[0]
+  const secondaryRole = roleParts.slice(1).join(' — ')
+
   return (
     <section
       ref={sectionRef}
       id="home"
-      className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-16 sm:py-20 overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-32 overflow-hidden bg-[var(--color-bg-primary)]"
       aria-label="Hero section"
       onMouseMove={handleMouseMove}
     >
-      {/* Gradient Portrait Background */}
       <GradientPortraitBackground />
-      
-      <div className="relative z-20 max-w-6xl w-full">
+
+      <div className="relative z-20 w-full">
         <motion.div
           ref={cardRef}
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 48 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
+          transition={{ duration: 0.9, ease: 'easeOut' }}
           style={{
             x: !isMobile ? cardSpringX : 0,
             y: !isMobile ? cardSpringY : 0,
-            maxWidth: '900px',
           }}
-          className="relative bg-transparent rounded-3xl p-6 sm:p-8 md:p-14 lg:p-20 mx-auto"
+          className="hero-glass-panel mx-auto flex w-full max-w-4xl flex-col items-center rounded-[36px] px-6 py-10 sm:px-10 sm:py-12 lg:px-16 lg:py-16 text-center shadow-2xl"
         >
-          <div className="flex flex-col items-center text-center relative z-10">
-            {/* Content */}
-            <div className="w-full max-w-3xl">
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 }}
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 sm:mb-8"
-                style={{
-                  background: 'linear-gradient(to right, var(--gradient-hero-start, var(--color-text-primary)), var(--gradient-hero-mid, #2196f3), var(--gradient-hero-end, #80deea))',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                }}
-              >
+          <div className="flex w-full flex-col gap-6 sm:gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+            >
+              <h1 className="mb-2 text-4xl font-semibold leading-tight text-text-primary sm:mb-4 sm:text-5xl lg:text-6xl">
                 {siteConfig.personal.fullName.toUpperCase()}
-              </motion.h1>
-              
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-                className="text-lg sm:text-xl md:text-2xl mb-4 sm:mb-6 font-semibold"
-                style={{
-                  background: 'linear-gradient(to right, var(--gradient-subtitle-start, #2196f3), var(--gradient-subtitle-mid, #f48fb1), var(--gradient-subtitle-end, #80deea))',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                }}
+              </h1>
+            </motion.div>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="text-base sm:text-lg lg:text-xl font-semibold"
+            >
+              <span className="hero-role-accent">{primaryRole}</span>
+              {secondaryRole ? (
+                <span className="text-text-secondary"> {`— ${secondaryRole}`}</span>
+              ) : null}
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.25 }}
+              className="text-sm sm:text-base text-text-secondary"
+            >
+              {siteConfig.personal.heroTechLine}
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="mx-auto max-w-2xl text-base sm:text-lg lg:text-xl leading-relaxed text-text-primary"
+            >
+              {siteConfig.personal.headline}
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+            >
+              <StatChips />
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 }}
+              className="flex w-full flex-col gap-3 sm:flex-row sm:items-center sm:justify-center"
+            >
+              <Button
+                asChild
+                className="hero-primary-button min-h-[48px] rounded-2xl px-6 py-4 text-base font-semibold text-text-primary transition-transform duration-300 hover:scale-[1.02]"
+                size="lg"
               >
-                {siteConfig.personal.role}
-              </motion.p>
-              
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.25 }}
-                className="text-sm sm:text-base md:text-lg mb-6 sm:mb-8 font-medium"
-                style={{ color: 'var(--color-text-primary)' }}
+                <Link href={siteConfig.navigation.main[2].href}>{siteConfig.ctaLabels.primaryHero}</Link>
+              </Button>
+              <Button
+                asChild
+                variant="outline"
+                className="hero-secondary-button min-h-[48px] rounded-2xl px-6 py-4 text-base font-semibold text-text-primary transition-transform duration-300 hover:scale-[1.02]"
+                size="lg"
               >
-                {siteConfig.personal.heroTechLine}
-              </motion.p>
-              
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-                className="text-base sm:text-lg md:text-xl mb-8 sm:mb-12 max-w-2xl mx-auto leading-relaxed px-2 sm:px-0"
-                style={{ color: 'var(--color-text-primary)' }}
-              >
-                {siteConfig.personal.headline}
-              </motion.p>
-              
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-                className="mb-8 sm:mb-12"
-              >
-                <StatChips />
-              </motion.div>
-              
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 }}
-                className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-8 sm:mb-12 w-full"
-              >
-                <Button
-                  asChild
-                  className="gradient-button-primary text-white hover:opacity-90 min-h-[44px] transition-all duration-300"
-                  size="lg"
-                  style={{
-                    boxShadow: '0 4px 20px rgba(33, 150, 243, 0.3)',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.boxShadow = '0 6px 30px rgba(33, 150, 243, 0.5)'
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.boxShadow = '0 4px 20px rgba(33, 150, 243, 0.3)'
-                  }}
-                >
-                  <Link href={siteConfig.navigation.main[2].href}>{siteConfig.ctaLabels.primaryHero}</Link>
-                </Button>
-                <Button
-                  asChild
-                  variant="outline"
-                  className="border-border-accent hover:bg-bg-card hover:border-border-accent min-h-[44px] transition-all duration-300"
-                  size="lg"
-                  style={{
-                    boxShadow: '0 4px 20px rgba(33, 150, 243, 0.15)',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.boxShadow = '0 6px 30px rgba(33, 150, 243, 0.3)'
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.boxShadow = '0 4px 20px rgba(33, 150, 243, 0.15)'
-                  }}
-                >
-                  <a href={siteConfig.links.resumeUrl} download>
-                    {siteConfig.ctaLabels.secondaryHero}
+                <a href={siteConfig.links.resumeUrl} download>
+                  {siteConfig.ctaLabels.secondaryHero}
+                </a>
+              </Button>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+              className="flex flex-wrap items-center justify-center gap-3 sm:gap-4"
+            >
+              {siteConfig.socialIcons.map((social) => {
+                const IconComponent =
+                  social.type === 'github'
+                    ? Github
+                    : social.type === 'linkedin'
+                      ? Linkedin
+                      : social.type === 'email'
+                        ? Mail
+                        : social.type === 'whatsapp'
+                          ? MessageCircle
+                          : Calendar
+
+                return (
+                  <a
+                    key={social.type}
+                    href={social.href}
+                    target={social.type !== 'email' ? '_blank' : undefined}
+                    rel={social.type !== 'email' ? 'noopener noreferrer' : undefined}
+                    className="hero-social-icon flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full transition-transform duration-300 hover:-translate-y-0.5 hover:scale-105"
+                    aria-label={`${social.type} profile`}
+                  >
+                    <IconComponent className="h-5 w-5" />
                   </a>
-                </Button>
-              </motion.div>
-              
-              {/* Social Links */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6 }}
-                className="flex flex-wrap gap-3 sm:gap-4 justify-center"
-              >
-                {siteConfig.socialIcons.map((social) => {
-                  const IconComponent = 
-                    social.type === 'github' ? Github :
-                    social.type === 'linkedin' ? Linkedin :
-                    social.type === 'email' ? Mail :
-                    social.type === 'whatsapp' ? MessageCircle :
-                    Calendar
-                  
-                  return (
-                    <a
-                      key={social.type}
-                      href={social.href}
-                      target={social.type !== 'email' ? '_blank' : undefined}
-                      rel={social.type !== 'email' ? 'noopener noreferrer' : undefined}
-                      className="p-2.5 sm:p-3 rounded-full border border-border-subtle bg-bg-card/50 hover:border-border-accent hover:glow-effect-hover transition-all min-h-[44px] min-w-[44px] flex items-center justify-center"
-                      aria-label={`${social.type} profile`}
-                    >
-                      <IconComponent className="h-5 w-5 text-text-secondary hover:text-text-primary" />
-                    </a>
-                  )
-                })}
-              </motion.div>
-            </div>
+                )
+              })}
+            </motion.div>
           </div>
         </motion.div>
       </div>

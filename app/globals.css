@@ -180,6 +180,145 @@
   box-shadow: 0 0 30px rgba(33, 150, 243, 0.6);
 }
 
+.hero-glass-panel {
+  background: color-mix(in srgb, var(--color-bg-card) 92%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-border-accent) 45%, transparent);
+  box-shadow: 0 45px 140px color-mix(in srgb, var(--color-bg-primary) 70%, transparent),
+    inset 0 1px 0 color-mix(in srgb, var(--color-text-primary) 8%, transparent);
+  backdrop-filter: blur(26px);
+  -webkit-backdrop-filter: blur(26px);
+  position: relative;
+}
+
+.hero-glass-panel::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: inherit;
+  border: 1px solid color-mix(in srgb, var(--color-border-subtle) 35%, transparent);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.hero-role-accent {
+  background-image: linear-gradient(
+    120deg,
+    color-mix(in srgb, var(--color-gradient-purple) 75%, var(--color-gradient-blue) 25%),
+    color-mix(in srgb, var(--color-gradient-blue) 70%, var(--color-gradient-cyan) 30%)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.hero-primary-button {
+  background-image: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--color-gradient-purple) 85%, var(--color-gradient-blue) 15%),
+    color-mix(in srgb, var(--color-gradient-blue) 80%, var(--color-gradient-cyan) 20%)
+  );
+  box-shadow: 0 20px 60px color-mix(in srgb, var(--color-gradient-blue) 30%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-border-accent) 65%, transparent);
+}
+
+.hero-primary-button:hover {
+  box-shadow: 0 28px 80px color-mix(in srgb, var(--color-gradient-blue) 40%, transparent);
+}
+
+.hero-secondary-button {
+  border: 1px solid color-mix(in srgb, var(--color-border-accent) 35%, transparent);
+  background: color-mix(in srgb, var(--color-bg-secondary) 65%, transparent);
+  box-shadow: inset 0 1px 0 color-mix(in srgb, var(--color-text-primary) 8%, transparent),
+    0 15px 40px color-mix(in srgb, var(--color-bg-primary) 65%, transparent);
+}
+
+.hero-secondary-button:hover {
+  border-color: color-mix(in srgb, var(--color-border-accent) 60%, transparent);
+  background: color-mix(in srgb, var(--color-bg-secondary) 80%, transparent);
+}
+
+.hero-chip {
+  align-items: center;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  background: color-mix(in srgb, var(--color-bg-secondary) 60%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-border-accent) 30%, transparent);
+  border-radius: 999px;
+  display: inline-flex;
+  gap: 0.25rem;
+  justify-content: center;
+  padding: 0.45rem 1.15rem;
+  position: relative;
+  transition: border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease;
+}
+
+.hero-chip::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: radial-gradient(
+    circle at 50% 0%,
+    color-mix(in srgb, var(--color-text-primary) 12%, transparent),
+    transparent 70%
+  );
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.hero-chip:hover {
+  border-color: color-mix(in srgb, var(--color-border-accent) 55%, transparent);
+  box-shadow: 0 8px 30px color-mix(in srgb, var(--color-bg-primary) 70%, transparent);
+  transform: translateY(-1px);
+}
+
+.hero-social-icon {
+  border: 1px solid color-mix(in srgb, var(--color-border-accent) 30%, transparent);
+  background: color-mix(in srgb, var(--color-bg-secondary) 65%, transparent);
+  color: var(--color-text-secondary);
+  box-shadow: 0 20px 50px color-mix(in srgb, var(--color-bg-primary) 70%, transparent);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.hero-social-icon:hover {
+  border-color: color-mix(in srgb, var(--color-border-accent) 65%, transparent);
+  color: var(--color-text-primary);
+}
+
+.hero-social-icon svg {
+  color: inherit;
+}
+
+.hero-glow-halo {
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  width: min(80vw, 640px);
+  height: min(80vw, 640px);
+  transform: translate(-50%, -50%);
+  border-radius: 999px;
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--color-gradient-purple) 28%, transparent),
+    transparent 70%
+  );
+  filter: blur(120px);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.hero-glow-halo--secondary {
+  top: 65%;
+  width: min(65vw, 520px);
+  height: min(65vw, 520px);
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--color-gradient-blue) 25%, transparent),
+    transparent 72%
+  );
+}
+
 /* Animations */
 @keyframes fadeInUp {
   from {

@@ -12,9 +12,9 @@ export function StatChips() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: index * 0.1 }}
-          className="px-3 sm:px-4 py-2 rounded-full border border-border-subtle bg-bg-card/50 backdrop-blur-sm hover:border-border-accent hover:glow-effect-hover transition-all"
+          className="hero-chip"
         >
-          <span className="text-text-primary text-xs sm:text-sm font-medium">
+          <span className="text-[0.7rem] font-medium tracking-wide text-text-primary sm:text-xs">
             {chip.value}
           </span>
         </motion.div>
