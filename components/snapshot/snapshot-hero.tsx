@@ -98,11 +98,11 @@ export function SnapshotHero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-          className="relative lg:backdrop-blur-xl rounded-[0.5rem] px-4 lg:p-16 mx-auto border-none sm:border sm:border-slate-200/60 dark:sm:border-white/10 bg-white/5 dark:bg-slate-900/10 lg:bg-transparent lg:dark:bg-transparent shadow-none lg:[box-shadow:0_10px_20px_rgba(0,0,0,0.1)]"
+          className="relative xl:backdrop-blur-xl rounded-[0.5rem] px-4 xl:p-16 mx-auto border-none sm:border xl:border-slate-200/60 dark:xl:border-white/10 lg:bg-white/5 dark:bg-slate-900/10 bg-transparent lg:dark:bg-transparent shadow-none xl:[box-shadow:0_10px_20px_rgba(0,0,0,0.1)]"
         >
           {/* Inner Highlight */}
           <div 
-            className="absolute inset-0 rounded-[0.5rem] pointer-events-none bg-transparent sm:bg-gradient-to-b sm:from-white/30 sm:to-transparent dark:sm:from-white/5 dark:sm:to-transparent"
+            className="absolute inset-0 rounded-[0.5rem] pointer-events-none bg-transparent xl:bg-gradient-to-b xl:from-white/30 xl:to-transparent dark:xl:from-white/5 dark:xl:to-transparent"
           />
 
           <div className="flex flex-col items-center text-center relative z-10">
