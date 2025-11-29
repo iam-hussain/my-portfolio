@@ -2,207 +2,229 @@
 
 import { siteConfig } from '@/src/config/site'
 import { StatChips } from './stat-chips'
-import { GradientPortraitBackground } from '@/components/shared/gradient-portrait-background'
 import { Button } from '@/components/ui/button'
 import { Github, Linkedin, Mail, MessageCircle, Calendar } from 'lucide-react'
-import { motion, useMotionValue, useSpring } from 'framer-motion'
+import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { useRef, useEffect, useState } from 'react'
 
 export function SnapshotHero() {
-  const cardRef = useRef<HTMLDivElement>(null)
-  const sectionRef = useRef<HTMLElement>(null)
-  const [isMobile, setIsMobile] = useState(false)
-
-  const cardX = useMotionValue(0)
-  const cardY = useMotionValue(0)
-
-  const springConfig = { damping: 30, stiffness: 200 }
-  const cardSpringX = useSpring(cardX, springConfig)
-  const cardSpringY = useSpring(cardY, springConfig)
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768)
-    }
-    checkMobile()
-    window.addEventListener('resize', checkMobile)
-    return () => window.removeEventListener('resize', checkMobile)
-  }, [])
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
-    // Disable parallax on mobile for better performance
-    if (window.innerWidth < 768) return
-    if (!sectionRef.current) return
-    const rect = sectionRef.current.getBoundingClientRect()
-    const centerX = rect.left + rect.width / 2
-    const centerY = rect.top + rect.height / 2
-    const xPercent = (e.clientX - centerX) / (rect.width / 2)
-    const yPercent = (e.clientY - centerY) / (rect.height / 2)
-    
-    cardX.set(xPercent * 3)
-    cardY.set(yPercent * 3)
-  }
-
   return (
     <section
-      ref={sectionRef}
       id="home"
       className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-16 sm:py-20 overflow-hidden"
       aria-label="Hero section"
-      onMouseMove={handleMouseMove}
+      style={{
+        backgroundColor: '#0a0a0a',
+      }}
     >
-      {/* Gradient Portrait Background */}
-      <GradientPortraitBackground />
-      
-      <div className="relative z-20 max-w-6xl w-full">
+      {/* Subtle radial gradient backgrounds behind the card */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
-          ref={cardRef}
-          initial={{ opacity: 0, y: 40 }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] sm:w-[1000px] sm:h-[1000px] rounded-full blur-3xl opacity-30"
+          style={{
+            background: 'radial-gradient(circle, rgba(139, 92, 246, 0.15), rgba(59, 130, 246, 0.1), transparent)',
+          }}
+          animate={{
+            scale: [1, 1.05, 1],
+            opacity: [0.25, 0.35, 0.25],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: 'easeInOut',
+          }}
+        />
+        <motion.div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] sm:w-[800px] sm:h-[800px] rounded-full blur-3xl opacity-20"
+          style={{
+            background: 'radial-gradient(circle, rgba(59, 130, 246, 0.12), rgba(139, 92, 246, 0.08), transparent)',
+          }}
+          animate={{
+            scale: [1, 1.08, 1],
+            opacity: [0.15, 0.25, 0.15],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: 'easeInOut',
+            delay: 1,
+          }}
+        />
+      </div>
+      
+      {/* Glass card container */}
+      <div className="relative z-20 max-w-4xl w-full">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
+          className="relative backdrop-blur-xl rounded-3xl p-8 sm:p-12 md:p-16 lg:p-20 mx-auto"
           style={{
-            x: !isMobile ? cardSpringX : 0,
-            y: !isMobile ? cardSpringY : 0,
-            maxWidth: '900px',
+            backgroundColor: 'rgba(15, 15, 20, 0.6)',
+            border: '1px solid rgba(255, 255, 255, 0.08)',
+            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05)',
           }}
-          className="relative bg-transparent rounded-3xl p-6 sm:p-8 md:p-14 lg:p-20 mx-auto"
         >
-          <div className="flex flex-col items-center text-center relative z-10">
-            {/* Content */}
-            <div className="w-full max-w-3xl">
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 }}
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 sm:mb-8"
+          <div className="flex flex-col items-center text-center">
+            {/* Name - Large, white, clean */}
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1, duration: 0.6 }}
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 sm:mb-8 text-white"
+            >
+              {siteConfig.personal.fullName.toUpperCase()}
+            </motion.h1>
+            
+            {/* Role - Subtle accent colors */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="text-lg sm:text-xl md:text-2xl mb-4 sm:mb-6 font-semibold"
+            >
+              {siteConfig.personal.role.includes('—') ? (
+                <>
+                  <span className="text-white">{siteConfig.personal.role.split('—')[0]}</span>
+                  <span className="text-[#8b5cf6]"> — </span>
+                  <span className="text-[#3b82f6]">{siteConfig.personal.role.split('—')[1]}</span>
+                </>
+              ) : (
+                <span className="text-white">{siteConfig.personal.role}</span>
+              )}
+            </motion.p>
+            
+            {/* Tech line */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.25, duration: 0.6 }}
+              className="text-sm sm:text-base md:text-lg mb-6 sm:mb-8 font-medium text-[#a8a8a8]"
+            >
+              {siteConfig.personal.heroTechLine}
+            </motion.p>
+            
+            {/* Headline */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.6 }}
+              className="text-base sm:text-lg md:text-xl mb-8 sm:mb-12 max-w-2xl mx-auto leading-relaxed text-[#c8c8c8]"
+            >
+              {siteConfig.personal.headline}
+            </motion.p>
+            
+            {/* Stat Chips */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.6 }}
+              className="mb-8 sm:mb-12"
+            >
+              <StatChips />
+            </motion.div>
+            
+            {/* CTA Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.6 }}
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-8 sm:mb-12 w-full"
+            >
+              <Button
+                asChild
+                className="min-h-[44px] transition-all duration-300 text-white font-medium"
+                size="lg"
                 style={{
-                  background: 'linear-gradient(to right, var(--gradient-hero-start, var(--color-text-primary)), var(--gradient-hero-mid, #2196f3), var(--gradient-hero-end, #80deea))',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
+                  background: 'linear-gradient(135deg, #8b5cf6, #3b82f6)',
+                  boxShadow: '0 4px 20px rgba(139, 92, 246, 0.3)',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.boxShadow = '0 6px 30px rgba(139, 92, 246, 0.5)'
+                  e.currentTarget.style.transform = 'scale(1.02)'
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.boxShadow = '0 4px 20px rgba(139, 92, 246, 0.3)'
+                  e.currentTarget.style.transform = 'scale(1)'
                 }}
               >
-                {siteConfig.personal.fullName.toUpperCase()}
-              </motion.h1>
-              
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-                className="text-lg sm:text-xl md:text-2xl mb-4 sm:mb-6 font-semibold"
+                <Link href={siteConfig.navigation.main[2].href}>{siteConfig.ctaLabels.primaryHero}</Link>
+              </Button>
+              <Button
+                asChild
+                variant="outline"
+                className="min-h-[44px] transition-all duration-300 font-medium"
+                size="lg"
                 style={{
-                  background: 'linear-gradient(to right, var(--gradient-subtitle-start, #2196f3), var(--gradient-subtitle-mid, #f48fb1), var(--gradient-subtitle-end, #80deea))',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
+                  borderColor: 'rgba(255, 255, 255, 0.2)',
+                  color: '#e8e8e8',
+                  backgroundColor: 'transparent',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.5)'
+                  e.currentTarget.style.backgroundColor = 'rgba(139, 92, 246, 0.1)'
+                  e.currentTarget.style.transform = 'scale(1.02)'
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)'
+                  e.currentTarget.style.backgroundColor = 'transparent'
+                  e.currentTarget.style.transform = 'scale(1)'
                 }}
               >
-                {siteConfig.personal.role}
-              </motion.p>
-              
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.25 }}
-                className="text-sm sm:text-base md:text-lg mb-6 sm:mb-8 font-medium"
-                style={{ color: 'var(--color-text-primary)' }}
-              >
-                {siteConfig.personal.heroTechLine}
-              </motion.p>
-              
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-                className="text-base sm:text-lg md:text-xl mb-8 sm:mb-12 max-w-2xl mx-auto leading-relaxed px-2 sm:px-0"
-                style={{ color: 'var(--color-text-primary)' }}
-              >
-                {siteConfig.personal.headline}
-              </motion.p>
-              
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-                className="mb-8 sm:mb-12"
-              >
-                <StatChips />
-              </motion.div>
-              
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 }}
-                className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-8 sm:mb-12 w-full"
-              >
-                <Button
-                  asChild
-                  className="gradient-button-primary text-white hover:opacity-90 min-h-[44px] transition-all duration-300"
-                  size="lg"
-                  style={{
-                    boxShadow: '0 4px 20px rgba(33, 150, 243, 0.3)',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.boxShadow = '0 6px 30px rgba(33, 150, 243, 0.5)'
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.boxShadow = '0 4px 20px rgba(33, 150, 243, 0.3)'
-                  }}
-                >
-                  <Link href={siteConfig.navigation.main[2].href}>{siteConfig.ctaLabels.primaryHero}</Link>
-                </Button>
-                <Button
-                  asChild
-                  variant="outline"
-                  className="border-border-accent hover:bg-bg-card hover:border-border-accent min-h-[44px] transition-all duration-300"
-                  size="lg"
-                  style={{
-                    boxShadow: '0 4px 20px rgba(33, 150, 243, 0.15)',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.boxShadow = '0 6px 30px rgba(33, 150, 243, 0.3)'
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.boxShadow = '0 4px 20px rgba(33, 150, 243, 0.15)'
-                  }}
-                >
-                  <a href={siteConfig.links.resumeUrl} download>
-                    {siteConfig.ctaLabels.secondaryHero}
+                <a href={siteConfig.links.resumeUrl} download>
+                  {siteConfig.ctaLabels.secondaryHero}
+                </a>
+              </Button>
+            </motion.div>
+            
+            {/* Social Links */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.6 }}
+              className="flex flex-wrap gap-3 sm:gap-4 justify-center"
+            >
+              {siteConfig.socialIcons.map((social) => {
+                const IconComponent = 
+                  social.type === 'github' ? Github :
+                  social.type === 'linkedin' ? Linkedin :
+                  social.type === 'email' ? Mail :
+                  social.type === 'whatsapp' ? MessageCircle :
+                  Calendar
+                
+                return (
+                  <a
+                    key={social.type}
+                    href={social.href}
+                    target={social.type !== 'email' ? '_blank' : undefined}
+                    rel={social.type !== 'email' ? 'noopener noreferrer' : undefined}
+                    className="p-2.5 sm:p-3 rounded-full border min-h-[44px] min-w-[44px] flex items-center justify-center transition-all duration-300"
+                    style={{
+                      borderColor: 'rgba(255, 255, 255, 0.1)',
+                      backgroundColor: 'rgba(255, 255, 255, 0.03)',
+                      color: '#a8a8a8',
+                    }}
+                    aria-label={`${social.type} profile`}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.4)'
+                      e.currentTarget.style.backgroundColor = 'rgba(139, 92, 246, 0.1)'
+                      e.currentTarget.style.color = '#e8e8e8'
+                      e.currentTarget.style.transform = 'scale(1.1)'
+                      e.currentTarget.style.boxShadow = '0 0 20px rgba(139, 92, 246, 0.2)'
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)'
+                      e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.03)'
+                      e.currentTarget.style.color = '#a8a8a8'
+                      e.currentTarget.style.transform = 'scale(1)'
+                      e.currentTarget.style.boxShadow = 'none'
+                    }}
+                  >
+                    <IconComponent className="h-5 w-5" />
                   </a>
-                </Button>
-              </motion.div>
-              
-              {/* Social Links */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6 }}
-                className="flex flex-wrap gap-3 sm:gap-4 justify-center"
-              >
-                {siteConfig.socialIcons.map((social) => {
-                  const IconComponent = 
-                    social.type === 'github' ? Github :
-                    social.type === 'linkedin' ? Linkedin :
-                    social.type === 'email' ? Mail :
-                    social.type === 'whatsapp' ? MessageCircle :
-                    Calendar
-                  
-                  return (
-                    <a
-                      key={social.type}
-                      href={social.href}
-                      target={social.type !== 'email' ? '_blank' : undefined}
-                      rel={social.type !== 'email' ? 'noopener noreferrer' : undefined}
-                      className="p-2.5 sm:p-3 rounded-full border border-border-subtle bg-bg-card/50 hover:border-border-accent hover:glow-effect-hover transition-all min-h-[44px] min-w-[44px] flex items-center justify-center"
-                      aria-label={`${social.type} profile`}
-                    >
-                      <IconComponent className="h-5 w-5 text-text-secondary hover:text-text-primary" />
-                    </a>
-                  )
-                })}
-              </motion.div>
-            </div>
+                )
+              })}
+            </motion.div>
           </div>
         </motion.div>
       </div>
