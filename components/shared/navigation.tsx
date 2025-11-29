@@ -4,8 +4,6 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import Link from 'next/link'
-import { Button } from '@/components/ui/button'
-import { ThemeToggle } from '@/components/theme/theme-toggle'
 import { siteConfig } from '@/src/config/site'
 
 const navItems = siteConfig.navigation.main
@@ -70,12 +68,10 @@ export function Navigation() {
                 {item.label}
               </button>
             ))}
-            <ThemeToggle />
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center gap-2">
-            <ThemeToggle />
+          <div className="md:hidden flex items-center">
             <button
               className="p-2 !text-black dark:!text-white hover:!text-blue-600 dark:hover:!text-blue-400 transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
