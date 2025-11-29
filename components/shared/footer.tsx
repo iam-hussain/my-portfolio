@@ -8,9 +8,9 @@ export function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="border-t border-border-subtle py-3 sm:py-4 px-4 sm:px-6 lg:px-8 bg-bg-card/50 dark:bg-bg-card/60 backdrop-blur-sm">
+    <footer className="border-t border-border-subtle pt-3 pb-3 sm:pt-4 sm:pb-6 md:pb-8 px-4 sm:px-6 lg:px-8 bg-bg-card/50 dark:bg-bg-card/60 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-3 sm:gap-4">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-3 sm:gap-4 pb-2">
           <div className="flex flex-wrap justify-center md:justify-start gap-2 sm:gap-3 md:gap-6">
             {siteConfig.navigation.main.map((item) => (
               <Link
@@ -23,7 +23,7 @@ export function Footer() {
             ))}
           </div>
           
-          <div className="flex gap-2 sm:gap-3">
+          <div className="hidden md:flex gap-2 sm:gap-3">
             {siteConfig.socialIcons
               .filter((social) => ['github', 'linkedin', 'email'].includes(social.type))
               .map((social) => {
