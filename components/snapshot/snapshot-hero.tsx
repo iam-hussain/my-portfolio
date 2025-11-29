@@ -2,7 +2,6 @@
 
 import { siteConfig } from '@/src/config/site'
 import { StatChips } from './stat-chips'
-import { JourneyHeroBackground } from '@/components/shared/journey-hero-background'
 import { Button } from '@/components/ui/button'
 import { Github, Linkedin, Mail, MessageCircle, Calendar } from 'lucide-react'
 import { motion, type Variants } from 'framer-motion'
@@ -21,6 +20,29 @@ const roleAnimation = {
   transition: { delay: 0.3, duration: 0.8 },
 }
 
+const floatingBubble: Variants = {
+  animate: {
+    y: [0, -4, 0],
+    transition: {
+      duration: 3,
+      repeat: Infinity,
+      ease: "easeInOut",
+    },
+  },
+}
+
+const floatingPill: Variants = {
+  animate: (i: number) => ({
+    y: [0, -8, 0],
+    transition: {
+      duration: 4,
+      repeat: Infinity,
+      ease: "easeInOut",
+      delay: i * 0.5,
+    },
+  }),
+}
+
 export function SnapshotHero() {
   const cardRef = useRef<HTMLDivElement>(null)
   const sectionRef = useRef<HTMLElement>(null)
@@ -35,6 +57,9 @@ export function SnapshotHero() {
     return () => window.removeEventListener('resize', checkMobile)
   }, [])
 
+  // Decorative tags
+  const tags = ["Full-Stack", "FinTech", "AI & APIs"]
+
   return (
     <section
       ref={sectionRef}
@@ -42,59 +67,95 @@ export function SnapshotHero() {
       className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-16 sm:py-20 overflow-hidden bg-background"
       aria-label="Hero section"
     >
-      <JourneyHeroBackground />
+      {/* 1) Background Illustration - Full Width/Cover */}
+      <div 
+        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat bg-[url('/hero-bg-light.svg')] dark:bg-[url('/hero-bg-dark.svg')]"
+      />
       
+      {/* 1) Gradient Overlay - Theme-aware */}
+      <div className="absolute inset-0 z-10 bg-gradient-to-b from-background/40 via-background/20 to-transparent dark:from-background/90 dark:via-background/50 dark:to-transparent" />
+
       <div className="relative z-20 max-w-5xl w-full">
+        
+        {/* Optional Floating Pills */}
+        <div className="absolute inset-0 pointer-events-none hidden md:block">
+           {tags.map((tag, i) => (
+             <motion.div
+               key={tag}
+               custom={i}
+               variants={floatingPill}
+               animate="animate"
+               className={`absolute px-4 py-2 rounded-full backdrop-blur-md border border-white/30 dark:border-white/10 bg-white/20 dark:bg-black/20 text-sm font-medium text-foreground/80 shadow-sm
+                 ${i === 0 ? 'top-[-20px] left-0' : ''}
+                 ${i === 1 ? 'top-[40%] -right-10' : ''}
+                 ${i === 2 ? 'bottom-[10%] -left-6' : ''}
+               `}
+               style={{ opacity: 0.8 }}
+             >
+               {tag}
+             </motion.div>
+           ))}
+        </div>
+
+        {/* 2) Hero Content - Glass Panel */}
         <motion.div
           ref={cardRef}
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-          className="relative backdrop-blur-2xl rounded-[2rem] sm:rounded-[2.5rem] p-8 sm:p-12 md:p-16 lg:p-20 mx-auto border border-[rgba(15,23,42,0.08)] dark:border-[rgba(148,163,184,0.3)] bg-[#F9FAFB] dark:bg-[#020617]/90 shadow-[0_24px_60px_rgba(15,23,42,0.12)] dark:shadow-[0_24px_60px_rgba(0,0,0,0.6)]"
+          className="relative backdrop-blur-lg rounded-[2.5rem] sm:rounded-[3rem] p-8 sm:p-12 md:p-16 lg:p-20 mx-auto border border-white/40 dark:border-white/10 bg-white/30 dark:bg-slate-900/30 shadow-xl"
         >
-          {/* Inner Glow/Highlight - Theme-aware */}
+          {/* Inner Highlight */}
           <div 
-            className="absolute inset-0 rounded-[2rem] sm:rounded-[2.5rem] pointer-events-none bg-[radial-gradient(circle_at_50%_0%,rgba(15,23,42,0.02)_0%,transparent_50%)] dark:bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.02)_0%,transparent_50%)]"
+            className="absolute inset-0 rounded-[2.5rem] sm:rounded-[3rem] pointer-events-none bg-gradient-to-b from-white/20 to-transparent dark:from-white/5 dark:to-transparent"
           />
 
           <div className="flex flex-col items-center text-center relative z-10">
-            {/* Content */}
             <div className="w-full max-w-3xl">
+              {/* Name */}
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.8 }}
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 sm:mb-8 tracking-tight text-[#111827] dark:text-[#F9FAFB]"
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 sm:mb-8 tracking-tight text-black dark:text-white drop-shadow-sm"
               >
                 {siteConfig.personal.fullName}
               </motion.h1>
               
+              {/* Role - Gradient Text */}
               <motion.div
                 {...roleAnimation}
-                className="text-lg sm:text-xl md:text-2xl mb-4 sm:mb-6 font-medium flex flex-col text-[#2196f3] dark:text-[#2196f3]"
+                className="text-lg sm:text-xl md:text-2xl mb-4 sm:mb-6 font-medium flex flex-col"
               >
-                <span>Senior Full-Stack Engineer</span>
-                <span>Product-Focused & Performance-Driven</span>
+                <span className="bg-gradient-to-r from-[var(--gradient-subtitle-start)] via-[var(--gradient-subtitle-mid)] to-[var(--gradient-subtitle-end)] bg-clip-text text-transparent font-bold">
+                  Senior Full-Stack Engineer
+                </span>
+                <span className="text-slate-900 dark:text-slate-100 mt-1 font-semibold">
+                  Product-Focused & Performance-Driven
+                </span>
               </motion.div>
               
+              {/* Tech Line */}
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.8 }}
-                className="text-sm sm:text-base md:text-lg mb-6 sm:mb-8 font-medium text-[#374151] dark:text-[#D1D5DB]"
+                className="text-sm sm:text-base md:text-lg mb-6 sm:mb-8 font-semibold text-slate-900 dark:text-slate-50"
               >
                 {siteConfig.personal.heroTechLine}
               </motion.p>
               
+              {/* Headline */}
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.8 }}
-                className="text-base sm:text-lg md:text-xl mb-8 sm:mb-12 max-w-2xl mx-auto leading-relaxed text-[#374151] dark:text-[#D1D5DB]"
+                className="text-base sm:text-lg md:text-xl mb-8 sm:mb-12 max-w-2xl mx-auto leading-relaxed text-slate-800 dark:text-slate-200 font-medium"
               >
                 {siteConfig.personal.headline}
               </motion.p>
               
+              {/* Stat Chips */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -104,6 +165,7 @@ export function SnapshotHero() {
                 <StatChips />
               </motion.div>
               
+              {/* CTAs */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -122,7 +184,7 @@ export function SnapshotHero() {
                 <Button
                   asChild
                   variant="outline"
-                  className="bg-transparent border-[rgba(15,23,42,0.2)] dark:border-[rgba(148,163,184,0.3)] text-[#111827] dark:text-[#F9FAFB] hover:bg-[rgba(15,23,42,0.05)] dark:hover:bg-[rgba(148,163,184,0.1)] hover:border-[rgba(15,23,42,0.3)] dark:hover:border-[rgba(148,163,184,0.4)] min-h-[48px] sm:min-h-[52px] px-8 rounded-full text-base font-medium transition-all duration-300 hover:scale-[1.02]"
+                  className="bg-white/50 dark:bg-slate-900/50 border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white hover:bg-white/70 dark:hover:bg-slate-800/70 hover:shadow-[0_0_20px_-5px_rgba(148,163,184,0.5)] min-h-[48px] sm:min-h-[52px] px-8 rounded-full text-base font-medium transition-all duration-300 hover:scale-[1.02]"
                   size="lg"
                 >
                   <a href={siteConfig.links.resumeUrl} download>
@@ -131,12 +193,12 @@ export function SnapshotHero() {
                 </Button>
               </motion.div>
               
-              {/* Social Links */}
+              {/* Social Bubbles */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8, duration: 0.8 }}
-                className="flex flex-wrap gap-4 justify-center"
+                className="flex flex-wrap gap-6 justify-center"
               >
                 {siteConfig.socialIcons.map((social) => {
                   const IconComponent = 
@@ -147,16 +209,24 @@ export function SnapshotHero() {
                     Calendar
                   
                   return (
-                    <a
+                    <motion.a
                       key={social.type}
                       href={social.href}
                       target={social.type !== 'email' ? '_blank' : undefined}
                       rel={social.type !== 'email' ? 'noopener noreferrer' : undefined}
-                      className="group p-3 rounded-full border border-[rgba(15,23,42,0.15)] dark:border-[rgba(148,163,184,0.2)] bg-[rgba(15,23,42,0.03)] dark:bg-[rgba(148,163,184,0.05)] hover:bg-[rgba(15,23,42,0.08)] dark:hover:bg-[rgba(148,163,184,0.1)] hover:border-[rgba(15,23,42,0.25)] dark:hover:border-[rgba(148,163,184,0.3)] transition-all duration-300 hover:scale-110"
+                      variants={floatingBubble}
+                      animate="animate"
+                      className="group relative p-[2px] rounded-full overflow-hidden transition-transform hover:scale-110"
                       aria-label={`${social.type} profile`}
                     >
-                      <IconComponent className="h-5 w-5 text-[#6B7280] dark:text-[#9CA3AF] group-hover:text-[#2196f3] dark:group-hover:text-[#2196f3] transition-colors" />
-                    </a>
+                      {/* Gradient Border Effect */}
+                      <div className="absolute inset-0 bg-gradient-to-tr from-blue-400 via-purple-400 to-pink-400 opacity-70 group-hover:opacity-100 transition-opacity" />
+                      
+                      {/* Inner Content */}
+                      <div className="relative bg-white dark:bg-slate-900 p-3 rounded-full">
+                        <IconComponent className="h-6 w-6 text-slate-600 dark:text-slate-300 group-hover:text-[#2196f3] dark:group-hover:text-[#2196f3] transition-colors" />
+                      </div>
+                    </motion.a>
                   )
                 })}
               </motion.div>
