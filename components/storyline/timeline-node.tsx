@@ -6,16 +6,31 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { ChevronRight } from 'lucide-react'
 import { useState } from 'react'
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+  DialogClose,
+} from '@/components/ui/dialog'
+import { Badge } from '@/components/ui/badge'
+import { caseStudies } from '@/lib/data/case-studies'
 
 interface TimelineNodeProps {
   experience: Experience
   index: number
-  onCaseStudyClick?: (caseStudyId: string) => void
 }
 
-export function TimelineNode({ experience, index, onCaseStudyClick }: TimelineNodeProps) {
+export function TimelineNode({ experience, index }: TimelineNodeProps) {
   const [isExpanded, setIsExpanded] = useState(false)
   const isEven = index % 2 === 0
+  
+  const caseStudy = experience.caseStudyId
+    ? caseStudies.find((cs) => cs.id === experience.caseStudyId) ?? null
+    : null
 
   return (
     <motion.div
@@ -70,14 +85,82 @@ export function TimelineNode({ experience, index, onCaseStudyClick }: TimelineNo
               <ChevronRight className={`ml-2 h-4 w-4 transition-transform ${isExpanded ? 'rotate-90' : ''}`} />
             </Button>
           )}
-          {experience.caseStudyId && onCaseStudyClick && (
-            <Button
-              variant="outline"
-              onClick={() => onCaseStudyClick(experience.caseStudyId!)}
-              className="mt-4 border-border-accent hover:bg-bg-card"
-            >
-              View Case Study
-            </Button>
+          {caseStudy && (
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="mt-4 border-border-accent hover:bg-bg-card !text-black dark:!text-white hidden sm:inline-flex w-full sm:w-auto"
+                >
+                  View Case Study
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="w-[92vw] max-w-[26rem] sm:max-w-xl rounded-xl bg-bg-card border-border-subtle">
+                <DialogHeader>
+                  <DialogTitle className="text-2xl sm:text-3xl font-bold !text-black dark:!text-white">
+                    {caseStudy.title}
+                  </DialogTitle>
+                  <DialogDescription className="!text-black dark:!text-white text-base sm:text-lg">
+                    {caseStudy.company}
+                  </DialogDescription>
+                </DialogHeader>
+                
+                <div className="space-y-6 mt-4 text-sm sm:text-base">
+                  <div>
+                    <h3 className="text-lg sm:text-xl font-semibold !text-black dark:!text-white mb-2">Context</h3>
+                    <p className="!text-black dark:!text-white leading-relaxed">{caseStudy.context}</p>
+                  </div>
+                  
+                  <div>
+                    <h3 className="text-lg sm:text-xl font-semibold !text-black dark:!text-white mb-2">What I Did</h3>
+                    <ul className="space-y-2">
+                      {caseStudy.whatIDid.map((item, i) => (
+                        <li key={i} className="!text-black dark:!text-white flex items-start gap-2">
+                          <span className="text-gradient-purple mt-1.5 flex-shrink-0">•</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  
+                  <div>
+                    <h3 className="text-lg sm:text-xl font-semibold !text-black dark:!text-white mb-2">Impact</h3>
+                    <ul className="space-y-2">
+                      {caseStudy.impact.map((item, i) => (
+                        <li key={i} className="!text-black dark:!text-white flex items-start gap-2">
+                          <span className="text-gradient-blue mt-1.5 flex-shrink-0">✓</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  
+                  <div>
+                    <h3 className="text-lg sm:text-xl font-semibold !text-black dark:!text-white mb-2">Tech Stack</h3>
+                    <div className="flex flex-wrap gap-2">
+                      {caseStudy.techStack.map((tech) => (
+                        <Badge
+                          key={tech}
+                          variant="outline"
+                          className="border-border-accent !text-black dark:!text-white"
+                        >
+                          {tech}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <DialogFooter className="flex justify-end mt-4 sm:mt-6">
+                  <DialogClose asChild>
+                    <Button variant="outline" size="sm" className="!text-black dark:!text-white">
+                      Close
+                    </Button>
+                  </DialogClose>
+                </DialogFooter>
+              </DialogContent>
+            </Dialog>
           )}
           <div className="flex flex-wrap gap-2 mt-4">
             {experience.techStack.slice(0, 6).map((tech) => (
