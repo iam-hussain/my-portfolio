@@ -7,7 +7,7 @@ export function ValuePillars() {
   return (
     <section
       id="what-i-do"
-      className="relative py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8"
+      className="relative py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 scroll-mt-36 md:scroll-mt-40"
       aria-label="What I Do section"
     >
       <div className="max-w-7xl mx-auto">

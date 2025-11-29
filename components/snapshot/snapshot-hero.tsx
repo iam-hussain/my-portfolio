@@ -67,7 +67,7 @@ export function SnapshotHero() {
     <section
       ref={sectionRef}
       id="home"
-      className="relative min-h-screen flex items-center justify-center w-full px-0 lg:py-6 overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center w-full px-0 pt-24 md:pt-32 lg:py-6 overflow-hidden scroll-mt-36 md:scroll-mt-40"
       aria-label="Hero section"
     >
       <div className="relative z-20 w-full">
