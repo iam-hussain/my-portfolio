@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
-import { personalInfo } from '@/lib/data/personal-info'
+import { siteConfig } from '@/src/config/site'
 import { ThemeProvider } from '@/components/theme/theme-provider'
 
 const geistSans = Geist({
@@ -15,11 +15,15 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Jakir Hussain | Senior Full-Stack Engineer',
-  description:
-    'Senior Full-Stack Engineer with 8+ years building cloud-native, AI-integrated platforms using Node.js, React, and GraphQL. Specializes in microservice architecture, CI/CD automation, and cloud deployments.',
+  metadataBase: new URL(siteConfig.links.website),
+  title: {
+    default: `${siteConfig.personal.fullName} | ${siteConfig.personal.role}`,
+    template: `%s | ${siteConfig.personal.fullName}`,
+  },
+  description: siteConfig.personal.headline,
   keywords: [
     'Full-Stack Engineer',
+    'Senior Full-Stack Engineer',
     'Next.js',
     'Node.js',
     'GraphQL',
@@ -31,28 +35,70 @@ export const metadata: Metadata = {
     'Open Finance',
     'FinTech',
     'Dubai',
+    'Remote Engineer',
+    'Cloud-Native',
+    'Microservices',
+    'CI/CD',
+    'Product-Focused Engineer',
+    'Performance-Driven',
+    'AI Integration',
+    'LangChain',
+    'OpenAI',
   ],
-  authors: [{ name: 'Jakir Hussain' }],
-  creator: 'Jakir Hussain',
-  publisher: 'Jakir Hussain',
+  authors: [{ name: siteConfig.personal.fullName }],
+  creator: siteConfig.personal.fullName,
+  publisher: siteConfig.personal.fullName,
+  applicationName: `${siteConfig.personal.fullName} Portfolio`,
+  referrer: 'origin-when-cross-origin',
   openGraph: {
-    title: 'Jakir Hussain | Senior Full-Stack Engineer',
-    description: 'Building fast, resilient, and delightful digital experiences across frontend, backend, and cloud.',
-    url: personalInfo.website,
-    siteName: 'Jakir Hussain Portfolio',
     type: 'website',
     locale: 'en_US',
+    url: siteConfig.links.website,
+    siteName: `${siteConfig.personal.fullName} Portfolio`,
+    title: `${siteConfig.personal.fullName} | ${siteConfig.personal.role}`,
+    description: siteConfig.personal.headline,
+    images: [
+      {
+        url: '/share.jpg',
+        width: 1200,
+        height: 630,
+        alt: `${siteConfig.personal.fullName} - ${siteConfig.personal.role}`,
+        type: 'image/jpeg',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Jakir Hussain | Senior Full-Stack Engineer',
-    description: 'Building fast, resilient, and delightful digital experiences',
+    title: `${siteConfig.personal.fullName} | ${siteConfig.personal.role}`,
+    description: siteConfig.personal.headline,
+    images: ['/share.jpg'],
+    creator: `@${siteConfig.personal.shortName.toLowerCase()}`,
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
-  metadataBase: new URL(personalInfo.website),
+  icons: {
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+    ],
+    apple: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+    ],
+  },
+  manifest: '/manifest.json',
+  alternates: {
+    canonical: siteConfig.links.website,
+  },
+  category: 'Portfolio',
+  classification: 'Personal Portfolio',
 }
 
 export default function RootLayout({
@@ -63,21 +109,49 @@ export default function RootLayout({
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Person',
-    name: personalInfo.name,
-    jobTitle: personalInfo.title,
-    url: personalInfo.website,
-    email: personalInfo.email,
-    telephone: personalInfo.phone,
+    name: siteConfig.personal.fullName,
+    givenName: siteConfig.personal.shortName,
+    jobTitle: siteConfig.personal.role,
+    url: siteConfig.links.website,
+    email: siteConfig.contact.email,
+    telephone: siteConfig.contact.phone,
     address: {
       '@type': 'PostalAddress',
-      addressLocality: personalInfo.location,
+      addressLocality: siteConfig.personal.location,
     },
-    sameAs: [personalInfo.linkedin, personalInfo.github],
+    sameAs: [
+      siteConfig.links.linkedin,
+      siteConfig.links.github,
+      siteConfig.contact.calendly,
+    ],
+    knowsAbout: [
+      'Full-Stack Development',
+      'Node.js',
+      'React',
+      'TypeScript',
+      'GraphQL',
+      'AWS',
+      'Cloud Architecture',
+      'Microservices',
+      'CI/CD',
+      'Open Finance',
+      'AI Integration',
+    ],
+    alumniOf: {
+      '@type': 'Organization',
+      name: 'Software Engineering',
+    },
   }
 
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+        <meta name="format-detection" content="telephone=no" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

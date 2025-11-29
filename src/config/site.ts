@@ -18,6 +18,7 @@ export const siteConfig = {
     resumeUrl: '/jakir_full_stack_resume.pdf',
     linkedin: 'https://linkedin.com/in/jakirhussain18',
     github: 'https://github.com/jakirhussain18',
+    website: 'https://iam-hussain.site',
   },
   ctaLabels: {
     primaryHero: 'Explore My Work',

@@ -1,0 +1,22 @@
+{
+  "name": "Jakir Hussain - Senior Full-Stack Engineer Portfolio",
+  "short_name": "Jakir Hussain",
+  "description": "Portfolio of Jakir Hussain, Senior Full-Stack Engineer specializing in cloud-native, AI-integrated platforms",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0d0d0d",
+  "theme_color": "#2196f3",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["portfolio", "developer", "technology"],
+  "lang": "en-US",
+  "dir": "ltr"
+}
+
