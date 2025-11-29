@@ -16,7 +16,7 @@ export function Footer() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-sm sm:text-base !text-black dark:!text-white hover:opacity-80 transition-colors min-h-[44px] flex items-center"
+                className="text-xs sm:text-sm md:text-base !text-black dark:!text-white hover:opacity-80 transition-colors min-h-[44px] flex items-center"
               >
                 {item.label}
               </Link>
