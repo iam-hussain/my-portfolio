@@ -98,7 +98,7 @@ export function SnapshotHero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-          className="relative backdrop-blur-xl rounded-[0.5rem] p-8 sm:p-12 md:p-16 lg:p-20 mx-auto border border-slate-200/60 dark:border-white/10 bg-white/5 dark:bg-slate-900/10 sm:bg-white/10 sm:dark:bg-slate-900/30 shadow-none sm:[box-shadow:0_10px_20px_rgba(0,0,0,0.1)]"
+          className="relative backdrop-blur-xl rounded-[0.5rem] p-8 sm:p-12 md:p-16 lg:p-20 mx-auto border-none sm:border sm:border-slate-200/60 dark:sm:border-white/10 bg-white/5 dark:bg-slate-900/10 sm:bg-white/10 sm:dark:bg-slate-900/30 shadow-none sm:[box-shadow:0_10px_20px_rgba(0,0,0,0.1)]"
         >
           {/* Inner Highlight */}
           <div 
