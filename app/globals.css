@@ -39,6 +39,7 @@
 
 /* Light Theme Variables */
 .light {
+  --color-black: #363131;
   /* Base Background Colors */
   --color-bg-primary: #ffffff;
   --color-bg-secondary: #f8f9fa;
