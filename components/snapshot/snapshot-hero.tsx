@@ -76,8 +76,8 @@ export function SnapshotHero() {
               {siteConfig.personal.fullName.toUpperCase()}
             </motion.h1>
             
-            {/* Role - Subtle accent colors */}
-            <motion.p
+            {/* Role - Subtle accent colors, split into two lines */}
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.6 }}
@@ -85,14 +85,13 @@ export function SnapshotHero() {
             >
               {siteConfig.personal.role.includes('—') ? (
                 <>
-                  <span className="text-white">{siteConfig.personal.role.split('—')[0]}</span>
-                  <span className="text-[#8b5cf6]"> — </span>
-                  <span className="text-[#3b82f6]">{siteConfig.personal.role.split('—')[1]}</span>
+                  <div className="text-white">{siteConfig.personal.role.split('—')[0]}</div>
+                  <div className="text-[#3b82f6]">{siteConfig.personal.role.split('—')[1]}</div>
                 </>
               ) : (
-                <span className="text-white">{siteConfig.personal.role}</span>
+                <div className="text-white">{siteConfig.personal.role}</div>
               )}
-            </motion.p>
+            </motion.div>
             
             {/* Tech line */}
             <motion.p
