@@ -40,14 +40,14 @@
   --color-bg-primary: #ffffff;
   --color-bg-secondary: #f8f9fa;
   --color-bg-tertiary: #e9ecef;
-  --color-bg-card: rgba(255, 255, 255, 0.9);
-  --color-bg-overlay: rgba(255, 255, 255, 0.95);
+  --color-bg-card: rgba(255, 255, 255, 0.95);
+  --color-bg-overlay: rgba(255, 255, 255, 0.98);
 
   /* Text Colors - Darker for better contrast */
-  --color-text-primary: #1a1a1a;
-  --color-text-secondary: #3a3a3a;
-  --color-text-muted: #5a5a5a;
-  --color-text-accent: #2196f3;
+  --color-text-primary: #0a0a0a;
+  --color-text-secondary: #2a2a2a;
+  --color-text-muted: #4a4a4a;
+  --color-text-accent: #1976d2;
   
   /* Gradient colors for hero title - darker blue for light theme */
   --gradient-hero-start: #1a1a1a;
@@ -60,8 +60,8 @@
   --gradient-subtitle-end: #004d40;
 
   /* Interactive States */
-  --color-border-subtle: rgba(0, 0, 0, 0.1);
-  --color-border-accent: rgba(139, 92, 246, 0.5);
+  --color-border-subtle: rgba(0, 0, 0, 0.12);
+  --color-border-accent: rgba(139, 92, 246, 0.6);
 
   /* Semantic Colors (for shadcn/ui compatibility) */
   --background: var(--color-bg-primary);
@@ -83,14 +83,14 @@
   --color-bg-primary: #0d0d0d;
   --color-bg-secondary: #151520;
   --color-bg-tertiary: #1a1a2e;
-  --color-bg-card: rgba(21, 21, 32, 0.85);
-  --color-bg-overlay: rgba(13, 13, 13, 0.95);
+  --color-bg-card: rgba(21, 21, 32, 0.92);
+  --color-bg-overlay: rgba(13, 13, 13, 0.98);
 
-  /* Text Colors - Darker for better contrast on gradient backgrounds */
-  --color-text-primary: #e8e8e8;
-  --color-text-secondary: #c8c8c8;
-  --color-text-muted: #a8a8a8;
-  --color-text-accent: #2196f3;
+  /* Text Colors - Lighter for better contrast on dark backgrounds */
+  --color-text-primary: #f5f5f5;
+  --color-text-secondary: #d4d4d4;
+  --color-text-muted: #b3b3b3;
+  --color-text-accent: #42a5f5;
   
   /* Gradient colors for hero title - lighter for dark theme */
   --gradient-hero-start: #fdfdfd;
@@ -103,8 +103,8 @@
   --gradient-subtitle-end: #80deea;
 
   /* Interactive States */
-  --color-border-subtle: rgba(255, 255, 255, 0.1);
-  --color-border-accent: rgba(33, 150, 243, 0.5);
+  --color-border-subtle: rgba(255, 255, 255, 0.15);
+  --color-border-accent: rgba(66, 165, 245, 0.6);
 
   /* Semantic Colors (for shadcn/ui compatibility) */
   --background: var(--color-bg-primary);

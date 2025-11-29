@@ -64,17 +64,9 @@ export function SnapshotHero() {
     <section
       ref={sectionRef}
       id="home"
-      className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-16 sm:py-20 overflow-hidden bg-background"
+      className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-16 sm:py-20 overflow-hidden"
       aria-label="Hero section"
     >
-      {/* 1) Background Illustration - Full Width/Cover */}
-      <div 
-        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat bg-[url('/hero-bg-light.svg')] dark:bg-[url('/hero-bg-dark.svg')]"
-      />
-      
-      {/* 1) Gradient Overlay - Theme-aware */}
-      <div className="absolute inset-0 z-10 bg-gradient-to-b from-background/40 via-background/20 to-transparent dark:from-background/90 dark:via-background/50 dark:to-transparent" />
-
       <div className="relative z-20 max-w-5xl w-full">
         
         {/* Optional Floating Pills */}

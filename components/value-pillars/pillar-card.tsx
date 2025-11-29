@@ -17,7 +17,7 @@ export function PillarCard({ pillar, index }: PillarCardProps) {
       viewport={{ once: true, margin: '-100px' }}
       transition={{ delay: index * 0.1 }}
     >
-      <Card className="h-full border-border-subtle bg-bg-card/50 backdrop-blur-sm hover:border-border-accent hover:glow-effect-hover transition-all group cursor-pointer">
+      <Card className="h-full border-border-subtle bg-bg-card/70 dark:bg-bg-card/80 backdrop-blur-md hover:border-border-accent hover:glow-effect-hover transition-all group cursor-pointer shadow-sm hover:shadow-md">
         <CardHeader>
           <CardTitle className="text-xl sm:text-2xl font-bold text-text-primary mb-2">
             {pillar.title}

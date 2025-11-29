@@ -13,9 +13,9 @@ interface ProjectCardProps {
 }
 
 const statusColors = {
-  Live: 'bg-green-500/20 text-green-400 border-green-500/50',
-  WIP: 'bg-yellow-500/20 text-yellow-400 border-yellow-500/50',
-  Prototype: 'bg-blue-500/20 text-blue-400 border-blue-500/50',
+  Live: 'bg-green-500/20 dark:bg-green-500/30 text-green-600 dark:text-green-400 border-green-500/50 dark:border-green-400/60',
+  WIP: 'bg-yellow-500/20 dark:bg-yellow-500/30 text-yellow-600 dark:text-yellow-400 border-yellow-500/50 dark:border-yellow-400/60',
+  Prototype: 'bg-blue-500/20 dark:bg-blue-500/30 text-blue-600 dark:text-blue-400 border-blue-500/50 dark:border-blue-400/60',
 }
 
 export function ProjectCard({ project, index }: ProjectCardProps) {
@@ -26,7 +26,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       viewport={{ once: true, margin: '-100px' }}
       transition={{ delay: index * 0.1 }}
     >
-      <Card className="h-full border-border-subtle bg-bg-card/50 backdrop-blur-sm hover:border-border-accent hover:glow-effect-hover transition-all group">
+      <Card className="h-full border-border-subtle bg-bg-card/70 dark:bg-bg-card/80 backdrop-blur-md hover:border-border-accent hover:glow-effect-hover transition-all group shadow-sm hover:shadow-md">
         <CardHeader>
           <div className="flex items-start justify-between gap-4 mb-2">
             <CardTitle className="text-xl sm:text-2xl font-bold text-text-primary">

@@ -37,7 +37,7 @@ export function TimelineNode({ experience, index, onCaseStudyClick }: TimelineNo
       </div>
 
       {/* Content Card */}
-      <Card className="flex-1 border-border-subtle bg-bg-card/50 backdrop-blur-sm hover:border-border-accent hover:glow-effect-hover transition-all">
+      <Card className="flex-1 border-border-subtle bg-bg-card/70 dark:bg-bg-card/80 backdrop-blur-md hover:border-border-accent hover:glow-effect-hover transition-all shadow-sm hover:shadow-md">
         <CardHeader>
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
             <div>

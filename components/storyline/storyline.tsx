@@ -22,7 +22,7 @@ export function Storyline() {
     <>
     <section
       id="work"
-      className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8"
+      className="relative py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8"
       aria-label="Work section"
     >
         <div className="max-w-7xl mx-auto">

@@ -8,10 +8,10 @@ export function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="border-t border-border-subtle py-6 sm:py-8 px-4 sm:px-6 lg:px-8 bg-bg-secondary/30">
+    <footer className="border-t border-border-subtle py-3 sm:py-4 px-4 sm:px-6 lg:px-8 bg-bg-card/50 dark:bg-bg-card/60 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6">
-          <div className="flex flex-wrap justify-center md:justify-start gap-3 sm:gap-4 md:gap-8">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-3 sm:gap-4">
+          <div className="flex flex-wrap justify-center md:justify-start gap-2 sm:gap-3 md:gap-6">
             {siteConfig.navigation.main.map((item) => (
               <Link
                 key={item.href}
@@ -23,7 +23,7 @@ export function Footer() {
             ))}
           </div>
           
-          <div className="flex gap-3 sm:gap-4">
+          <div className="flex gap-2 sm:gap-3">
             {siteConfig.socialIcons
               .filter((social) => ['github', 'linkedin', 'email'].includes(social.type))
               .map((social) => {
@@ -38,7 +38,7 @@ export function Footer() {
                     href={social.href}
                     target={social.type !== 'email' ? '_blank' : undefined}
                     rel={social.type !== 'email' ? 'noopener noreferrer' : undefined}
-                    className="p-2.5 sm:p-2 rounded-full border border-border-subtle bg-bg-card/50 hover:border-border-accent hover:glow-effect-hover transition-all min-h-[44px] min-w-[44px] flex items-center justify-center"
+                    className="p-2.5 sm:p-2 rounded-full border border-border-subtle bg-bg-card/70 dark:bg-bg-card/80 hover:border-border-accent hover:glow-effect-hover transition-all min-h-[44px] min-w-[44px] flex items-center justify-center shadow-sm"
                     aria-label={`${social.type} profile`}
                   >
                     <IconComponent className="h-5 w-5 text-text-secondary hover:text-text-primary" />
@@ -48,7 +48,7 @@ export function Footer() {
           </div>
         </div>
         
-        <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-border-subtle text-center">
+        <div className="pt-3 sm:pt-4 border-t border-border-subtle text-center">
           <p className="text-text-muted text-xs sm:text-sm">
             © {currentYear} {siteConfig.personal.fullName}. All rights reserved.
           </p>

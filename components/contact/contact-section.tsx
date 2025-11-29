@@ -12,7 +12,7 @@ export function ContactSection() {
     <>
       <section
         id="contact"
-        className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8"
+        className="relative py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8"
         aria-label="Contact section"
       >
         <div className="max-w-4xl mx-auto">
@@ -97,7 +97,7 @@ export function ContactSection() {
                 </Button>
               </div>
               
-              <div className="mt-6 sm:mt-8 p-4 rounded-lg border border-border-subtle bg-bg-card/30 backdrop-blur-sm">
+              <div className="mt-6 sm:mt-8 p-4 rounded-lg border border-border-subtle bg-bg-card/70 dark:bg-bg-card/80 backdrop-blur-sm shadow-sm">
                 <div className="space-y-2 text-xs sm:text-sm text-text-secondary">
                   <p className="flex items-center gap-2">
                     <span>📍</span>

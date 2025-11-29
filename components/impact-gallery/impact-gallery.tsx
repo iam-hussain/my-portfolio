@@ -7,7 +7,7 @@ export function ImpactGallery() {
   return (
     <section
       id="highlights"
-      className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-bg-secondary/30"
+      className="relative py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8"
       aria-label="Highlights section"
     >
       <div className="max-w-7xl mx-auto">

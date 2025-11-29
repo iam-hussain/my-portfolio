@@ -22,7 +22,7 @@ export function ImpactTile({ metric, index }: ImpactTileProps) {
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
     >
-      <Card className="h-full border-border-subtle bg-bg-card/50 backdrop-blur-sm hover:border-border-accent hover:glow-effect-hover transition-all cursor-pointer group overflow-hidden relative">
+      <Card className="h-full border-border-subtle bg-bg-card/70 dark:bg-bg-card/80 backdrop-blur-md hover:border-border-accent hover:glow-effect-hover transition-all cursor-pointer group overflow-hidden relative shadow-sm hover:shadow-md">
         <div className={`absolute inset-0 gradient-card-hover opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
         <CardContent className="p-5 sm:p-6 md:p-8 relative z-10">
           <div className="mb-3 sm:mb-4">

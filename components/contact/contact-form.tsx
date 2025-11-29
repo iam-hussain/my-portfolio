@@ -81,7 +81,7 @@ export function ContactForm() {
                 <Input
                   {...field}
                   placeholder="Your name"
-                  className="bg-bg-card border-border-subtle text-text-primary placeholder:text-text-muted focus:border-border-accent min-h-[44px] w-full"
+                  className="bg-bg-card/90 dark:bg-bg-card/90 border-border-subtle text-text-primary placeholder:text-text-muted focus:border-border-accent focus:ring-2 focus:ring-border-accent/20 min-h-[44px] w-full"
                   aria-required="true"
                 />
               </FormControl>
@@ -101,7 +101,7 @@ export function ContactForm() {
                   {...field}
                   type="email"
                   placeholder="your.email@example.com"
-                  className="bg-bg-card border-border-subtle text-text-primary placeholder:text-text-muted focus:border-border-accent min-h-[44px] w-full"
+                  className="bg-bg-card/90 dark:bg-bg-card/90 border-border-subtle text-text-primary placeholder:text-text-muted focus:border-border-accent focus:ring-2 focus:ring-border-accent/20 min-h-[44px] w-full"
                   aria-required="true"
                 />
               </FormControl>
@@ -121,7 +121,7 @@ export function ContactForm() {
                   {...field}
                   placeholder="Your message..."
                   rows={6}
-                  className="bg-bg-card border-border-subtle text-text-primary placeholder:text-text-muted focus:border-border-accent resize-none w-full"
+                  className="bg-bg-card/90 dark:bg-bg-card/90 border-border-subtle text-text-primary placeholder:text-text-muted focus:border-border-accent focus:ring-2 focus:ring-border-accent/20 resize-none w-full"
                   aria-required="true"
                 />
               </FormControl>
