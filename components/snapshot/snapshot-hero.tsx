@@ -67,10 +67,10 @@ export function SnapshotHero() {
     <section
       ref={sectionRef}
       id="home"
-      className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-16 sm:py-20 overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center w-full px-0 py-16 sm:py-20 overflow-hidden"
       aria-label="Hero section"
     >
-      <div className="relative z-20 max-w-6xl sm:max-w-6xl md:max-w-7xl lg:max-w-7xl xl:max-w-7xl w-full">
+      <div className="relative z-20 w-full">
         
         {/* Optional Floating Pills */}
         <div className="absolute inset-0 pointer-events-none hidden md:block">
@@ -98,11 +98,11 @@ export function SnapshotHero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-          className="relative backdrop-blur-xl rounded-[0.5rem] p-8 sm:p-12 md:p-16 lg:p-20 mx-auto border border-slate-200/60 dark:border-white/10 bg-white/30 dark:bg-slate-900/30 shadow-2xl"
+          className="relative backdrop-blur-xl rounded-[0.5rem] p-8 sm:p-12 md:p-16 lg:p-20 mx-auto border border-slate-200/60 dark:border-white/10 bg-white/5 dark:bg-slate-900/10 sm:bg-white/10 sm:dark:bg-slate-900/30 shadow-none sm:[box-shadow:0_10px_20px_rgba(0,0,0,0.1)]"
         >
           {/* Inner Highlight */}
           <div 
-            className="absolute inset-0 rounded-[0.5rem] pointer-events-none bg-gradient-to-b from-white/30 to-transparent dark:from-white/5 dark:to-transparent"
+            className="absolute inset-0 rounded-[0.5rem] pointer-events-none bg-transparent sm:bg-gradient-to-b sm:from-white/30 sm:to-transparent dark:sm:from-white/5 dark:sm:to-transparent"
           />
 
           <div className="flex flex-col items-center text-center relative z-10">
@@ -195,7 +195,7 @@ export function SnapshotHero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8, duration: 0.8 }}
-                className="flex flex-wrap gap-6 justify-center"
+                className="flex flex-nowrap sm:flex-wrap gap-3 sm:gap-6 justify-center w-full overflow-visible"
               >
                 {siteConfig.socialIcons.map((social) => {
                   const IconComponent = 
@@ -213,15 +213,15 @@ export function SnapshotHero() {
                       rel={social.type !== 'email' ? 'noopener noreferrer' : undefined}
                       variants={floatingBubble}
                       animate="animate"
-                      className="group relative p-[2px] rounded-full overflow-hidden transition-transform hover:scale-110"
+                      className="group relative shrink-0"
                       aria-label={`${social.type} profile`}
                     >
                       {/* Gradient Border Effect */}
-                      <div className="absolute inset-0 bg-gradient-to-tr from-blue-400 via-purple-400 to-pink-400 opacity-70 group-hover:opacity-100 transition-opacity" />
+                      <div className="absolute inset-0 bg-gradient-to-tr from-blue-400 via-purple-400 to-pink-400 opacity-70 group-hover:opacity-100 transition-opacity rounded-full p-[2px]" />
                       
                       {/* Inner Content */}
-                      <div className="relative bg-white dark:bg-slate-900 p-3 rounded-full">
-                        <IconComponent className="h-6 w-6 text-slate-700 dark:text-slate-300 group-hover:text-[#1976d2] dark:group-hover:text-[#2196f3] transition-colors" />
+                      <div className="relative bg-white dark:bg-slate-900 p-2.5 sm:p-3 rounded-full transition-transform hover:scale-110">
+                        <IconComponent className="h-4 w-4 sm:h-6 sm:w-6 text-slate-700 dark:text-slate-300 group-hover:text-[#1976d2] dark:group-hover:text-[#2196f3] transition-colors" />
                       </div>
                     </motion.a>
                   )
