@@ -2,8 +2,8 @@ import { Experience } from '@/lib/types'
 
 export const experiences: Experience[] = [
   {
-    id: 'syncechron',
-    company: 'Syncechron Technologies LLC',
+    id: 'emirates-nbd',
+    company: 'Emirates NBD',
     role: 'Lead - Technology',
     period: 'DEC 2024 - Current',
     location: 'Dubai, UAE',
