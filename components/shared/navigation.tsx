@@ -24,18 +24,19 @@ export function Navigation() {
 
   const handleNavClick = (href: string) => {
     setIsMobileMenuOpen(false)
-    const element = document.querySelector(href)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    }
+    // Small delay to ensure menu closes before scrolling
+    setTimeout(() => {
+      const element = document.querySelector(href)
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
+    }, 100)
   }
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-bg-card/80 backdrop-blur-xl border-b border-border-subtle shadow-lg'
-          : 'bg-transparent'
+      className={`sticky md:fixed top-0 left-0 right-0 z-[100] transition-all duration-300 bg-bg-card/80 backdrop-blur-xl border-b border-border-subtle ${
+        isScrolled ? 'shadow-lg' : ''
       }`}
       role="navigation"
       aria-label="Main navigation"
@@ -99,7 +100,7 @@ export function Navigation() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden bg-bg-card/95 backdrop-blur-xl border-t border-border-subtle overflow-hidden"
+            className="md:hidden bg-bg-card/95 backdrop-blur-xl border-t border-border-subtle overflow-hidden pointer-events-auto"
           >
             <div className="px-4 py-4 space-y-2">
               {navItems.map((item) => (
@@ -107,19 +108,15 @@ export function Navigation() {
                   key={item.href}
                   onClick={(e) => {
                     e.preventDefault()
+                    e.stopPropagation()
                     handleNavClick(item.href)
                   }}
-                  className="block w-full text-left px-4 py-3 !text-black dark:!text-white hover:opacity-80 hover:bg-bg-secondary rounded-lg transition-colors font-medium min-h-[44px]"
+                  className="block w-full text-left px-4 py-3 !text-black dark:!text-white hover:opacity-80 hover:bg-bg-secondary rounded-lg transition-colors font-medium min-h-[44px] relative z-10"
                   aria-label={`Navigate to ${item.label} section`}
                 >
                   {item.label}
                 </button>
               ))}
-              <div className="pt-2 border-t border-border-subtle">
-                <div className="px-4 py-2">
-                  <ThemeToggle />
-                </div>
-              </div>
             </div>
           </motion.div>
         )}

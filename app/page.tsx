@@ -1,4 +1,5 @@
 import { Navigation } from '@/components/shared/navigation'
+import { ScrollToTop } from '@/components/shared/scroll-to-top'
 import { SnapshotHero } from '@/components/snapshot/snapshot-hero'
 import { ValuePillars } from '@/components/value-pillars/value-pillars'
 import { ImpactGallery } from '@/components/impact-gallery/impact-gallery'
@@ -28,6 +29,7 @@ export default function Home() {
           <ContactSection />
         </main>
       </div>
+      <ScrollToTop />
     </div>
   )
 }
