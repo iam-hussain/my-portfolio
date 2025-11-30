@@ -33,7 +33,7 @@ export function Navigation() {
 
   return (
     <nav
-      className={`sticky md:fixed top-0 left-0 right-0 z-[100] transition-all duration-300 bg-bg-card/80 backdrop-blur-xl border-b border-border-subtle ${
+      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 bg-bg-card/80 backdrop-blur-xl border-b border-border-subtle ${
         isScrolled ? 'shadow-lg' : ''
       }`}
       role="navigation"
