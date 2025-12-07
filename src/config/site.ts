@@ -12,8 +12,8 @@ export const siteConfig = {
   },
   contact: {
     email: 'itsjakirhussain@gmail.com',
-    phone: '+971 58 559 1060',
-    whatsappLink: 'https://wa.me/971585591060',
+    phone: '+971 55 141 9969',
+    whatsappLink: 'https://wa.me/971551419969',
     calendly: 'https://calendly.com/iamhussain',
   },
   links: {
@@ -44,7 +44,7 @@ export const siteConfig = {
     { type: 'github', href: 'https://github.com/jakirhussain18' },
     { type: 'linkedin', href: 'https://linkedin.com/in/jakirhussain18' },
     { type: 'email', href: 'mailto:itsjakirhussain@gmail.com' },
-    { type: 'whatsapp', href: 'https://wa.me/971585591060' },
+    { type: 'whatsapp', href: 'https://wa.me/971551419969' },
     { type: 'calendly', href: 'https://calendly.com/iamhussain' },
   ],
 } as const
