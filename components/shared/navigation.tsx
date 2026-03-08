@@ -116,11 +116,7 @@ export function Navigation() {
                     {siteConfig.personal.fullName}
                   </SheetTitle>
                 </SheetHeader>
-                <div className="mt-8 flex flex-col gap-2">
-                  <div className="flex items-center justify-between px-4 py-2">
-                    <span className="text-sm text-muted-foreground">Theme</span>
-                    <ThemeToggle />
-                  </div>
+                <div className="mt-8 flex flex-col gap-1">
                   {navItems.map((item) => (
                     <button
                       key={item.href}
