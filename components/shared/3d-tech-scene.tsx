@@ -2,7 +2,8 @@
 
 import { motion } from 'framer-motion'
 import { useMotionValue, useSpring, useTransform } from 'framer-motion'
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useMemo } from 'react'
+import { seededRandom } from '@/lib/seeded-random'
 
 export function Tech3DScene() {
   const sceneRef = useRef<HTMLDivElement>(null)
@@ -36,6 +37,22 @@ export function Tech3DScene() {
   const parallaxX = useSpring(useTransform(mouseX, [-0.5, 0.5], [-15, 15]), springConfig)
   const parallaxY = useSpring(useTransform(mouseY, [-0.5, 0.5], [-15, 15]), springConfig)
 
+  const particles = useMemo(
+    () =>
+      [...Array(30)].map((_, i) => {
+        const r = (n: number) => seededRandom(i * 7 + n)
+        return {
+          delay: r(1) * 5,
+          duration: r(2) * 10 + 10,
+          left: r(3) * 100,
+          top: r(4) * 100,
+          x: r(5) * 100 - 50,
+          y: r(6) * 100 - 50,
+        }
+      }),
+    []
+  )
+
   return (
     <div
       ref={sceneRef}
@@ -44,33 +61,29 @@ export function Tech3DScene() {
     >
       {/* Background particles */}
       <div className="absolute inset-0">
-        {[...Array(30)].map((_, i) => {
-          const delay = Math.random() * 5
-          const duration = Math.random() * 10 + 10
-          return (
-            <motion.div
-              key={`particle-${i}`}
-              className="absolute w-1 h-1 rounded-full"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                backgroundColor: i % 3 === 0 ? '#8b5cf6' : i % 3 === 1 ? '#3b82f6' : '#06b6d4',
-                opacity: 0.3,
-              }}
-              animate={{
-                x: [0, Math.random() * 100 - 50, 0],
-                y: [0, Math.random() * 100 - 50, 0],
-                opacity: [0.2, 0.6, 0.2],
-              }}
-              transition={{
-                duration,
-                repeat: Infinity,
-                ease: 'linear',
-                delay,
-              }}
-            />
-          )
-        })}
+        {particles.map((p, i) => (
+          <motion.div
+            key={`particle-${i}`}
+            className="absolute w-1 h-1 rounded-full"
+            style={{
+              left: `${p.left}%`,
+              top: `${p.top}%`,
+              backgroundColor: i % 3 === 0 ? '#8b5cf6' : i % 3 === 1 ? '#3b82f6' : '#06b6d4',
+              opacity: 0.3,
+            }}
+            animate={{
+              x: [0, p.x, 0],
+              y: [0, p.y, 0],
+              opacity: [0.2, 0.6, 0.2],
+            }}
+            transition={{
+              duration: p.duration,
+              repeat: Infinity,
+              ease: 'linear',
+              delay: p.delay,
+            }}
+          />
+        ))}
       </div>
 
       {/* Main 3D Scene Container */}

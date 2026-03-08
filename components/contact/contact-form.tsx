@@ -1,6 +1,5 @@
 'use client'
 
-import { siteConfig } from '@/src/config/site'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
@@ -61,7 +60,7 @@ export function ContactForm() {
 
       setSubmitStatus('success')
       form.reset()
-    } catch (error) {
+    } catch {
       setSubmitStatus('error')
     } finally {
       setIsSubmitting(false)
@@ -136,7 +135,7 @@ export function ContactForm() {
         
         {submitStatus === 'success' && (
           <p className="text-green-400 text-sm" role="alert">
-            Thanks! I'll get back to you soon.
+            Thanks! I&apos;ll get back to you soon.
           </p>
         )}
         

@@ -2,9 +2,48 @@ import { CaseStudy } from '@/lib/types'
 
 export const caseStudies: CaseStudy[] = [
   {
+    id: 'enterprise-ai-platform',
+    title: 'Enterprise AI Platform — Emirates NBD',
+    company: 'Synechron Technologies LLC (Client: Emirates NBD)',
+    context: 'Leading the architecture and rollout of Emirates NBD\'s enterprise AI platform to standardize development of secure, production-grade LLM applications and accelerate AI adoption across engineering teams.',
+    whatIDid: [
+      'Architected and deployed centralized AI development platform enabling teams to build scalable AI applications with standardized tooling, governance controls, and reusable infrastructure',
+      'Designed reusable multi-agent orchestration frameworks using Node.js, TypeScript, LangChain, and LangGraph to simplify development of enterprise AI workflows',
+      'Built shared AI SDKs and MCP-based tool infrastructure enabling secure integration with internal enterprise systems and APIs',
+      'Established enterprise AI governance and guardrails including prompt safety, authorization controls, data masking, and compliance validation aligned with banking regulations',
+      'Collaborated with cross-functional AI engineering squad to improve developer productivity and accelerate experimentation across treasury, analytics, and operations teams',
+    ],
+    impact: [
+      'Accelerated internal AI development by enabling reusable agent frameworks adopted across multiple engineering teams',
+      'Standardized AI tooling and governance for regulated fintech environment',
+      'Reduced time-to-market for new AI-powered features across the organization',
+    ],
+    techStack: ['Node.js', 'TypeScript', 'LangChain', 'LangGraph', 'MCP', 'RAG', 'Vector Embeddings', 'OpenAI', 'Claude', 'LLaMA', 'Redis'],
+  },
+  {
+    id: 'treasury-copilot',
+    title: 'Treasury AI Copilot (Calypso Integration) — Emirates NBD',
+    company: 'Synechron Technologies LLC (Client: Emirates NBD)',
+    context: 'Architected and delivered an AI assistant enabling real-time treasury insights and operational decision support within a regulated banking environment.',
+    whatIDid: [
+      'Built multi-agent LLM system using Node.js and TypeScript enabling deterministic orchestration, tool execution, and auditable response validation',
+      'Implemented LangGraph-based agent orchestration supporting workflow control, retries, and failure isolation for complex treasury operations',
+      'Developed Retrieval-Augmented Generation (RAG) pipelines using vector embeddings to provide context-aware responses while preventing sensitive data exposure',
+      'Integrated Model Context Protocol (MCP) tools to securely invoke Calypso APIs for treasury data retrieval and operational workflows',
+      'Implemented Redis session memory and caching to maintain conversational context and enable low-latency AI responses',
+      'Integrated multiple LLM providers (OpenAI, Claude, LLaMA) with dynamic routing, fallback strategies, and sensitivity-aware response handling',
+    ],
+    impact: [
+      'Delivered production AI assistant for regulated treasury operations',
+      'Enabled secure, auditable AI responses in banking environment',
+      'Achieved low-latency conversational AI with context-aware treasury insights',
+    ],
+    techStack: ['Node.js', 'TypeScript', 'LangChain', 'LangGraph', 'MCP', 'RAG', 'Calypso APIs', 'Redis', 'OpenAI', 'Claude', 'LLaMA'],
+  },
+  {
     id: 'open-finance',
     title: 'Emirates NBD Open Finance Platform',
-    company: 'Syncechron Technologies LLC',
+    company: 'Synechron Technologies LLC (Client: Emirates NBD)',
     context: 'Led backend and API architecture for Emirates NBD\'s Open Finance Platform, developed under the UAE Central Bank\'s "Compete and Comply" Open Banking framework. The platform enables secure, consent-based financial data exchange between licensed financial institutions (LFIs) and third-party providers (TPPs).',
     whatIDid: [
       'Architected and deployed Node.js / TypeScript microservices for secure financial data exchange',
@@ -25,7 +64,7 @@ export const caseStudies: CaseStudy[] = [
   {
     id: 'caption-contest',
     title: 'The New Yorker Caption Contest AI Personalization',
-    company: 'Conde Nast Technology Lab',
+    company: 'Condé Nast Technology Lab',
     context: 'Engineered a full-stack AI personalization platform for The New Yorker Caption Contest, integrating ML-driven recommendation models with dynamic React rendering. The platform personalizes content based on real-time prediction data to boost user engagement.',
     whatIDid: [
       'Developed adaptive React/Next.js layouts connected to personalization APIs',
@@ -46,7 +85,7 @@ export const caseStudies: CaseStudy[] = [
   {
     id: 'name-drop',
     title: 'Name Drop Quiz App',
-    company: 'Conde Nast Technology Lab',
+    company: 'Condé Nast Technology Lab',
     context: 'Built "Name Drop" quiz app from Figma prototypes, creating a gamified experience that drives audience engagement. Integrated backend logic, animation-based UX, and performance profiling for a responsive, interactive experience.',
     whatIDid: [
       'Built quiz app from Figma prototypes',
@@ -63,5 +102,3 @@ export const caseStudies: CaseStudy[] = [
     techStack: ['React.js', 'Next.js', 'TypeScript', 'Framer Motion', 'GraphQL', 'Node.js'],
   },
 ]
-
-

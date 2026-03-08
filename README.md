@@ -1,214 +1,191 @@
-# Jakir Hussain - Portfolio Website
+# Jakir Hussain — Portfolio
 
-A premium, animated portfolio website built with Next.js, TypeScript, and Tailwind CSS. Features a modern dark theme with gradient effects, smooth animations, and a fully responsive design.
+A premium portfolio website for **Jakir Hussain**, Senior Full-Stack & AI Platform Engineer. Built with Next.js 16, TypeScript, Tailwind CSS v4, and shadcn/ui. Optimized for traditional SEO, AI discoverability (LLM indexing), and rich search results.
 
-## 🚀 Features
+**Live:** [iam-hussain.site](https://iam-hussain.site)
 
-- **6 Main Sections:**
-  - Snapshot (Hero section with animated gradient orb)
-  - Value Pillars (Why hire me - 4 core strengths)
-  - Impact Gallery (Metrics-first achievements)
-  - Storyline (Experience timeline with case studies)
-  - Playground (Side projects showcase)
-  - Contact (Contact form and quick actions)
+---
 
-- **Design & UX:**
-  - Dark theme with vibrant gradients
-  - Smooth animations and micro-interactions
-  - Fully responsive (mobile, tablet, desktop)
-  - Accessibility-first (WCAG AA compliant)
-  - SEO optimized with Open Graph and JSON-LD
+## Features
 
-- **Tech Stack:**
-  - Next.js 16 (App Router)
-  - TypeScript
-  - Tailwind CSS v4
-  - shadcn/ui components
-  - Framer Motion (animations)
-  - React Hook Form + Zod (form validation)
+### Sections
 
-## 📦 Setup Instructions
+- **Hero** — Snapshot hero with animated gradient, role headline, and CTAs (View Projects, Contact, Resume)
+- **Tech Strip** — Horizontal scroll of technologies (LangChain, LangGraph, RAG, Node.js, TypeScript, etc.)
+- **About** — AI Platform Engineering & Full-Stack Development overview with highlight cards
+- **Featured Projects** — Enterprise AI platforms, fintech systems, and production applications with case studies
+- **Experience** — Timeline of work history (Emirates NBD, The New Yorker, etc.)
+- **Skills** — Grouped capability clusters (AI Engineering, Backend, Frontend, Data, Infrastructure)
+- **Contact** — CTA with Email, LinkedIn, GitHub, and footer
+
+### Design & UX
+
+- Dark/light theme toggle with persistent preference
+- Smooth animations (Framer Motion)
+- Fully responsive (mobile, tablet, desktop)
+- Theme-aware scrollbars
+- Skip-to-content link for accessibility
+- Semantic HTML and ARIA labels
+
+### SEO & AI Discoverability
+
+- Full metadata (title, description, keywords, OpenGraph, Twitter Card)
+- JSON-LD structured data (Person, WebSite, WebPage, CreativeWork, SoftwareSourceCode)
+- `robots.txt` with AI crawler support (GPTBot, Claude-Web, PerplexityBot, Google-Extended)
+- `sitemap.xml` with section anchors
+- Target keywords: AI Engineer, LangChain Developer, RAG Engineer, Node.js AI Platform Engineer, etc.
+
+---
+
+## Tech Stack
+
+| Category   | Technologies                                      |
+| ---------- | ------------------------------------------------- |
+| Framework  | Next.js 16 (App Router), React 19                 |
+| Language   | TypeScript 5                                      |
+| Styling    | Tailwind CSS v4, shadcn/ui (Radix UI)              |
+| Animation  | Framer Motion                                     |
+| Forms      | React Hook Form, Zod, @hookform/resolvers         |
+| Fonts      | Geist, Geist Mono (next/font)                     |
+
+---
+
+## Setup
 
 ### Prerequisites
 
-- Node.js 18+ and npm/yarn/pnpm
-- Git
+- Node.js 18+
+- npm, yarn, or pnpm
 
 ### Installation
 
-1. Clone the repository:
 ```bash
 git clone <repository-url>
 cd my-portfolio
-```
-
-2. Install dependencies:
-```bash
 npm install
 ```
 
-3. Run the development server:
+### Development
+
 ```bash
 npm run dev
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+Open [http://localhost:3000](http://localhost:3000).
 
-### Build for Production
+### Production Build
 
 ```bash
 npm run build
 npm start
 ```
 
-## ✏️ Content Editing Guide
+---
 
-All content is stored in TypeScript data files under `lib/data/`. To update content, edit these files:
+## Content Editing
 
-### Personal Information
-**File:** `lib/data/personal-info.ts`
+### Site Configuration
 
-Update name, title, contact info, social links, and resume URL.
+| File                    | Purpose                                      |
+| ----------------------- | -------------------------------------------- |
+| `src/config/site.ts`    | Personal info, hero copy, nav, CTAs, links   |
+| `src/config/metadata.ts`| SEO metadata, OpenGraph, Twitter, keywords  |
 
-### Stat Chips (Hero Section)
-**File:** `lib/data/stat-chips.ts`
+### Data Files
 
-Modify the stat chips displayed in the hero section (e.g., "8+ yrs experience", "FinTech · Open Finance").
+| File                         | Purpose                          |
+| ---------------------------- | -------------------------------- |
+| `lib/data/featured-projects.ts` | Featured projects with summaries, tech stack, case study IDs |
+| `lib/data/experience.ts`     | Work experience timeline         |
+| `lib/data/skill-clusters.ts` | Skills grouped by category       |
+| `lib/data/case-studies.ts`   | Detailed case studies for projects |
+| `lib/data/tech-strip.ts`     | Technologies in hero tech strip  |
 
-### Value Pillars
-**File:** `lib/data/value-pillars.ts`
+### Resume
 
-Update the 4 core value pillars with descriptions and tech badges.
+Place your resume PDF in `public/` and set the path in `src/config/site.ts`:
 
-### Impact Metrics
-**File:** `lib/data/impact-metrics.ts`
-
-Add or modify achievement metrics (e.g., "+27% User Engagement").
-
-### Work Experience
-**File:** `lib/data/experience.ts`
-
-Add, remove, or update work experience entries. Each entry includes:
-- Company name, role, period, location
-- Bullet points describing achievements
-- Tech stack
-- Optional case study ID
-
-### Case Studies
-**File:** `lib/data/case-studies.ts`
-
-Create detailed case studies that can be linked from experience entries. Each case study includes:
-- Context
-- What I Did (bullet points)
-- Impact (bullet points)
-- Tech stack
-
-### Side Projects
-**File:** `lib/data/projects.ts`
-
-Add or update side projects with:
-- Name, tagline, description
-- Status (Live, WIP, or Prototype)
-- Links (live site, GitHub, demo)
-- Tech stack
-
-### Type Definitions
-**File:** `lib/types/index.ts`
-
-If you need to add new fields to any data structure, update the TypeScript interfaces here first.
-
-## 🎨 Customization
-
-### Colors & Theme
-Edit `app/globals.css` to customize:
-- Color palette (CSS variables in `:root`)
-- Gradient combinations
-- Animation keyframes
-
-### Components
-All components are in `components/` directory:
-- Section components: `components/snapshot/`, `components/value-pillars/`, etc.
-- Shared components: `components/shared/`
-- UI components: `components/ui/` (shadcn/ui)
-
-### Styling
-The project uses Tailwind CSS v4. Custom utilities are defined in `globals.css`.
-
-## 🚢 Deployment
-
-### Vercel (Recommended)
-
-1. Push your code to GitHub
-2. Import the repository in [Vercel](https://vercel.com)
-3. Vercel will automatically detect Next.js and deploy
-
-### Other Platforms
-
-The site can be deployed to any platform that supports Next.js:
-- Netlify
-- AWS Amplify
-- Railway
-- Self-hosted (Node.js server)
-
-### Environment Variables
-
-No environment variables are required for basic functionality. If you add email functionality to the contact form, you'll need to configure:
-- Email service API keys (e.g., Resend, SendGrid)
-- Add to `.env.local`:
-```
-NEXT_PUBLIC_EMAIL_SERVICE_API_KEY=your_key_here
+```ts
+links: {
+  resumeUrl: '/your-resume.pdf',
+  // ...
+}
 ```
 
-## 📁 Project Structure
+---
+
+## Project Structure
 
 ```
 my-portfolio/
 ├── app/
-│   ├── globals.css          # Global styles, theme, animations
-│   ├── layout.tsx           # Root layout with metadata
-│   └── page.tsx             # Main page with all sections
+│   ├── globals.css       # Theme, animations, scrollbar
+│   ├── layout.tsx        # Root layout, metadata, JSON-LD
+│   ├── page.tsx          # Main page
+│   ├── robots.ts         # robots.txt (AI crawlers)
+│   └── sitemap.ts        # sitemap.xml
 ├── components/
-│   ├── snapshot/            # Hero section
-│   ├── value-pillars/       # Value pillars section
-│   ├── impact-gallery/      # Impact metrics section
-│   ├── storyline/           # Experience timeline
-│   ├── playground/          # Side projects
-│   ├── contact/             # Contact form
-│   ├── shared/              # Navigation, footer, etc.
-│   └── ui/                  # shadcn/ui components
+│   ├── snapshot/         # Hero section
+│   ├── tech-strip/       # Tech badges strip
+│   ├── about/            # About section
+│   ├── featured-projects/
+│   ├── storyline/       # Experience timeline
+│   ├── skills/
+│   ├── contact/
+│   ├── shared/           # Nav, footer, theme toggle, scroll-to-top
+│   ├── theme/            # ThemeProvider
+│   └── ui/               # shadcn/ui components
 ├── lib/
-│   ├── data/                # All content data files
-│   ├── types/                # TypeScript type definitions
-│   └── utils.ts             # Utility functions
-├── public/                  # Static assets
-└── PROJECT_PLAN.md          # Detailed implementation plan
+│   ├── data/             # Content data files
+│   ├── seo/              # Structured data (JSON-LD)
+│   ├── types/
+│   └── utils.ts
+├── src/config/           # site.ts, metadata.ts
+├── public/
+│   ├── share.jpg         # OpenGraph image (1200×630)
+│   ├── favicon.svg
+│   └── manifest.json
+└── docs/
+    └── SEO_IMPROVEMENTS.md
 ```
 
-## 🛠️ Development
+---
 
-### Linting
-```bash
-npm run lint
-```
+## Deployment
 
-### Type Checking
-```bash
-npx tsc --noEmit
-```
+### Vercel (Recommended)
 
-## 📝 Notes
+1. Push to GitHub
+2. Import in [Vercel](https://vercel.com)
+3. Deploy (auto-detects Next.js)
 
-- The contact form currently logs to console. To enable email sending, integrate with an email service (Resend, SendGrid, etc.) in `components/contact/contact-form.tsx`.
-- Resume PDF should be placed in `public/` directory and referenced in `lib/data/personal-info.ts`.
-- All sections are fully responsive and tested on mobile, tablet, and desktop breakpoints.
+### Environment Variables
 
-## 📄 License
+No environment variables required for basic functionality. For contact form email delivery, add your email service API key to `.env.local`.
 
-This project is private and proprietary.
+---
 
-## 👤 Author
+## Scripts
 
-**Jakir Hussain**
+| Command        | Description              |
+| -------------- | ------------------------ |
+| `npm run dev`  | Start dev server         |
+| `npm run build`| Production build        |
+| `npm start`    | Start production server  |
+| `npm run lint`| Run ESLint              |
+
+---
+
+## Author
+
+**Jakir Hussain** — Senior Full-Stack & AI Platform Engineer
+
 - Website: [iam-hussain.site](https://iam-hussain.site)
 - LinkedIn: [linkedin.com/in/iam-hussain](https://linkedin.com/in/iam-hussain)
 - GitHub: [github.com/iam-hussain](https://github.com/iam-hussain)
+
+---
+
+## License
+
+Private and proprietary.

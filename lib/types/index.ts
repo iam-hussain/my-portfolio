@@ -40,6 +40,7 @@ export interface Experience {
   bullets: string[]
   techStack: string[]
   caseStudyId?: string
+  caseStudyIds?: string[]
 }
 
 export interface CaseStudy {
@@ -64,6 +65,23 @@ export interface Project {
     demo?: string
   }
   techStack: string[]
+  isAi?: boolean
+}
+
+export interface FeaturedProject {
+  id: string
+  title: string
+  summary: string
+  highlights: string[]
+  techStack: string[]
+  impact?: string
+  caseStudyId?: string
+}
+
+export interface SkillCluster {
+  id: string
+  title: string
+  skills: string[]
 }
 
 

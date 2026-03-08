@@ -1,31 +1,34 @@
 import { Navigation } from '@/components/shared/navigation'
 import { ScrollToTop } from '@/components/shared/scroll-to-top'
 import { SnapshotHero } from '@/components/snapshot/snapshot-hero'
-import { ValuePillars } from '@/components/value-pillars/value-pillars'
-import { ImpactGallery } from '@/components/impact-gallery/impact-gallery'
+import { TechStrip } from '@/components/tech-strip/tech-strip'
+import { AboutSection } from '@/components/about/about-section'
+import { FeaturedProjects } from '@/components/featured-projects/featured-projects'
 import { Storyline } from '@/components/storyline/storyline'
-import { Playground } from '@/components/playground/playground'
+import { SkillsSection } from '@/components/skills/skills-section'
 import { ContactSection } from '@/components/contact/contact-section'
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-background relative">
-      {/* Global Background Illustration - Full Width/Cover */}
-      <div 
-        className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat bg-[url('/hero-bg-light.svg')] dark:bg-[url('/hero-bg-dark.svg')]"
-      />
-      
-      {/* Global Gradient Overlay - Theme-aware */}
-      <div className="fixed inset-0 z-0 bg-gradient-to-b from-background/20 via-background/10 to-transparent dark:from-background/40 dark:via-background/20 dark:to-transparent sm:from-background/60 sm:via-background/30 sm:to-transparent dark:sm:from-background/90 dark:sm:via-background/50 dark:sm:to-transparent" />
-      
+      {/* Subtle gradient overlay */}
+      <div className="fixed inset-0 z-0 bg-gradient-to-b from-transparent via-transparent to-bg-primary/50 pointer-events-none" />
+
       <div className="relative z-10">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[110] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-[var(--accent-cyan)] focus:text-white focus:font-semibold focus:outline-none"
+        >
+          Skip to content
+        </a>
         <Navigation />
-        <main>
+        <main id="main-content">
           <SnapshotHero />
-          <ValuePillars />
-          <ImpactGallery />
+          <TechStrip />
+          <AboutSection />
+          <FeaturedProjects />
           <Storyline />
-          <Playground />
+          <SkillsSection />
           <ContactSection />
         </main>
       </div>

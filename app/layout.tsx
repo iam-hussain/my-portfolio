@@ -2,105 +2,54 @@ import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
 import { siteConfig } from '@/src/config/site'
+import { metadataConfig } from '@/src/config/metadata'
 import { ThemeProvider } from '@/components/theme/theme-provider'
+import { getAllStructuredData } from '@/lib/seo/structured-data'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
   subsets: ['latin'],
-  display: 'swap', // Optimize font loading
+  display: 'swap',
 })
 
 const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
   subsets: ['latin'],
-  display: 'swap', // Optimize font loading
+  display: 'swap',
 })
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.links.website),
   title: {
-    default: `${siteConfig.personal.fullName} | ${siteConfig.personal.role}`,
-    template: `%s | ${siteConfig.personal.fullName}`,
+    default: metadataConfig.title.default,
+    template: metadataConfig.title.template,
   },
-  description: siteConfig.personal.headline,
-  keywords: [
-    'Full-Stack Engineer',
-    'Senior Full-Stack Engineer',
-    'Next.js',
-    'Node.js',
-    'GraphQL',
-    'AWS',
-    'React',
-    'TypeScript',
-    'Frontend Engineer',
-    'Backend Engineer',
-    'Open Finance',
-    'FinTech',
-    'Dubai',
-    'Remote Engineer',
-    'Cloud-Native',
-    'Microservices',
-    'CI/CD',
-    'Product-Focused Engineer',
-    'Performance-Driven',
-    'AI Integration',
-    'LangChain',
-    'OpenAI',
-  ],
-  authors: [{ name: siteConfig.personal.fullName }],
-  creator: siteConfig.personal.fullName,
-  publisher: siteConfig.personal.fullName,
+  description: metadataConfig.description,
+  keywords: [...metadataConfig.keywords],
+  authors: [{ name: metadataConfig.author }],
+  creator: metadataConfig.author,
+  publisher: metadataConfig.author,
   applicationName: `${siteConfig.personal.fullName} Portfolio`,
   referrer: 'origin-when-cross-origin',
-  openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    url: siteConfig.links.website,
-    siteName: `${siteConfig.personal.fullName} Portfolio`,
-    title: `${siteConfig.personal.fullName} | ${siteConfig.personal.role}`,
-    description: siteConfig.personal.headline,
-    images: [
-      {
-        url: '/share.jpg',
-        width: 1200,
-        height: 630,
-        alt: `${siteConfig.personal.fullName} - ${siteConfig.personal.role}`,
-        type: 'image/jpeg',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: `${siteConfig.personal.fullName} | ${siteConfig.personal.role}`,
-    description: siteConfig.personal.headline,
-    images: ['/share.jpg'],
-    creator: `@${siteConfig.personal.shortName.toLowerCase()}`,
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
+  openGraph: metadataConfig.openGraph,
+  twitter: metadataConfig.twitter,
+  robots: metadataConfig.robots,
   icons: {
-    icon: [
-      { url: '/favicon.svg', type: 'image/svg+xml' },
-    ],
-    apple: [
-      { url: '/favicon.svg', type: 'image/svg+xml' },
-    ],
+    icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
+    apple: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
   },
   manifest: '/manifest.json',
   alternates: {
-    canonical: siteConfig.links.website,
+    canonical: metadataConfig.canonical,
   },
   category: 'Portfolio',
   classification: 'Personal Portfolio',
+}
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
 }
 
 export default function RootLayout({
@@ -108,67 +57,31 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Person',
-    name: siteConfig.personal.fullName,
-    givenName: siteConfig.personal.shortName,
-    jobTitle: siteConfig.personal.role,
-    url: siteConfig.links.website,
-    email: siteConfig.contact.email,
-    telephone: siteConfig.contact.phone,
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: siteConfig.personal.location,
-    },
-    sameAs: [
-      siteConfig.links.linkedin,
-      siteConfig.links.github,
-      siteConfig.contact.calendly,
-    ],
-    knowsAbout: [
-      'Full-Stack Development',
-      'Node.js',
-      'React',
-      'TypeScript',
-      'GraphQL',
-      'AWS',
-      'Cloud Architecture',
-      'Microservices',
-      'CI/CD',
-      'Open Finance',
-      'AI Integration',
-    ],
-    alumniOf: {
-      '@type': 'Organization',
-      name: 'Software Engineering',
-    },
-  }
+  const structuredData = getAllStructuredData()
 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="scrollbar-theme" suppressHydrationWarning>
       <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
         <meta name="format-detection" content="telephone=no" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
         <link rel="preload" href="/share.jpg" as="image" type="image/jpeg" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+        {structuredData.map((data, i) => (
+          <script
+            key={i}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+          />
+        ))}
         <script
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
-                document.documentElement.classList.add('dark');
-                document.documentElement.classList.remove('light');
                 try {
-                  localStorage.setItem('theme', 'dark');
-                } catch (error) {
-                  // Storage might be unavailable; ignore
+                  var stored = localStorage.getItem('theme');
+                  var theme = (stored === 'light' || stored === 'dark') ? stored : 'dark';
+                  document.documentElement.classList.remove('dark', 'light');
+                  document.documentElement.classList.add(theme);
+                } catch (e) {
+                  document.documentElement.classList.add('dark');
                 }
               })();
             `,

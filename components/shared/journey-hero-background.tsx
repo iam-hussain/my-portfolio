@@ -1,8 +1,25 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { useMemo } from 'react'
+import { seededRandom } from '@/lib/seeded-random'
 
 export function JourneyHeroBackground() {
+  const stars = useMemo(
+    () =>
+      [...Array(40)].map((_, i) => {
+        const r = (n: number) => seededRandom(i * 7 + n)
+        return {
+          cx: r(1) * 1920,
+          cy: r(2) * 600,
+          r: r(3) * 1.5 + 0.5,
+          opacity: r(4) * 0.7 + 0.3,
+          twinkle: r(5) > 0.7,
+          dur: r(6) * 3 + 2,
+        }
+      }),
+    []
+  )
+
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10">
       <svg
@@ -51,22 +68,16 @@ export function JourneyHeroBackground() {
 
         {/* Stars - Static & Twinkling */}
         <g fill="#FFF" opacity="0.8">
-          {[...Array(40)].map((_, i) => (
-            <circle
-              key={`star-${i}`}
-              cx={Math.random() * 1920}
-              cy={Math.random() * 600}
-              r={Math.random() * 1.5 + 0.5}
-              opacity={Math.random() * 0.7 + 0.3}
-            >
-               {Math.random() > 0.7 && (
+          {stars.map((s, i) => (
+            <circle key={`star-${i}`} cx={s.cx} cy={s.cy} r={s.r} opacity={s.opacity}>
+              {s.twinkle && (
                 <animate
                   attributeName="opacity"
                   values="0.3;1;0.3"
-                  dur={`${Math.random() * 3 + 2}s`}
+                  dur={`${s.dur}s`}
                   repeatCount="indefinite"
                 />
-               )}
+              )}
             </circle>
           ))}
         </g>

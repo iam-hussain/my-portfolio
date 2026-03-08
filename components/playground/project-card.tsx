@@ -19,6 +19,8 @@ const statusColors = {
 }
 
 export function ProjectCard({ project, index }: ProjectCardProps) {
+  const isAi = project.isAi ?? false
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -26,15 +28,28 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       viewport={{ once: true, margin: '-100px' }}
       transition={{ delay: index * 0.1 }}
     >
-      <Card className="h-full border-border-subtle bg-bg-card/70 dark:bg-bg-card/80 backdrop-blur-md hover:border-border-accent hover:glow-effect-hover transition-all group shadow-sm hover:shadow-md">
+      <Card
+        className={`h-full backdrop-blur-md transition-all group shadow-sm hover:shadow-md ${
+          isAi
+            ? 'border-l-4 border-l-[var(--color-gradient-purple)] border-border-subtle bg-bg-card/70 dark:bg-bg-card/80 hover:border-border-accent hover:glow-effect-hover'
+            : 'border-border-subtle bg-bg-card/70 dark:bg-bg-card/80 hover:border-border-accent hover:glow-effect-hover'
+        }`}
+      >
         <CardHeader>
           <div className="flex items-start justify-between gap-4 mb-2">
             <CardTitle className="text-xl sm:text-2xl font-bold !text-black dark:!text-white">
               {project.name}
             </CardTitle>
-            <Badge className={`${statusColors[project.status]} text-xs sm:text-sm`}>
-              {project.status}
-            </Badge>
+            <div className="flex items-center gap-2 flex-shrink-0">
+              {isAi && (
+                <Badge className="bg-[var(--color-gradient-purple)]/20 text-[var(--color-gradient-purple)] dark:text-[var(--color-gradient-blue)] border-[var(--color-gradient-purple)]/50 text-xs font-semibold">
+                  AI
+                </Badge>
+              )}
+              <Badge className={`${statusColors[project.status]} text-xs sm:text-sm`}>
+                {project.status}
+              </Badge>
+            </div>
           </div>
           <CardDescription className="!text-blue-600 dark:!text-blue-400 font-medium text-sm sm:text-base">
             {project.tagline}

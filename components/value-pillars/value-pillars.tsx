@@ -16,7 +16,7 @@ export function ValuePillars() {
             What I Do
           </h2>
           <p className="text-base sm:text-lg md:text-xl !text-black dark:!text-white max-w-2xl mx-auto px-2 sm:px-0 font-medium">
-            Core engineering strengths shaped by real-world experience building AI-powered products, cloud-native platforms, and high-scale API systems.
+            Core engineering strengths shaped by production AI systems, platform engineering, and high-scale API systems across fintech and media.
           </p>
         </div>
         

@@ -1,7 +1,7 @@
 {
-  "name": "Jakir Hussain - Senior Full-Stack Engineer Portfolio",
+  "name": "Jakir Hussain — AI Platform Engineer | LangChain, LangGraph, RAG",
   "short_name": "Jakir Hussain",
-  "description": "Portfolio of Jakir Hussain, Senior Full-Stack Engineer specializing in cloud-native, AI-integrated platforms",
+  "description": "Senior Full-Stack & AI Platform Engineer with 8+ years building enterprise AI platforms, multi-agent systems, RAG pipelines, and scalable cloud-native applications using Node.js, TypeScript, LangChain, and LangGraph.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0d0d0d",
@@ -19,4 +19,3 @@
   "lang": "en-US",
   "dir": "ltr"
 }
-

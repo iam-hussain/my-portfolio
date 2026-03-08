@@ -11,7 +11,7 @@ export function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
-    setHasClient(true)
+    const id = setTimeout(() => setHasClient(true), 0)
 
     const getScrollPosition = () =>
       window.scrollY ||
@@ -35,6 +35,7 @@ export function ScrollToTop() {
     window.addEventListener('orientationchange', updateVisibility)
 
     return () => {
+      clearTimeout(id)
       window.removeEventListener('scroll', updateVisibility)
       window.removeEventListener('touchmove', updateVisibility)
       window.removeEventListener('resize', updateVisibility)

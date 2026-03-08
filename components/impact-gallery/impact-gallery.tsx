@@ -16,7 +16,7 @@ export function ImpactGallery() {
             Highlights
           </h2>
           <p className="text-base sm:text-lg md:text-xl !text-black dark:!text-white max-w-2xl mx-auto px-2 sm:px-0 font-medium">
-            Key engineering achievements and measurable business impact.
+            Production LLM systems, enterprise AI adoption, and measurable business impact.
           </p>
         </div>
         

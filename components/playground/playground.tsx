@@ -3,6 +3,12 @@
 import { projects } from '@/lib/data/projects'
 import { ProjectCard } from './project-card'
 
+const sortedProjects = [...projects].sort((a, b) => {
+  const aIsAi = a.isAi ? 1 : 0
+  const bIsAi = b.isAi ? 1 : 0
+  return bIsAi - aIsAi
+})
+
 export function Playground() {
   return (
     <section
@@ -16,12 +22,12 @@ export function Playground() {
             Playground
           </h2>
           <p className="text-base sm:text-lg md:text-xl !text-black dark:!text-white max-w-2xl mx-auto px-2 sm:px-0 font-medium">
-            Side projects that showcase curiosity and personal initiative
+            AI experiments, production-inspired systems, and side projects
           </p>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-          {projects.map((project, index) => (
+          {sortedProjects.map((project, index) => (
             <ProjectCard key={project.id} project={project} index={index} />
           ))}
         </div>

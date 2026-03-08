@@ -1,9 +1,8 @@
 import { StatChip } from '@/lib/types'
 
 export const statChips: StatChip[] = [
-  { label: '', value: 'Next.js · React · TS' },
-  { label: '', value: 'Node.js · GraphQL · APIs' },
-  { label: '', value: 'AWS · Docker · CI/CD' },
+  { label: '', value: 'Node.js · LangChain · Agentic AI' },
+  { label: '', value: 'TypeScript · React · GraphQL' },
+  { label: '', value: 'MCP · RAG · Vector DBs' },
   { label: '', value: 'Dubai · Remote' },
 ]
-

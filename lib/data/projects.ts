@@ -2,9 +2,43 @@ import { Project } from '@/lib/types'
 
 export const projects: Project[] = [
   {
+    id: 'ai-agent-framework',
+    name: 'AI Agent Orchestration Framework',
+    tagline: 'Production-inspired multi-agent orchestration—LangGraph, MCP tools, RAG pipelines',
+    description: [
+      'Multi-agent orchestration with LangGraph workflow control, retries, and failure isolation',
+      'MCP-based tool integration for secure API and system access',
+      'RAG pipelines with vector embeddings for context-aware responses',
+      'Redis session memory and multi-LLM routing (OpenAI, Claude) with fallback strategies',
+    ],
+    status: 'WIP',
+    links: {
+      github: 'https://github.com/iam-hussain',
+    },
+    techStack: ['Node.js', 'TypeScript', 'LangChain', 'LangGraph', 'MCP', 'RAG', 'Redis', 'OpenAI'],
+    isAi: true,
+  },
+  {
+    id: 'ai-caption-ranker',
+    name: 'AI Caption Ranker (New Yorker Prototype)',
+    tagline: 'ML-powered personalization—prediction-driven ranking and engagement analytics',
+    description: [
+      'Prediction visualization UI for caption quality scoring and model outputs',
+      'Engagement insights dashboard with behavioral analytics and A/B metrics',
+      'End-to-end data pipeline: Snowplow → GraphQL → real-time UI updates',
+      'Personalization engine driving 27% engagement lift in production prototype',
+    ],
+    status: 'Prototype',
+    links: {
+      github: 'https://github.com/iam-hussain',
+    },
+    techStack: ['React', 'Next.js', 'GraphQL', 'Prisma', 'Databricks'],
+    isAi: true,
+  },
+  {
     id: 'open-finance-toolkit',
     name: 'Open Finance Developer Toolkit',
-    tagline: 'Platform-inspired set of fintech utilities from Emirates NBD Open Banking work',
+    tagline: 'Regulatory fintech utilities from Emirates NBD Open Banking—under UAE Central Bank Compete & Comply framework',
     description: [
       'Consent flow components for secure user authorization',
       'Token security helpers and mock regulatory sandbox environment',
@@ -16,22 +50,6 @@ export const projects: Project[] = [
       github: 'https://github.com/iam-hussain',
     },
     techStack: ['TypeScript', 'Node.js', 'GraphQL', 'React', '3Scale', 'OpenShift'],
-  },
-  {
-    id: 'ai-caption-ranker',
-    name: 'AI Caption Ranker (New Yorker Prototype)',
-    tagline: 'ML-powered caption ranking interface with engagement insights',
-    description: [
-      'Prediction visualization UI for caption quality scoring',
-      'Engagement insights dashboard with behavioral analytics',
-      'Snowplow→GraphQL→UI flow simulation for data pipeline',
-      'Real-time ranking updates based on ML model predictions',
-    ],
-    status: 'Prototype',
-    links: {
-      github: 'https://github.com/iam-hussain',
-    },
-    techStack: ['React', 'Next.js', 'GraphQL', 'Prisma', 'Databricks'],
   },
   {
     id: 'namedrop-quiz',
@@ -81,22 +99,4 @@ export const projects: Project[] = [
     },
     techStack: ['Node.js', 'WebSocket', 'Redis', 'React', 'D3.js'],
   },
-  {
-    id: 'ai-agent-framework',
-    name: 'AI Agent Framework (LangChain)',
-    tagline: 'Full AI agent architecture for automation and custom tasks',
-    description: [
-      'Prompt engineering module with template management system',
-      'Tools & chains builder for complex agent workflows',
-      'Memory system with conversation context and state management',
-      'Custom task automation with extensible plugin architecture',
-    ],
-    status: 'WIP',
-    links: {
-      github: 'https://github.com/iam-hussain',
-    },
-    techStack: ['Python', 'FastAPI', 'LangChain', 'OpenAI API'],
-  },
 ]
-
-

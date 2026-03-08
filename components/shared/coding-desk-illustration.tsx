@@ -1,8 +1,24 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { useMemo } from 'react'
+import { seededRandom } from '@/lib/seeded-random'
 
 export function CodingDeskIllustration() {
+  const particles = useMemo(
+    () =>
+      [...Array(15)].map((_, i) => {
+        const r = (n: number) => seededRandom(i * 7 + n)
+        return {
+          initialY: r(1) * 600,
+          initialX: r(2) * 800,
+          r: r(3) * 2 + 1,
+          duration: r(4) * 3 + 2,
+        }
+      }),
+    []
+  )
+
   return (
     <div className="relative w-full h-full flex items-center justify-center">
       <svg
@@ -60,28 +76,24 @@ export function CodingDeskIllustration() {
 
         {/* Floating particles background */}
         <g opacity="0.3">
-          {[...Array(15)].map((_, i) => {
-            const initialY = Math.random() * 600
-            const initialX = Math.random() * 800
-            return (
-              <motion.circle
-                key={`particle-${i}`}
-                cx={initialX}
-                cy={initialY}
-                r={Math.random() * 2 + 1}
-                fill="#8b5cf6"
-                animate={{
-                  cy: [initialY, initialY - 50, initialY],
-                  opacity: [0.3, 0.8, 0.3],
-                }}
-                transition={{
-                  duration: Math.random() * 3 + 2,
-                  repeat: Infinity,
-                  ease: 'easeInOut',
-                }}
-              />
-            )
-          })}
+          {particles.map((p, i) => (
+            <motion.circle
+              key={`particle-${i}`}
+              cx={p.initialX}
+              cy={p.initialY}
+              r={p.r}
+              fill="#8b5cf6"
+              animate={{
+                cy: [p.initialY, p.initialY - 50, p.initialY],
+                opacity: [0.3, 0.8, 0.3],
+              }}
+              transition={{
+                duration: p.duration,
+                repeat: Infinity,
+                ease: 'easeInOut',
+              }}
+            />
+          ))}
         </g>
 
         {/* Floating UI Panel - React Component */}

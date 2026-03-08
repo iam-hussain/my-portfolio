@@ -1,8 +1,15 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { useMemo } from 'react'
+import { seededRandom } from '@/lib/seeded-random'
 
 export function FuturisticLandscapeBackground() {
+  const bubbleOffsets = useMemo(
+    () => [...Array(5)].map((_, i) => seededRandom(i * 11) * 30 - 15),
+    []
+  )
+
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10">
       {/* Main SVG Illustration */}
@@ -219,6 +226,7 @@ export function FuturisticLandscapeBackground() {
         icon="</>"
         delay={0}
         duration={8}
+        xOffset={bubbleOffsets[0]}
       />
       <FloatingBubble
         x="85%"
@@ -227,6 +235,7 @@ export function FuturisticLandscapeBackground() {
         icon="API"
         delay={1.5}
         duration={10}
+        xOffset={bubbleOffsets[1]}
       />
       <FloatingBubble
         x="25%"
@@ -235,6 +244,7 @@ export function FuturisticLandscapeBackground() {
         icon="☁"
         delay={3}
         duration={9}
+        xOffset={bubbleOffsets[2]}
       />
       <FloatingBubble
         x="75%"
@@ -243,6 +253,7 @@ export function FuturisticLandscapeBackground() {
         icon="JS"
         delay={2}
         duration={11}
+        xOffset={bubbleOffsets[3]}
       />
       <FloatingBubble
         x="50%"
@@ -251,6 +262,7 @@ export function FuturisticLandscapeBackground() {
         icon="⚡"
         delay={4}
         duration={7}
+        xOffset={bubbleOffsets[4]}
       />
     </div>
   )
@@ -263,9 +275,10 @@ interface FloatingBubbleProps {
   icon: string
   delay: number
   duration: number
+  xOffset: number
 }
 
-function FloatingBubble({ x, y, size, icon, delay, duration }: FloatingBubbleProps) {
+function FloatingBubble({ x, y, size, icon, delay, duration, xOffset }: FloatingBubbleProps) {
   return (
     <motion.div
       className="absolute"
@@ -281,7 +294,7 @@ function FloatingBubble({ x, y, size, icon, delay, duration }: FloatingBubblePro
         opacity: [0.7, 0.9, 0.7],
         scale: [1, 1.1, 1],
         y: [0, -20, 0],
-        x: [0, Math.random() * 30 - 15, 0],
+        x: [0, xOffset, 0],
       }}
       transition={{
         duration,

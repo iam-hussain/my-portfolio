@@ -2,6 +2,12 @@ import { ImpactMetric } from '@/lib/types'
 
 export const impactMetrics: ImpactMetric[] = [
   {
+    id: 'ai-adoption',
+    value: 'Multi-team',
+    label: 'Internal AI Adoption',
+    description: 'Reusable agent frameworks and AI SDKs adopted across multiple engineering teams at Emirates NBD. Accelerated experimentation across treasury, analytics, and operations.',
+  },
+  {
     id: 'engagement',
     value: '+27%',
     label: 'User Engagement Lift',
@@ -26,5 +32,3 @@ export const impactMetrics: ImpactMetric[] = [
     description: 'Rebuilt server-driven component architecture reducing duplicate logic and improving maintainability. (Better DX, cleaner codebase & faster feature development)',
   },
 ]
-
-

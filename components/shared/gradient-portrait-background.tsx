@@ -1,10 +1,35 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useMemo } from 'react'
+import { seededRandom } from '@/lib/seeded-random'
 
 export function GradientPortraitBackground() {
   const [particleCount, setParticleCount] = useState(40)
+
+  const blobOffsets = useMemo(
+    () =>
+      [...Array(4)].map((_, i) => ({
+        x: seededRandom(i * 13) * 60 - 30,
+        y: seededRandom(i * 17) * 60 - 30,
+      })),
+    []
+  )
+
+  const particleData = useMemo(
+    () =>
+      [...Array(40)].map((_, i) => {
+        const r = (n: number) => seededRandom(i * 7 + n)
+        return {
+          delay: r(1) * 5,
+          duration: r(2) * 8 + 6,
+          left: r(3) * 100,
+          top: r(4) * 100,
+          xOffset: r(5) * 40 - 20,
+        }
+      }),
+    []
+  )
 
   useEffect(() => {
     const updateParticleCount = () => {
@@ -72,8 +97,8 @@ export function GradientPortraitBackground() {
             transform: 'translate(-50%, -50%)',
           }}
           animate={{
-            x: [0, Math.random() * 60 - 30, 0],
-            y: [0, Math.random() * 60 - 30, 0],
+            x: [0, blobOffsets[i].x, 0],
+            y: [0, blobOffsets[i].y, 0],
             scale: [1, 1.1, 1],
             opacity: [0.2, 0.4, 0.2],
           }}
@@ -87,31 +112,29 @@ export function GradientPortraitBackground() {
       ))}
 
       {/* Small floating particles - Gemini AI colors (reduced on mobile for performance) */}
-      {[...Array(particleCount)].map((_, i) => {
-        const delay = Math.random() * 5
-        const duration = Math.random() * 8 + 6
+      {particleData.slice(0, particleCount).map((p, i) => {
         const colors = ['#2196f3', '#f48fb1', '#80deea', '#ffeb3b']
         return (
           <motion.div
             key={`particle-${i}`}
             className="absolute w-1.5 h-1.5 rounded-full"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
+              left: `${p.left}%`,
+              top: `${p.top}%`,
               backgroundColor: colors[i % colors.length],
               opacity: 0.4,
             }}
             animate={{
               y: [0, -30, 0],
-              x: [0, Math.random() * 40 - 20, 0],
+              x: [0, p.xOffset, 0],
               opacity: [0.2, 0.6, 0.2],
               scale: [1, 1.3, 1],
             }}
             transition={{
-              duration,
+              duration: p.duration,
               repeat: Infinity,
               ease: 'easeInOut',
-              delay,
+              delay: p.delay,
             }}
           />
         )

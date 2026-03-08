@@ -2,13 +2,13 @@ export const siteConfig = {
   personal: {
     fullName: 'Jakir Hussain',
     shortName: 'Jakir',
-    role: 'Senior Full-Stack Engineer — Product-Focused & Performance-Driven',
-    roleTitle: 'Senior Full-Stack Engineer',
-    roleTagline: 'Microservices | Serverless | High-Availability | AI-Integrated Systems',
+    role: 'Senior Full-Stack & AI Platform Engineer',
+    roleTitle: 'Senior Full-Stack & AI Platform Engineer',
+    roleTagline: 'Node.js | Agentic AI | Cloud-Native Systems',
     location: 'Dubai — GMT+4',
-    headline: 'Highly skilled in building scalable full-stack applications, high-performance frontend systems, secure API architectures, and cloud-native deployments—experienced with microservices, serverless architectures, high-availability systems, event-driven pipelines, analytics platforms, and AI-integrated features.',
-    heroTechLine: 'Node.js · React · TypeScript · GraphQL · AWS',
-    openToRoles: 'Senior Frontend / Senior Full-Stack roles — Dubai / Remote worldwide.',
+    headline: '8+ years building production AI systems and cloud-native platforms. Specialized in multi-agent LLM architectures, LangChain/LangGraph orchestration, MCP-based tool integrations, and RAG pipelines—deployed at scale across fintech and media.',
+    heroTechLine: 'Node.js · LangChain · TypeScript · React · GraphQL · AWS',
+    openToRoles: 'Senior AI Platform / Full-Stack roles — Dubai / Remote worldwide.',
   },
   contact: {
     email: 'itsjakirhussain@gmail.com',
@@ -17,32 +17,44 @@ export const siteConfig = {
     calendly: 'https://calendly.com/iamhussain',
   },
   links: {
-    resumeUrl: '/jakir_full_stack_resume.pdf',
-    linkedin: 'https://linkedin.com/in/jakirhussain18',
-    github: 'https://github.com/jakirhussain18',
+    resumeUrl: '/jakir_hussain-ai-engineer.pdf',
+    linkedin: 'https://linkedin.com/in/iam-hussain',
+    github: 'https://github.com/iam-hussain',
     website: 'https://iam-hussain.site',
   },
   ctaLabels: {
-    primaryHero: 'Explore My Work',
-    secondaryHero: 'Open Resume',
+    primaryHero: 'View Projects',
+    secondaryHero: 'Contact Me',
+    tertiaryHero: 'Resume',
     contactEmail: 'Email Me',
     contactWhatsApp: 'WhatsApp',
     contactDownloadResume: 'Download Resume',
     contactBookCall: 'Book a Call',
   },
+  hero: {
+    headline: 'Senior Full-Stack & AI Platform Engineer',
+    subheadline: 'Enterprise LLM Systems · Multi-Agent AI · RAG Pipelines',
+    supportingText:
+      '8+ years building production AI systems and cloud-native platforms across fintech and media. Specialized in Node.js, TypeScript, React, GraphQL—multi-agent LLM architectures, LangChain/LangGraph orchestration, MCP-based tools, RAG pipelines, and scalable cloud infrastructure.',
+  },
+  contactCta: {
+    headline: "Let's Build Something Interesting",
+    subtext:
+      'Open to senior engineering, AI platform, and full-stack opportunities, consulting, and product collaborations.',
+  },
   navigation: {
+    home: '#home',
     main: [
-      { label: 'Home', href: '#home' },
-      { label: 'What I Do', href: '#what-i-do' },
-      { label: 'Work', href: '#work' },
-      { label: 'Highlights', href: '#highlights' },
-      { label: 'Playground', href: '#playground' },
+      { label: 'About', href: '#about' },
+      { label: 'Projects', href: '#projects' },
+      { label: 'Experience', href: '#experience' },
+      { label: 'Skills', href: '#skills' },
       { label: 'Contact', href: '#contact' },
     ],
   },
   socialIcons: [
-    { type: 'github', href: 'https://github.com/jakirhussain18' },
-    { type: 'linkedin', href: 'https://linkedin.com/in/jakirhussain18' },
+    { type: 'github', href: 'https://github.com/iam-hussain' },
+    { type: 'linkedin', href: 'https://linkedin.com/in/iam-hussain' },
     { type: 'email', href: 'mailto:itsjakirhussain@gmail.com' },
     { type: 'whatsapp', href: 'https://wa.me/971551419969' },
     { type: 'calendly', href: 'https://calendly.com/iamhussain' },
@@ -50,4 +62,3 @@ export const siteConfig = {
 } as const
 
 export type SiteConfig = typeof siteConfig
-

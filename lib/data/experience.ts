@@ -3,24 +3,25 @@ import { Experience } from '@/lib/types'
 export const experiences: Experience[] = [
   {
     id: 'emirates-nbd',
-    company: 'Emirates NBD',
+    company: 'Synechron Technologies LLC (Client: Emirates NBD)',
     role: 'Lead - Technology',
     period: 'DEC 2024 - Current',
     location: 'Dubai, UAE',
     bullets: [
-      'Led backend and API architecture for Emirates NBD\'s Open Finance Platform, developed under the UAE Central Bank\'s "Compete and Comply" Open Banking framework.',
-      'Architected and deployed Node.js / TypeScript microservices enabling secure, consent-based financial data exchange between licensed financial institutions (LFIs) and third-party providers (TPPs).',
-      'Designed and integrated REST and GraphQL APIs with React/Next.js dashboards to deliver seamless regulatory workflows and real-time consent management.',
-      'Implemented 3Scale API Gateway and automated CI/CD pipelines with Jenkins + OpenShift, cutting release time by 40%.',
-      'Collaborated directly with UAE Central Bank regulators to ensure compliance, data governance, and security alignment with Open Banking standards.',
-      'Partnered with AI and analytics teams to prototype predictive consent analytics and anomaly detection dashboards for smarter fraud prevention and user transparency.',
+      'Leading architecture and rollout of Emirates NBD\'s enterprise AI platform to standardize development of secure, production-grade LLM applications and accelerate AI adoption across engineering teams.',
+      'Architecting centralized AI development platform with multi-agent orchestration frameworks using Node.js, TypeScript, LangChain, and LangGraph—enabling teams to build scalable AI workflows with standardized tooling and governance.',
+      'Building shared AI SDKs and MCP-based tool infrastructure for secure integration with internal enterprise systems and Calypso treasury APIs.',
+      'Architected and delivered Treasury AI Copilot—a multi-agent LLM system with LangGraph orchestration, RAG pipelines, and Redis session memory for real-time treasury insights in regulated banking.',
+      'Implementing enterprise AI governance and guardrails including prompt safety, authorization controls, data masking, and compliance validation aligned with banking regulations.',
+      'Owned backend architecture for Open Finance Platform under UAE Central Bank "Compete & Comply" framework—Node.js/TypeScript microservices, REST/GraphQL APIs, 3Scale API Gateway, Jenkins + OpenShift CI/CD reducing release cycles by 40%.',
     ],
-    techStack: ['Express.js', 'TypeScript', 'GraphQL', 'React.js', 'Material UI', 'MongoDB', 'OpenShift', '3Scale', 'Cucumber.js', 'Playwright'],
-    caseStudyId: 'open-finance',
+    techStack: ['Node.js', 'TypeScript', 'LangChain', 'LangGraph', 'MCP', 'RAG', 'Vector Embeddings', 'OpenAI', 'Claude', 'LLaMA', 'Redis', 'Calypso', 'Express.js', 'GraphQL', 'React.js', 'MongoDB', 'OpenShift', '3Scale'],
+    caseStudyId: 'enterprise-ai-platform',
+    caseStudyIds: ['enterprise-ai-platform', 'treasury-copilot', 'open-finance'],
   },
   {
     id: 'conde-nast',
-    company: 'Conde Nast Technology Lab',
+    company: 'Condé Nast Technology Lab',
     role: 'Software Engineer II',
     period: 'JUNE 2021 - NOV 2024',
     location: 'Bangalore, Karnataka, India',
@@ -93,4 +94,8 @@ export const experiences: Experience[] = [
   },
 ]
 
+const TIMELINE_IDS = ['emirates-nbd', 'conde-nast', 'htc', 'develop-script'] as const
 
+export const timelineExperiences: Experience[] = experiences.filter((e) =>
+  TIMELINE_IDS.includes(e.id as (typeof TIMELINE_IDS)[number])
+)

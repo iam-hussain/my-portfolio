@@ -3,9 +3,9 @@ import { ValuePillar } from '@/lib/types'
 export const valuePillars: ValuePillar[] = [
   {
     id: 'ai-powered',
-    title: 'AI-Powered & Personalization-Driven Engineering',
-    description: 'Deliver intelligent user experiences by integrating OpenAI, LangChain, and ML-powered predictive models into production apps. Transform behavioral data into dynamic UI, smart recommendations, and personalized content flows.',
-    techBadges: ['OpenAI API', 'LangChain', 'Predictive Models', 'Analytics Pipelines', 'React/Next.js'],
+    title: 'Production AI & Agentic Systems',
+    description: 'Build production-grade LLM applications with multi-agent orchestration, LangChain/LangGraph, MCP-based tool integrations, and RAG pipelines. Deploy enterprise guardrails, prompt safety, and compliance validation for regulated environments.',
+    techBadges: ['LangChain', 'LangGraph', 'MCP', 'RAG', 'Multi-Agent Systems', 'OpenAI', 'Claude', 'LLaMA'],
   },
   {
     id: 'full-stack',
@@ -21,10 +21,8 @@ export const valuePillars: ValuePillar[] = [
   },
   {
     id: 'api-architecture',
-    title: 'API Architecture & Data-Intensive Applications',
-    description: 'Design secure, high-performance REST and GraphQL APIs powering Open Finance, real-time ingestion systems, and data-driven platforms. Collaborate across ML, backend, and DevOps teams to build analytics pipelines and system integrations.',
-    techBadges: ['GraphQL Federation', 'REST APIs', 'Real-Time Ingestion', 'Data Pipelines'],
+    title: 'API Architecture & Open Banking',
+    description: 'Design secure, high-performance REST and GraphQL APIs for Open Finance, regulated fintech, real-time ingestion systems, and data-driven platforms. Collaborate with regulators and cross-functional teams for compliance.',
+    techBadges: ['GraphQL', 'REST APIs', 'Open Banking', '3Scale', 'Real-Time Ingestion'],
   },
 ]
-
-

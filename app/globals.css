@@ -4,27 +4,56 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Gemini AI Inspired Color Palette */
+  /* Premium Futuristic Palette - Dark defaults */
   --color-star-blue: #2196f3;
   --color-orbit-pink: #f48fb1;
-  --color-galaxy-black: #0d0d0d;
+  --color-galaxy-black: #0a0a0f;
   --color-lens-yellow: #ffeb3b;
-  --color-astro-aqua: #80deea;
-  --color-ai-ivory: #fdfdfd;
+  --color-astro-aqua: #22d3ee;
+  --color-ai-ivory: #fafafa;
 
-  /* Gradient Accent Colors (enhanced with Gemini palette) */
+  /* Accent Colors */
+  --accent-cyan: #22d3ee;
+  --accent-violet: #8b5cf6;
+
+  /* Gradient Accent Colors */
   --color-gradient-purple: #8b5cf6;
   --color-gradient-blue: #2196f3;
   --color-gradient-pink: #f48fb1;
-  --color-gradient-cyan: #80deea;
+  --color-gradient-cyan: #22d3ee;
   --color-gradient-yellow: #ffeb3b;
   --color-gradient-magenta: #d946ef;
 
   /* Interactive States (shared) */
-  --color-hover-glow: rgba(33, 150, 243, 0.3);
-  --color-focus-ring: rgba(33, 150, 243, 0.5);
+  --color-hover-glow: rgba(34, 211, 238, 0.3);
+  --color-focus-ring: rgba(34, 211, 238, 0.5);
+
+  /* Surface (shared) */
+  --surface-elevated: #1a1a24;
+
+  /* Dark theme defaults (applied before .dark class) */
+  --color-bg-primary: #0a0a0f;
+  --color-bg-secondary: #0f0f14;
+  --color-bg-tertiary: #16161d;
+  --color-bg-card: rgba(22, 22, 29, 0.95);
+  --color-text-primary: #fafafa;
+  --color-text-secondary: #e4e4e7;
+  --color-text-muted: #e4e4e7;
+  --color-text-accent: #22d3ee;
+  --color-border-subtle: rgba(255, 255, 255, 0.2);
+  --color-border-accent: rgba(34, 211, 238, 0.6);
 
   /* Semantic Colors (shared) */
+  --background: var(--color-bg-primary);
+  --foreground: var(--color-text-primary);
+  --card: var(--color-bg-card);
+  --card-foreground: var(--color-text-primary);
+  --popover: var(--color-bg-secondary);
+  --popover-foreground: var(--color-text-primary);
+  --muted: var(--color-bg-secondary);
+  --muted-foreground: var(--color-text-muted);
+  --border: var(--color-border-subtle);
+  --input: var(--color-border-subtle);
   --primary: var(--color-gradient-purple);
   --primary-foreground: var(--color-text-primary);
   --secondary: var(--color-bg-secondary);
@@ -43,15 +72,15 @@
   /* Base Background Colors */
   --color-bg-primary: #ffffff;
   --color-bg-secondary: #f8f9fa;
-  --color-bg-tertiary: #e9ecef;
-  --color-bg-card: rgba(255, 255, 255, 0.95);
+  --color-bg-tertiary: #f1f5f9;
+  --color-bg-card: rgba(255, 255, 255, 0.98);
   --color-bg-overlay: rgba(255, 255, 255, 0.98);
 
-  /* Text Colors - Darker for better contrast */
+  /* Text Colors - dark for strong contrast on light bg */
   --color-text-primary: #0f172a;
-  --color-text-secondary: #1e293b;
-  --color-text-muted: #475569;
-  --color-text-accent: #1976d2;
+  --color-text-secondary: #334155;
+  --color-text-muted: #64748b;
+  --color-text-accent: #0891b2;
 
   /* Gradient colors for hero title - darker blue for light theme */
   --gradient-hero-start: #1a1a1a;
@@ -75,41 +104,48 @@
   --popover: var(--color-bg-secondary);
   --popover-foreground: var(--color-text-primary);
   --muted: var(--color-bg-secondary);
-  --muted-foreground: var(--color-text-secondary);
+  --muted-foreground: var(--color-text-muted);
   --border: var(--color-border-subtle);
   --input: var(--color-border-subtle);
 }
 
 
-/* Dark Theme Variables (default) - Gemini AI inspired */
+/* Dark Theme Variables - Premium futuristic */
 .dark {
   --color-black: #363131;
-  /* Base Background Colors - Galaxy Black base */
-  --color-bg-primary: #0d0d0d;
-  --color-bg-secondary: #151520;
-  --color-bg-tertiary: #1a1a2e;
-  --color-bg-card: rgba(21, 21, 32, 0.92);
-  --color-bg-overlay: rgba(13, 13, 13, 0.98);
+  /* Base Background - near-black / deep graphite */
+  --color-bg-primary: #0a0a0f;
+  --color-bg-secondary: #0f0f14;
+  --color-bg-tertiary: #16161d;
+  --color-bg-card: rgba(22, 22, 29, 0.95);
+  --color-bg-overlay: rgba(10, 10, 15, 0.98);
 
-  /* Text Colors - Lighter for better contrast on dark backgrounds */
-  --color-text-primary: #f5f5f5;
-  --color-text-secondary: #d4d4d4;
-  --color-text-muted: #b3b3b3;
-  --color-text-accent: #42a5f5;
+  /* Surface - dark slate / charcoal */
+  --surface-elevated: #1a1a24;
 
-  /* Gradient colors for hero title - lighter for dark theme */
-  --gradient-hero-start: #fdfdfd;
-  --gradient-hero-mid: #2196f3;
-  --gradient-hero-end: #80deea;
+  /* Text Colors - high contrast for readability */
+  --color-text-primary: #fafafa;
+  --color-text-secondary: #e4e4e7;
+  --color-text-muted: #e4e4e7;
+  --color-text-accent: #0891b2;
 
-  /* Gradient colors for hero subtitle - darker and richer for dark theme */
+  /* Accent - darker cyan/teal for dark mode */
+  --accent-cyan: #0891b2;
+  --color-gradient-cyan: #0891b2;
+
+  /* Gradient colors for hero title */
+  --gradient-hero-start: #fafafa;
+  --gradient-hero-mid: #0891b2;
+  --gradient-hero-end: #8b5cf6;
+
+  /* Gradient colors for hero subtitle */
   --gradient-subtitle-start: #3b82f6;
   --gradient-subtitle-mid: #8b5cf6;
   --gradient-subtitle-end: #06b6d4;
 
   /* Interactive States */
   --color-border-subtle: rgba(255, 255, 255, 0.15);
-  --color-border-accent: rgba(66, 165, 245, 0.6);
+  --color-border-accent: rgba(8, 145, 178, 0.6);
 
   /* Semantic Colors (for shadcn/ui compatibility) */
   --background: var(--color-bg-primary);
@@ -119,7 +155,7 @@
   --popover: var(--color-bg-secondary);
   --popover-foreground: var(--color-text-primary);
   --muted: var(--color-bg-secondary);
-  --muted-foreground: var(--color-text-secondary);
+  --muted-foreground: var(--color-text-muted);
   --border: var(--color-border-subtle);
   --input: var(--color-border-subtle);
 }
@@ -127,6 +163,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-card-foreground: var(--card-foreground);
   --color-text-primary: var(--color-text-primary);
   --color-text-secondary: var(--color-text-secondary);
   --color-text-muted: var(--color-text-muted);
@@ -134,6 +172,9 @@
   --color-bg-primary: var(--color-bg-primary);
   --color-bg-secondary: var(--color-bg-secondary);
   --color-bg-card: var(--color-bg-card);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-accent-cyan: var(--accent-cyan);
+  --color-accent-violet: var(--accent-violet);
   --color-border-subtle: var(--color-border-subtle);
   --color-border-accent: var(--color-border-accent);
   --color-gradient-purple: var(--color-gradient-purple);
@@ -149,12 +190,12 @@
   --font-mono: var(--font-geist-mono);
 }
 
-/* Gradient Utilities - Gemini AI inspired */
+/* Gradient Utilities - Premium futuristic */
 .gradient-hero {
   background: radial-gradient(circle at 30% 50%,
-      rgba(33, 150, 243, 0.35),
-      rgba(244, 143, 177, 0.25),
-      rgba(128, 222, 234, 0.2));
+      rgba(34, 211, 238, 0.2),
+      rgba(139, 92, 246, 0.15),
+      transparent 70%);
 }
 
 .gradient-card-hover {
@@ -174,11 +215,11 @@
 }
 
 .glow-effect {
-  box-shadow: 0 0 20px rgba(33, 150, 243, 0.4);
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.3);
 }
 
 .glow-effect-hover:hover {
-  box-shadow: 0 0 30px rgba(33, 150, 243, 0.6);
+  box-shadow: 0 0 30px rgba(34, 211, 238, 0.4);
 }
 
 /* Animations */
@@ -263,10 +304,39 @@ body {
 /* Base Styles */
 body {
   background: var(--background);
+  color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   min-height: 100vh;
   overflow-x: hidden;
-  /* Text color is handled by Tailwind classes on individual elements */
+}
+
+/* Force muted text visibility - overrides any conflicting styles */
+.text-muted-foreground {
+  color: var(--color-text-muted) !important;
+}
+
+/* Theme-aware scrollbar */
+.scrollbar-theme {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border-subtle) transparent;
+}
+
+.scrollbar-theme::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.scrollbar-theme::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-theme::-webkit-scrollbar-thumb {
+  background-color: var(--color-border-subtle);
+  border-radius: 4px;
+}
+
+.scrollbar-theme::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-text-muted);
 }
 
 /* Smooth Scrolling */
