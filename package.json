@@ -7,7 +7,8 @@
     "build": "next build",
     "build:analyze": "ANALYZE=true next build --webpack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "validate:sitemap": "npx tsx scripts/validate-sitemap.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
