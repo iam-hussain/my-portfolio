@@ -1,10 +1,18 @@
 import type { NextConfig } from 'next'
+// eslint-disable-next-line @typescript-eslint/no-require-imports -- @next/bundle-analyzer is CJS-only
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+})
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   compress: true,
   poweredByHeader: false,
   generateEtags: true,
+
+  experimental: {
+    optimizePackageImports: ['lucide-react'],
+  },
   
   // Image optimization
   images: {
@@ -74,4 +82,4 @@ const nextConfig: NextConfig = {
   },
 }
 
-export default nextConfig
+export default withBundleAnalyzer(nextConfig)

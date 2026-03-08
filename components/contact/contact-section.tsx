@@ -3,7 +3,7 @@
 import { siteConfig } from '@/src/config/site'
 import { Button } from '@/components/ui/button'
 import { Mail, Linkedin, Github } from 'lucide-react'
-import { motion } from 'framer-motion'
+import { AnimateInView } from '@/components/ui/animate-in-view'
 import { Footer } from '@/components/shared/footer'
 
 export function ContactSection() {
@@ -15,13 +15,7 @@ export function ContactSection() {
         aria-label="Contact section"
       >
         <div className="max-w-3xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.6 }}
-            className="rounded-2xl border border-border-subtle bg-bg-card/60 backdrop-blur-xl p-8 md:p-12 text-center shadow-xl"
-          >
+          <AnimateInView className="rounded-2xl border border-border-subtle bg-bg-card/60 backdrop-blur-xl p-8 md:p-12 text-center shadow-xl">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 tracking-tight">
               {siteConfig.contactCta.headline}
             </h2>
@@ -62,7 +56,7 @@ export function ContactSection() {
                 </a>
               </Button>
             </div>
-          </motion.div>
+          </AnimateInView>
         </div>
       </section>
 

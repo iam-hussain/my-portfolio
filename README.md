@@ -167,12 +167,13 @@ No environment variables required for basic functionality. For contact form emai
 
 ## Scripts
 
-| Command        | Description              |
-| -------------- | ------------------------ |
-| `npm run dev`  | Start dev server         |
-| `npm run build`| Production build        |
-| `npm start`    | Start production server  |
-| `npm run lint`| Run ESLint              |
+| Command             | Description              |
+| ------------------- | ------------------------ |
+| `npm run dev`       | Start dev server         |
+| `npm run build`     | Production build         |
+| `npm run build:analyze` | Build + bundle analyzer |
+| `npm start`         | Start production server  |
+| `npm run lint`      | Run ESLint               |
 
 ---
 

@@ -1,8 +1,9 @@
 'use client'
 
+import { memo } from 'react'
 import { Experience } from '@/lib/types'
-import { motion } from 'framer-motion'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { AnimateInView } from '@/components/ui/animate-in-view'
 import { Button } from '@/components/ui/button'
 import { ChevronRight } from 'lucide-react'
 import { useState } from 'react'
@@ -80,7 +81,7 @@ function CaseStudyContent({ caseStudy }: { caseStudy: (typeof caseStudies)[numbe
   )
 }
 
-export function TimelineNode({ experience, index }: TimelineNodeProps) {
+function TimelineNodeInner({ experience, index }: TimelineNodeProps) {
   const [isExpanded, setIsExpanded] = useState(false)
 
   const hasMultipleCaseStudies = experience.caseStudyIds && experience.caseStudyIds.length > 1
@@ -94,13 +95,9 @@ export function TimelineNode({ experience, index }: TimelineNodeProps) {
     : studies[0] ?? null
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-80px' }}
-      transition={{ delay: index * 0.1, duration: 0.5 }}
-      className="flex flex-col md:flex-row gap-4 md:gap-8 items-start"
-      style={{ maxWidth: '100%', overflowX: 'hidden' }}
+    <AnimateInView
+      delay={index}
+      className="flex flex-col md:flex-row gap-4 md:gap-8 items-start max-w-full overflow-x-hidden"
     >
       {/* Timeline dot */}
       <div className="hidden md:flex flex-col items-center w-12 flex-shrink-0">
@@ -228,6 +225,8 @@ export function TimelineNode({ experience, index }: TimelineNodeProps) {
           </div>
         </CardContent>
       </Card>
-    </motion.div>
+    </AnimateInView>
   )
 }
+
+export const TimelineNode = memo(TimelineNodeInner)

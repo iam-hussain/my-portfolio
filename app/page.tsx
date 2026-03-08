@@ -1,12 +1,7 @@
 import { Navigation } from '@/components/shared/navigation'
-import { ScrollToTop } from '@/components/shared/scroll-to-top'
 import { SnapshotHero } from '@/components/snapshot/snapshot-hero'
 import { TechStrip } from '@/components/tech-strip/tech-strip'
-import { AboutSection } from '@/components/about/about-section'
-import { FeaturedProjects } from '@/components/featured-projects/featured-projects'
-import { Storyline } from '@/components/storyline/storyline'
-import { SkillsSection } from '@/components/skills/skills-section'
-import { ContactSection } from '@/components/contact/contact-section'
+import { BelowFoldSections } from '@/components/home/below-fold-sections'
 
 export default function Home() {
   return (
@@ -25,14 +20,9 @@ export default function Home() {
         <main id="main-content">
           <SnapshotHero />
           <TechStrip />
-          <AboutSection />
-          <FeaturedProjects />
-          <Storyline />
-          <SkillsSection />
-          <ContactSection />
+          <BelowFoldSections />
         </main>
       </div>
-      <ScrollToTop />
     </div>
   )
 }

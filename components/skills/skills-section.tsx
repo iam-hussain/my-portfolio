@@ -1,8 +1,8 @@
 'use client'
 
 import { skillClusters } from '@/lib/data/skill-clusters'
-import { motion } from 'framer-motion'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { AnimateInView } from '@/components/ui/animate-in-view'
 
 export function SkillsSection() {
   return (
@@ -12,13 +12,7 @@ export function SkillsSection() {
       aria-label="Skills section"
     >
       <div className="max-w-5xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
-        >
+        <AnimateInView className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 tracking-tight">
             AI Engineering, Backend, Frontend & Infrastructure
           </h2>
@@ -26,14 +20,9 @@ export function SkillsSection() {
             LangChain, LangGraph, RAG pipelines, Node.js, TypeScript, React, Next.js, AWS, Docker,
             Kubernetes
           </p>
-        </motion.div>
+        </AnimateInView>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-60px' }}
-          transition={{ delay: 0.2, duration: 0.5 }}
-        >
+        <AnimateInView delay={1}>
           <Tabs defaultValue={skillClusters[0].id} className="w-full">
             <TabsList className="flex flex-wrap h-auto gap-2 p-2 bg-bg-secondary rounded-xl border border-border-subtle">
               {skillClusters.map((cluster) => (
@@ -52,12 +41,7 @@ export function SkillsSection() {
                 value={cluster.id}
                 className="mt-6 focus-visible:outline-none"
               >
-                <motion.div
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="rounded-2xl border border-border-subtle bg-bg-card/70 backdrop-blur-sm p-6"
-                >
+                <div className="rounded-2xl border border-border-subtle bg-bg-card/70 backdrop-blur-sm p-6">
                   <div className="flex flex-wrap gap-2">
                     {cluster.skills.map((skill) => (
                       <span
@@ -68,11 +52,11 @@ export function SkillsSection() {
                       </span>
                     ))}
                   </div>
-                </motion.div>
+                </div>
               </TabsContent>
             ))}
           </Tabs>
-        </motion.div>
+        </AnimateInView>
       </div>
     </section>
   )

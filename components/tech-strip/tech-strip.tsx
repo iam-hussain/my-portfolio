@@ -1,5 +1,3 @@
-'use client'
-
 import { techStripItems } from '@/lib/data/tech-strip'
 
 export function TechStrip() {

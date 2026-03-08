@@ -1,9 +1,10 @@
 'use client'
 
+import { memo } from 'react'
 import { FeaturedProject } from '@/lib/types'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { motion } from 'framer-motion'
+import { AnimateInView } from '@/components/ui/animate-in-view'
 import { ExternalLink } from 'lucide-react'
 import { useState } from 'react'
 import {
@@ -69,16 +70,11 @@ function CaseStudyDialogContent({ caseStudyId }: { caseStudyId: string }) {
   )
 }
 
-export function FeaturedProjectCard({ project, index }: FeaturedProjectCardProps) {
+function FeaturedProjectCardInner({ project, index }: FeaturedProjectCardProps) {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-80px' }}
-      transition={{ delay: index * 0.1, duration: 0.5 }}
-    >
+    <AnimateInView delay={index}>
       <Card className="h-full rounded-2xl border-border-subtle bg-bg-card/80 backdrop-blur-sm overflow-hidden group hover:border-accent-cyan/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
         <CardHeader>
           <h3 className="text-xl font-bold text-foreground group-hover:text-accent-cyan transition-colors">
@@ -124,6 +120,8 @@ export function FeaturedProjectCard({ project, index }: FeaturedProjectCardProps
           )}
         </CardContent>
       </Card>
-    </motion.div>
+    </AnimateInView>
   )
 }
+
+export const FeaturedProjectCard = memo(FeaturedProjectCardInner)
