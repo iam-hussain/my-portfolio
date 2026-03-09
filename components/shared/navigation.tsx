@@ -39,14 +39,16 @@ export function Navigation() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 bg-bg-primary/80 dark:bg-bg-primary/80 backdrop-blur-xl border-b border-border-subtle ${
-        isScrolled ? 'shadow-lg' : ''
+      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 border-b ${
+        isScrolled
+          ? 'bg-bg-primary/80 dark:bg-bg-primary/80 backdrop-blur-xl border-border-subtle shadow-lg'
+          : 'bg-transparent border-transparent'
       }`}
       role="navigation"
       aria-label="Main navigation"
     >
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
-        <div className="flex items-center justify-between h-12 sm:h-14 md:h-16 lg:h-20">
+        <div className="flex items-center justify-between h-12 sm:h-14 md:h-14 lg:h-16">
           <button
             type="button"
             onClick={() => handleNavClick(siteConfig.navigation.home)}
