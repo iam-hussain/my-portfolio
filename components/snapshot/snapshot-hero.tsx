@@ -58,7 +58,7 @@ export function SnapshotHero() {
               initial="initial"
               animate="animate"
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="text-hero font-extrabold tracking-tight text-foreground mb-3 sm:mb-4"
+              className="text-hero font-extrabold tracking-tight text-foreground text-balance hyphens-none mb-3 sm:mb-4"
             >
               {siteConfig.hero.headline}
             </motion.h1>
