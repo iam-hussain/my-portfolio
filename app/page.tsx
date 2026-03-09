@@ -9,7 +9,7 @@ export default function Home() {
       {/* Subtle gradient overlay */}
       <div className="fixed inset-0 z-0 bg-gradient-to-b from-transparent via-transparent to-bg-primary/50 pointer-events-none" />
 
-      <div className="relative z-10">
+      <div className="relative z-10 w-full max-w-[100vw] overflow-x-hidden">
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[110] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-[var(--accent-cyan)] focus:text-white focus:font-semibold focus:outline-none"

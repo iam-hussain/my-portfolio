@@ -109,20 +109,20 @@ function TimelineNodeInner({ experience, index }: TimelineNodeProps) {
 
       {/* Content Card */}
       <Card className="flex-1 rounded-2xl border-border-subtle bg-bg-card/80 backdrop-blur-md hover:border-[var(--accent-cyan)]/40 transition-all shadow-sm hover:shadow-xl">
-        <CardHeader>
+        <CardHeader className="p-4 sm:p-5 md:p-6">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
             <div>
-              <CardTitle className="text-xl font-bold text-foreground mb-1">
+              <CardTitle className="text-lg sm:text-xl font-bold text-foreground mb-1">
                 {experience.company}
               </CardTitle>
-              <p className="text-base text-[var(--accent-cyan)] font-semibold">{experience.role}</p>
+              <p className="text-sm sm:text-base text-[var(--accent-cyan)] font-semibold">{experience.role}</p>
               <p className="text-xs text-muted-foreground mt-1">
                 {experience.period} · {experience.location}
               </p>
             </div>
           </div>
         </CardHeader>
-        <CardContent>
+        <CardContent className="p-4 sm:p-5 md:p-6 pt-0">
           <ul className="space-y-2 mb-4">
             {experience.bullets.slice(0, isExpanded ? experience.bullets.length : 3).map((bullet, i) => (
               <li key={i} className="text-sm text-muted-foreground flex items-start gap-2 leading-relaxed">
@@ -152,7 +152,7 @@ function TimelineNodeInner({ experience, index }: TimelineNodeProps) {
                   {hasMultipleCaseStudies ? 'View Case Studies' : 'View Case Study'}
                 </Button>
               </DialogTrigger>
-              <DialogContent className="w-[92vw] max-w-[26rem] sm:max-w-xl max-h-[90vh] overflow-y-auto rounded-2xl bg-bg-secondary border-border-subtle">
+              <DialogContent className="w-[calc(100vw-2rem)] max-w-[26rem] sm:max-w-xl max-h-[90vh] overflow-y-auto rounded-2xl bg-bg-secondary border-border-subtle">
                 {hasMultipleCaseStudies ? (
                   <>
                     <DialogHeader>

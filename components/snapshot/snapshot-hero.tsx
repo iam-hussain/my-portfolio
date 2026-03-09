@@ -35,7 +35,7 @@ export function SnapshotHero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center w-full px-4 pt-24 md:pt-32 lg:pt-28 overflow-hidden scroll-mt-36 md:scroll-mt-40"
+      className="relative min-h-dvh sm:min-h-screen flex items-center justify-center w-full overflow-hidden scroll-mt-14 sm:scroll-mt-16 md:scroll-mt-20 lg:scroll-mt-24"
       aria-label="Hero section"
     >
       {/* Subtle grid/glow background */}
@@ -49,8 +49,8 @@ export function SnapshotHero() {
       />
       <div className="absolute inset-0 pointer-events-none gradient-hero" />
 
-      <div className="relative z-20 w-full max-w-7xl mx-auto">
-        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-12 lg:gap-16">
+      <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 3xl:max-w-[90rem] 3xl:px-24 pt-20 sm:pt-24 md:pt-28 lg:pt-24 pb-12 sm:pb-16 md:pb-20">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 sm:gap-10 md:gap-12 lg:gap-16 xl:gap-20">
           {/* Left: Copy */}
           <div className="flex-1 text-center lg:text-left">
             <motion.h1
@@ -58,7 +58,7 @@ export function SnapshotHero() {
               initial="initial"
               animate="animate"
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground mb-4"
+              className="text-hero font-extrabold tracking-tight text-foreground mb-3 sm:mb-4"
             >
               {siteConfig.hero.headline}
             </motion.h1>
@@ -68,7 +68,7 @@ export function SnapshotHero() {
               initial="initial"
               animate="animate"
               transition={{ delay: 0.1, duration: 0.8 }}
-              className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground/95 mb-3"
+              className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-foreground/95 mb-2 sm:mb-3"
             >
               {siteConfig.personal.fullName}
             </motion.p>
@@ -78,7 +78,7 @@ export function SnapshotHero() {
               initial="initial"
               animate="animate"
               transition={{ delay: 0.2, duration: 0.8 }}
-              className="text-lg text-accent-cyan font-semibold mb-6"
+              className="text-base sm:text-lg md:text-xl text-accent-cyan font-semibold mb-4 sm:mb-6"
             >
               {siteConfig.hero.subheadline}
             </motion.p>
@@ -88,7 +88,7 @@ export function SnapshotHero() {
               initial="initial"
               animate="animate"
               transition={{ delay: 0.3, duration: 0.8 }}
-              className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto lg:mx-0 leading-relaxed mb-10"
+              className="text-body text-muted-foreground max-w-2xl mx-auto lg:mx-0 mb-8 sm:mb-10"
             >
               {siteConfig.hero.supportingText}
             </motion.p>
@@ -98,11 +98,11 @@ export function SnapshotHero() {
               initial="initial"
               animate="animate"
               transition={{ delay: 0.4, duration: 0.8 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-10"
+              className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 justify-center lg:justify-start mb-8 sm:mb-10"
             >
               <Button
                 onClick={() => handleScrollTo('#projects')}
-                className="bg-[var(--accent-cyan)] text-white hover:opacity-90 min-h-[48px] px-8 rounded-xl text-base font-semibold transition-all duration-300 hover:scale-[1.02]"
+                className="bg-[var(--accent-cyan)] text-white hover:opacity-90 min-h-[48px] w-full sm:w-auto px-6 sm:px-8 rounded-xl text-sm sm:text-base font-semibold transition-all duration-300 hover:scale-[1.02]"
                 size="lg"
               >
                 {siteConfig.ctaLabels.primaryHero}
@@ -110,7 +110,7 @@ export function SnapshotHero() {
               <Button
                 onClick={() => handleScrollTo('#contact')}
                 variant="secondary"
-                className="border border-border-subtle min-h-[48px] px-8 rounded-xl text-base font-semibold"
+                className="border border-border-subtle min-h-[48px] w-full sm:w-auto px-6 sm:px-8 rounded-xl text-sm sm:text-base font-semibold"
                 size="lg"
               >
                 {siteConfig.ctaLabels.secondaryHero}
@@ -118,7 +118,7 @@ export function SnapshotHero() {
               <Button
                 asChild
                 variant="secondary"
-                className="border border-border-subtle min-h-[48px] px-8 rounded-xl text-base font-semibold"
+                className="border border-border-subtle min-h-[48px] w-full sm:w-auto px-6 sm:px-8 rounded-xl text-sm sm:text-base font-semibold"
                 size="lg"
               >
                 <a href={siteConfig.links.resumeUrl} target="_blank" rel="noopener noreferrer">
@@ -132,7 +132,7 @@ export function SnapshotHero() {
               initial="initial"
               animate="animate"
               transition={{ delay: 0.5, duration: 0.8 }}
-              className="flex gap-4 justify-center lg:justify-start"
+              className="flex gap-3 sm:gap-4 justify-center lg:justify-start"
             >
               {siteConfig.socialIcons
                 .filter((s) => ['github', 'linkedin', 'email'].includes(s.type))
@@ -145,7 +145,7 @@ export function SnapshotHero() {
                       href={social.href}
                       target={social.type !== 'email' ? '_blank' : undefined}
                       rel={social.type !== 'email' ? 'noopener noreferrer' : undefined}
-                      className="p-2.5 rounded-xl border border-border-subtle bg-bg-secondary/50 hover:border-accent-cyan/50 hover:bg-bg-tertiary transition-all"
+                      className="p-2.5 sm:p-3 rounded-xl border border-border-subtle bg-bg-secondary/50 hover:border-accent-cyan/50 hover:bg-bg-tertiary transition-all min-h-[44px] min-w-[44px] flex items-center justify-center"
                       aria-label={`${social.type} profile`}
                     >
                       <Icon className="h-5 w-5 text-foreground" />
@@ -155,14 +155,14 @@ export function SnapshotHero() {
             </motion.div>
           </div>
 
-          {/* Right: Futuristic composition */}
-          <div className="hidden lg:flex flex-1 relative min-h-[320px] items-center justify-center">
+          {/* Right: Futuristic composition - hidden on mobile/tablet */}
+          <div className="hidden lg:flex flex-1 relative min-h-[280px] xl:min-h-[320px] 2xl:min-h-[360px] items-center justify-center">
             {/* Terminal-inspired card */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.5, duration: 0.6 }}
-              className="absolute rounded-2xl border border-border-subtle bg-bg-secondary/80 backdrop-blur-xl p-4 w-full max-w-sm shadow-xl"
+              className="absolute rounded-2xl border border-border-subtle bg-bg-secondary/80 backdrop-blur-xl p-4 w-full max-w-[18rem] xl:max-w-sm 2xl:max-w-md shadow-xl"
             >
               <div className="flex gap-2 mb-3">
                 <span className="w-3 h-3 rounded-full bg-red-500/80" />

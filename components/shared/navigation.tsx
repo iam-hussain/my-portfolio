@@ -45,19 +45,19 @@ export function Navigation() {
       role="navigation"
       aria-label="Main navigation"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-14 sm:h-16 md:h-20">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
+        <div className="flex items-center justify-between h-12 sm:h-14 md:h-16 lg:h-20">
           <button
             type="button"
             onClick={() => handleNavClick(siteConfig.navigation.home)}
-            className="text-lg sm:text-xl md:text-2xl font-bold text-foreground hover:text-accent-cyan transition-colors"
+            className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-foreground hover:text-accent-cyan transition-colors truncate max-w-[45vw] sm:max-w-none"
             aria-label="Go to homepage"
           >
             {siteConfig.personal.fullName}
           </button>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-6">
+          <div className="hidden md:flex items-center gap-4 lg:gap-6">
             {navItems.map((item) => (
               <button
                 key={item.href}
@@ -66,7 +66,7 @@ export function Navigation() {
                   e.preventDefault()
                   handleNavClick(item.href)
                 }}
-                className="text-foreground/90 hover:text-foreground transition-colors font-medium text-sm lg:text-base min-h-[44px] px-2 relative after:absolute after:bottom-0 after:left-2 after:right-2 after:h-px after:bg-accent-cyan after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:origin-left"
+                className="text-foreground/90 hover:text-foreground transition-colors font-medium text-sm lg:text-base min-h-[44px] min-w-[44px] flex items-center justify-center px-2 relative after:absolute after:bottom-0 after:left-2 after:right-2 after:h-px after:bg-accent-cyan after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:origin-left"
                 aria-label={`Navigate to ${item.label} section`}
               >
                 {item.label}
@@ -76,7 +76,7 @@ export function Navigation() {
             <Button
               asChild
               size="sm"
-              className="ml-2 bg-[var(--accent-cyan)] text-white hover:opacity-90 font-semibold rounded-lg"
+              className="ml-2 bg-[var(--accent-cyan)] text-white hover:opacity-90 font-semibold rounded-lg min-h-[44px] px-4"
             >
               <a href={siteConfig.links.resumeUrl} target="_blank" rel="noopener noreferrer">
                 Resume
@@ -85,7 +85,7 @@ export function Navigation() {
           </div>
 
           {/* Mobile: Sheet + Menu trigger */}
-          <div className="md:hidden flex items-center gap-2">
+          <div className="md:hidden flex items-center gap-2 min-h-[44px]">
             <ThemeToggle />
             <Button
               asChild
@@ -109,7 +109,7 @@ export function Navigation() {
               </SheetTrigger>
               <SheetContent
                 side="right"
-                className="w-[280px] sm:w-[320px] bg-bg-secondary border-border-subtle"
+                className="w-[min(320px,100vw-2rem)] sm:w-[340px] bg-bg-secondary border-border-subtle"
               >
                 <SheetHeader>
                   <SheetTitle className="text-foreground font-bold">

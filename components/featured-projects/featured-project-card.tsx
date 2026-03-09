@@ -76,17 +76,17 @@ function FeaturedProjectCardInner({ project, index }: FeaturedProjectCardProps) 
   return (
     <AnimateInView delay={index}>
       <Card className="h-full rounded-2xl border-border-subtle bg-bg-card/80 backdrop-blur-sm overflow-hidden group hover:border-accent-cyan/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-        <CardHeader>
-          <h3 className="text-xl font-bold text-foreground group-hover:text-accent-cyan transition-colors">
+        <CardHeader className="p-4 sm:p-5 md:p-6">
+          <h3 className="text-lg sm:text-xl font-bold text-foreground group-hover:text-accent-cyan transition-colors">
             {project.title}
           </h3>
           <p className="text-sm text-muted-foreground leading-relaxed">{project.summary}</p>
         </CardHeader>
-        <CardContent className="space-y-4">
+        <CardContent className="space-y-4 p-4 sm:p-5 md:p-6 pt-0">
           {project.impact && (
             <p className="text-sm text-foreground/90 font-medium">{project.impact}</p>
           )}
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-1.5 sm:gap-2">
             {project.techStack.map((tech) => (
               <span
                 key={tech}
@@ -108,7 +108,7 @@ function FeaturedProjectCardInner({ project, index }: FeaturedProjectCardProps) 
                   <ExternalLink className="ml-2 h-4 w-4" />
                 </Button>
               </DialogTrigger>
-              <DialogContent className="max-w-lg max-h-[85vh] overflow-y-auto rounded-2xl bg-bg-secondary border-border-subtle">
+              <DialogContent className="w-[calc(100vw-2rem)] max-w-lg max-h-[85vh] overflow-y-auto rounded-2xl bg-bg-secondary border-border-subtle">
                 <DialogHeader>
                   <DialogTitle className="text-xl font-bold text-foreground">
                     {project.title}

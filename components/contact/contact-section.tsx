@@ -11,47 +11,47 @@ export function ContactSection() {
     <>
       <section
         id="contact"
-        className="relative py-20 md:py-28 px-4 sm:px-6 lg:px-8 scroll-mt-36 md:scroll-mt-40"
+        className="relative section-padding scroll-mt-14 sm:scroll-mt-16 md:scroll-mt-20 lg:scroll-mt-24"
         aria-label="Contact section"
       >
-        <div className="max-w-3xl mx-auto">
-          <AnimateInView className="rounded-2xl border border-border-subtle bg-bg-card/60 backdrop-blur-xl p-8 md:p-12 text-center shadow-xl">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 tracking-tight">
+        <div className="max-w-3xl mx-auto px-0">
+          <AnimateInView className="rounded-2xl border border-border-subtle bg-bg-card/60 backdrop-blur-xl p-6 sm:p-8 md:p-10 lg:p-12 text-center shadow-xl">
+            <h2 className="text-section-title font-bold text-foreground mb-3 sm:mb-4 tracking-tight">
               {siteConfig.contactCta.headline}
             </h2>
-            <p className="text-lg text-muted-foreground mb-10 max-w-xl mx-auto">
+            <p className="text-body text-muted-foreground mb-8 sm:mb-10 max-w-xl mx-auto">
               {siteConfig.contactCta.subtext}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 justify-center">
               <Button
                 asChild
-                className="bg-[var(--accent-cyan)] text-white hover:opacity-90 min-h-[48px] px-8 rounded-xl font-semibold"
+                className="bg-[var(--accent-cyan)] text-white hover:opacity-90 min-h-[48px] w-full sm:w-auto px-6 sm:px-8 rounded-xl font-semibold text-sm sm:text-base"
                 size="lg"
               >
                 <a href={`mailto:${siteConfig.contact.email}`}>
-                  <Mail className="mr-2 h-5 w-5" />
+                  <Mail className="mr-2 h-5 w-5 shrink-0" />
                   Email
                 </a>
               </Button>
               <Button
                 asChild
                 variant="outline"
-                className="border-border-subtle text-foreground hover:border-[var(--accent-cyan)]/50 min-h-[48px] px-8 rounded-xl font-semibold"
+                className="border-border-subtle text-foreground hover:border-[var(--accent-cyan)]/50 min-h-[48px] w-full sm:w-auto px-6 sm:px-8 rounded-xl font-semibold text-sm sm:text-base"
                 size="lg"
               >
                 <a href={siteConfig.links.linkedin} target="_blank" rel="noopener noreferrer">
-                  <Linkedin className="mr-2 h-5 w-5" />
+                  <Linkedin className="mr-2 h-5 w-5 shrink-0" />
                   LinkedIn
                 </a>
               </Button>
               <Button
                 asChild
                 variant="outline"
-                className="border-border-subtle text-foreground hover:border-[var(--accent-cyan)]/50 min-h-[48px] px-8 rounded-xl font-semibold"
+                className="border-border-subtle text-foreground hover:border-[var(--accent-cyan)]/50 min-h-[48px] w-full sm:w-auto px-6 sm:px-8 rounded-xl font-semibold text-sm sm:text-base"
                 size="lg"
               >
                 <a href={siteConfig.links.github} target="_blank" rel="noopener noreferrer">
-                  <Github className="mr-2 h-5 w-5" />
+                  <Github className="mr-2 h-5 w-5 shrink-0" />
                   GitHub
                 </a>
               </Button>

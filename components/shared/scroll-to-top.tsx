@@ -57,7 +57,7 @@ export function ScrollToTop() {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.8, y: 24 }}
           transition={{ duration: 0.2 }}
-          className="pointer-events-none fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-9999"
+          className="pointer-events-none fixed bottom-4 right-4 sm:bottom-6 sm:right-6 md:bottom-8 md:right-8 z-[9999]"
           style={{
             bottom: 'calc(env(safe-area-inset-bottom, 0px) + 1rem)',
           }}
@@ -69,7 +69,7 @@ export function ScrollToTop() {
               scrollToTop()
             }}
             size="icon"
-            className="pointer-events-auto rounded-full bg-bg-card border border-border-subtle hover:bg-bg-card/90 active:bg-bg-card/80 hover:border-border-accent shadow-xl hover:shadow-2xl transition-all h-11 w-11 text-black! dark:text-white!"
+            className="pointer-events-auto rounded-full bg-bg-card border border-border-subtle hover:bg-bg-card/90 active:bg-bg-card/80 hover:border-border-accent shadow-xl hover:shadow-2xl transition-all min-h-[44px] min-w-[44px] h-11 w-11 sm:h-12 sm:w-12 text-black! dark:text-white!"
             aria-label="Scroll to top"
           >
             <ChevronUp className="h-5 w-5 sm:h-6 sm:w-6" />
