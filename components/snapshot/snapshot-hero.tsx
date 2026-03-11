@@ -49,7 +49,7 @@ export function SnapshotHero() {
       />
       <div className="absolute inset-0 pointer-events-none gradient-hero" />
 
-      <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 3xl:max-w-[90rem] 3xl:px-24 pt-20 sm:pt-24 md:pt-28 lg:pt-24 pb-12 sm:pb-16 md:pb-20">
+      <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 3xl:max-w-360 3xl:px-24 pt-20 sm:pt-24 md:pt-28 lg:pt-24 pb-12 sm:pb-16 md:pb-20">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 sm:gap-10 md:gap-12 lg:gap-16 xl:gap-20">
           {/* Left: Copy */}
           <div className="flex-1 text-center lg:text-left">
@@ -102,7 +102,7 @@ export function SnapshotHero() {
             >
               <Button
                 onClick={() => handleScrollTo('#projects')}
-                className="bg-[var(--accent-cyan)] text-white hover:opacity-90 min-h-[48px] w-full sm:w-auto px-6 sm:px-8 rounded-xl text-sm sm:text-base font-semibold transition-all duration-300 hover:scale-[1.02]"
+                className="bg-accent-cyan text-white hover:opacity-90 min-h-[48px] w-full sm:w-auto px-6 sm:px-8 rounded-xl text-sm sm:text-base font-semibold transition-all duration-300 hover:scale-[1.02]"
                 size="lg"
               >
                 {siteConfig.ctaLabels.primaryHero}
@@ -155,21 +155,21 @@ export function SnapshotHero() {
             </motion.div>
           </div>
 
-          {/* Right: Futuristic composition - hidden on mobile/tablet */}
-          <div className="hidden lg:flex flex-1 relative min-h-[280px] xl:min-h-[320px] 2xl:min-h-[360px] items-center justify-center">
+          {/* Right: Terminal card — compact on mobile, full on desktop */}
+          <div className="flex flex-1 relative items-center justify-center mt-2 lg:mt-0 lg:min-h-[280px] xl:min-h-[320px] 2xl:min-h-[360px]">
             {/* Terminal-inspired card */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.5, duration: 0.6 }}
-              className="absolute rounded-2xl border border-border-subtle bg-bg-secondary/80 backdrop-blur-xl p-4 w-full max-w-[18rem] xl:max-w-sm 2xl:max-w-md shadow-xl"
+              className="rounded-2xl border border-border-subtle bg-bg-secondary/80 backdrop-blur-xl p-3 sm:p-4 w-full max-w-sm lg:absolute lg:max-w-[18rem] xl:max-w-sm 2xl:max-w-md shadow-xl"
             >
-              <div className="flex gap-2 mb-3">
-                <span className="w-3 h-3 rounded-full bg-red-500/80" />
-                <span className="w-3 h-3 rounded-full bg-yellow-500/80" />
-                <span className="w-3 h-3 rounded-full bg-green-500/80" />
+              <div className="flex gap-1.5 sm:gap-2 mb-2 sm:mb-3">
+                <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-500/80" />
+                <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-yellow-500/80" />
+                <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-green-500/80" />
               </div>
-              <div className="font-mono text-sm text-muted-foreground space-y-1">
+              <div className="font-mono text-xs sm:text-sm text-muted-foreground space-y-1">
                 <p>
                   <span className="text-accent-cyan">&gt;</span> jakir.role
                 </p>
@@ -183,7 +183,7 @@ export function SnapshotHero() {
               </div>
             </motion.div>
 
-            {/* Floating tech badges - orbit around terminal */}
+            {/* Floating tech badges - desktop only */}
             {heroBadges.map((badge, i) => {
               const positions: Record<number, string> = {
                 0: 'top-[10%] left-[5%]',
@@ -199,7 +199,7 @@ export function SnapshotHero() {
                   custom={i}
                   variants={floatingBadge}
                   animate="animate"
-                  className={`absolute px-4 py-2 rounded-xl border border-border-subtle bg-bg-card/90 backdrop-blur-md font-mono text-sm font-medium text-foreground shadow-lg ${positions[i] ?? ''}`}
+                  className={`hidden lg:block absolute px-4 py-2 rounded-xl border border-border-subtle bg-bg-card/90 backdrop-blur-md font-mono text-sm font-medium text-foreground shadow-lg ${positions[i] ?? ''}`}
                 >
                   {badge}
                 </motion.div>

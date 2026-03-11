@@ -10,7 +10,7 @@ export function TechStrip() {
         {techStripItems.map((tech) => (
           <span
             key={tech}
-            className="px-3 py-2 sm:px-4 sm:py-2.5 rounded-lg border border-border-subtle bg-bg-card/60 backdrop-blur-sm font-mono text-xs sm:text-sm font-medium text-foreground/90 whitespace-nowrap hover:border-[var(--accent-cyan)]/40 hover:text-foreground transition-colors min-h-[40px] sm:min-h-[44px] flex items-center"
+            className="px-3 py-2 sm:px-4 sm:py-2.5 rounded-lg border border-border-subtle bg-bg-card/60 backdrop-blur-sm font-mono text-xs sm:text-sm font-medium text-foreground/90 whitespace-nowrap hover:border-accent-cyan/40 hover:text-foreground transition-colors min-h-[40px] sm:min-h-[44px] flex items-center"
           >
             {tech}
           </span>

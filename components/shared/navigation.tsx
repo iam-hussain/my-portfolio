@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { Menu } from 'lucide-react'
 import { siteConfig } from '@/src/config/site'
 import { Button } from '@/components/ui/button'
@@ -14,18 +14,35 @@ import {
 } from '@/components/ui/sheet'
 
 const navItems = siteConfig.navigation.main
+const sectionIds = navItems.map((item) => item.href.replace('#', ''))
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isSheetOpen, setIsSheetOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState('')
+
+  const updateActiveSection = useCallback(() => {
+    const scrollY = window.scrollY + 120
+    for (let i = sectionIds.length - 1; i >= 0; i--) {
+      const el = document.getElementById(sectionIds[i])
+      if (el && el.offsetTop <= scrollY) {
+        setActiveSection(sectionIds[i])
+        return
+      }
+    }
+    setActiveSection('')
+  }, [])
 
   useEffect(() => {
+    setIsScrolled(window.scrollY > 50)
+    updateActiveSection()
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
+      updateActiveSection()
     }
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  }, [updateActiveSection])
 
   const handleNavClick = (href: string) => {
     setIsSheetOpen(false)
@@ -39,9 +56,9 @@ export function Navigation() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 border-b ${
+      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 border-b ${
         isScrolled
-          ? 'bg-bg-primary/80 dark:bg-bg-primary/80 backdrop-blur-xl border-border-subtle shadow-lg'
+          ? 'bg-bg-primary/60 backdrop-blur-2xl border-border-subtle/50 shadow-lg shadow-black/5'
           : 'bg-transparent border-transparent'
       }`}
       role="navigation"
@@ -52,14 +69,15 @@ export function Navigation() {
           <button
             type="button"
             onClick={() => handleNavClick(siteConfig.navigation.home)}
-            className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-foreground hover:text-accent-cyan transition-colors truncate max-w-[45vw] sm:max-w-none"
+            className="text-base sm:text-lg md:text-xl font-bold text-foreground hover:text-accent-cyan transition-colors truncate max-w-[45vw] sm:max-w-none font-mono"
             aria-label="Go to homepage"
           >
-            {siteConfig.personal.fullName}
+            {siteConfig.personal.shortName}
+            <span className="text-accent-cyan">.</span>
           </button>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-4 lg:gap-6">
+          {/* Desktop Navigation — hidden since we have OrbitNav */}
+          <div className="hidden md:flex items-center gap-4 lg:gap-5">
             {navItems.map((item) => (
               <button
                 key={item.href}
@@ -68,7 +86,11 @@ export function Navigation() {
                   e.preventDefault()
                   handleNavClick(item.href)
                 }}
-                className="text-foreground/90 hover:text-foreground transition-colors font-medium text-sm lg:text-base min-h-[44px] min-w-[44px] flex items-center justify-center px-2 relative after:absolute after:bottom-0 after:left-2 after:right-2 after:h-px after:bg-accent-cyan after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:origin-left"
+                className={`transition-colors font-medium text-sm min-h-[44px] min-w-[44px] flex items-center justify-center px-2 font-mono ${
+                  activeSection === item.href.replace('#', '')
+                    ? 'text-accent-cyan'
+                    : 'text-foreground/60 hover:text-foreground'
+                }`}
                 aria-label={`Navigate to ${item.label} section`}
               >
                 {item.label}
@@ -78,7 +100,7 @@ export function Navigation() {
             <Button
               asChild
               size="sm"
-              className="ml-2 bg-[var(--accent-cyan)] text-white hover:opacity-90 font-semibold rounded-lg min-h-[44px] px-4"
+              className="ml-1 bg-accent-cyan text-white hover:opacity-90 font-semibold rounded-lg min-h-[40px] px-4 text-sm"
             >
               <a href={siteConfig.links.resumeUrl} target="_blank" rel="noopener noreferrer">
                 Resume
@@ -86,13 +108,13 @@ export function Navigation() {
             </Button>
           </div>
 
-          {/* Mobile: Sheet + Menu trigger */}
+          {/* Mobile */}
           <div className="md:hidden flex items-center gap-2 min-h-[44px]">
             <ThemeToggle />
             <Button
               asChild
               size="sm"
-              className="bg-[var(--accent-cyan)] text-white hover:opacity-90 font-semibold rounded-lg"
+              className="bg-accent-cyan text-white hover:opacity-90 font-semibold rounded-lg"
             >
               <a href={siteConfig.links.resumeUrl} target="_blank" rel="noopener noreferrer">
                 Resume
@@ -111,11 +133,11 @@ export function Navigation() {
               </SheetTrigger>
               <SheetContent
                 side="right"
-                className="w-[min(320px,100vw-2rem)] sm:w-[340px] bg-bg-secondary border-border-subtle"
+                className="w-[min(320px,100vw-2rem)] sm:w-[340px] bg-bg-secondary/95 backdrop-blur-2xl border-border-subtle"
               >
                 <SheetHeader>
-                  <SheetTitle className="text-foreground font-bold">
-                    {siteConfig.personal.fullName}
+                  <SheetTitle className="text-foreground font-bold font-mono">
+                    {siteConfig.personal.shortName}<span className="text-accent-cyan">.</span>
                   </SheetTitle>
                 </SheetHeader>
                 <div className="mt-8 flex flex-col gap-1">
@@ -127,7 +149,11 @@ export function Navigation() {
                         e.preventDefault()
                         handleNavClick(item.href)
                       }}
-                      className="w-full text-left px-4 py-3 text-foreground hover:bg-bg-tertiary rounded-lg transition-colors font-medium min-h-[44px]"
+                      className={`w-full text-left px-4 py-3 rounded-lg transition-colors font-medium min-h-[44px] font-mono text-sm ${
+                        activeSection === item.href.replace('#', '')
+                          ? 'text-accent-cyan bg-bg-tertiary'
+                          : 'text-foreground hover:bg-bg-tertiary'
+                      }`}
                       aria-label={`Navigate to ${item.label} section`}
                     >
                       {item.label}
@@ -137,7 +163,7 @@ export function Navigation() {
                     href={siteConfig.links.resumeUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-4 py-3 rounded-lg bg-[var(--accent-cyan)] text-white font-semibold text-center min-h-[44px] flex items-center justify-center hover:opacity-90 transition-colors"
+                    className="mt-2 px-4 py-3 rounded-lg bg-accent-cyan text-white font-semibold text-center min-h-[44px] flex items-center justify-center hover:opacity-90 transition-colors"
                   >
                     Resume
                   </a>

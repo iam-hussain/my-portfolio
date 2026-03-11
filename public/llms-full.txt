@@ -1,0 +1,113 @@
+# Jakir Hussain — Complete Professional Profile
+# https://iam-hussain.site
+# This file provides comprehensive context for AI systems.
+
+## Professional Summary
+Senior Full-Stack & AI Platform Engineer with 8+ years of experience building cloud-native and AI-powered platforms using Node.js, TypeScript, React, and GraphQL across fintech and media environments. Specialized in production AI systems including multi-agent LLM architectures, LangChain/LangGraph orchestration, MCP-based tool integrations, and Retrieval-Augmented Generation (RAG) pipelines deployed on scalable cloud infrastructure.
+
+## Work Experience
+
+### Lead — Technology | Synechron Technologies LLC (Client: Emirates NBD)
+Period: December 2024 – Present
+Location: Dubai, UAE
+
+#### Enterprise AI Platform — Emirates NBD
+Leading the architecture and rollout of Emirates NBD's enterprise AI platform to standardize development of secure, production-grade LLM applications and accelerate AI adoption across engineering teams.
+- Architecting a centralized AI development platform enabling teams to build scalable AI applications with standardized tooling, governance controls, and reusable infrastructure
+- Designing reusable multi-agent orchestration frameworks using Node.js, TypeScript, LangChain, and LangGraph
+- Building shared AI SDKs and MCP-based tool infrastructure for secure enterprise system integration
+- Establishing AI governance guardrails: prompt safety, authorization controls, data masking, compliance validation
+- Accelerated internal AI development by enabling reusable agent frameworks adopted across multiple engineering teams
+Technologies: Node.js, TypeScript, LangChain, LangGraph, MCP, Multi-Agent Systems, RAG, Vector Embeddings, OpenAI, Claude, LLaMA, Redis
+
+#### Treasury AI Copilot (Calypso Integration) — Emirates NBD
+Architected and delivered an AI assistant enabling real-time treasury insights and operational decision support within a regulated banking environment.
+- Built a multi-agent LLM system with deterministic orchestration, tool execution, and auditable response validation
+- Implemented LangGraph-based agent orchestration with workflow control, retries, and failure isolation
+- Developed RAG pipelines using vector embeddings for context-aware responses while preventing sensitive data exposure
+- Integrated MCP tools to securely invoke Calypso APIs for treasury data retrieval
+- Implemented Redis session memory and caching for conversational context and low-latency AI responses
+- Integrated multiple LLM providers (OpenAI, Claude, LLaMA) with dynamic routing and fallback strategies
+Technologies: Node.js, TypeScript, LangChain, LangGraph, MCP, RAG, Vector Embeddings, OpenAI, Claude, LLaMA, Redis, Calypso APIs
+
+#### Open Finance Platform — Emirates NBD
+Owned backend architecture and API development under UAE Central Bank "Compete & Comply" Open Banking framework.
+- Designed Node.js/TypeScript microservices for secure consent-driven financial data exchange
+- Built REST and GraphQL APIs with React dashboards for regulatory workflows
+- Integrated 3Scale API Gateway and automated CI/CD (Jenkins, OpenShift), reducing release cycles by 40%
+- Worked directly with UAE Central Bank stakeholders for compliance
+Technologies: Node.js, Express.js, TypeScript, GraphQL, Apollo, React.js, MongoDB, Docker, Kubernetes, OpenShift, 3Scale, Jenkins
+
+### Software Engineer II | Condé Nast Technology Lab
+Period: June 2021 – November 2024
+Location: Bangalore, India
+
+#### The New Yorker — Personalization & Content Platforms
+- Built a full-stack AI-driven personalization platform integrating ML recommendations with React/Next.js, increasing engagement by 27%
+- Developed scalable React/Next.js applications backed by GraphQL APIs for high-traffic editorial content
+- Implemented Kubernetes CronJobs for automated Instagram caption ingestion and content synchronization
+- Delivered server-driven UI architecture reducing duplicated frontend logic by 40%
+- Built "Name Drop" quiz app with animation-based UX and performance profiling
+- Improved newsletter subscription modules, increasing signups by 18%
+Technologies: React.js, Next.js, TypeScript, GraphQL, Node.js, Prisma, MongoDB, Kubernetes, Terraform, AWS, GitHub Actions, Datadog
+
+### Software Developer | HTC Global Services
+Period: February 2020 – June 2021
+Location: Chennai, India
+- Built microservice Node.js REST APIs supporting 50K+ students on Manipal University platform
+- Developed serverless data pipelines (AWS Lambda, SQS, DynamoDB) improving processing speed by 60%
+- Integrated Elasticsearch for search and analytics
+Technologies: Node.js, Express.js, TypeScript, DynamoDB, Elasticsearch, AWS Lambda, SQS, Docker
+
+### Node JS Developer | Develop Script LLC
+Period: December 2018 – January 2020
+Location: Chennai, India
+- Built real-time auction platforms with Node.js, Express, and Socket.IO
+- Implemented Redis Pub/Sub for low-latency bid synchronization
+Technologies: Node.js, Express.js, React.js, Socket.IO, Redis, MySQL
+
+## Complete Technical Skills
+
+### AI / LLM Engineering
+LangChain, LangGraph, Model Context Protocol (MCP), Agentic AI Systems, RAG, Vector Embeddings, Vector Databases, LLM Function Calling, LLM Evaluation, AI Observability, Prompt Engineering, OpenAI API, Claude, LLaMA, LLM Streaming (SSE), AI Guardrails
+
+### Backend & APIs
+Node.js, Bun, TypeScript, Express.js, Hapi, REST APIs, GraphQL, Apollo GraphQL, GraphQL Modules, Prisma ORM, Sequelize ORM
+
+### Frontend
+React.js, Next.js, Redux Toolkit, React Query, Tailwind CSS, Material UI, Styled Components, Framer Motion, Storybook
+
+### Data & Search
+MongoDB, PostgreSQL, MySQL, DynamoDB, Redis, Elasticsearch
+
+### Cloud & DevOps
+AWS, Lambda, S3, Docker, Podman, Kubernetes, OpenShift, Terraform, GitHub Actions, Jenkins, Serverless Architectures
+
+### Testing
+Playwright, Cypress, Jest, Mocha, Chai, Cucumber.js, Vitest
+
+### Engineering Practices
+System Design, Software Architecture, Microservices, Distributed Systems, Performance Engineering, Secure Development, CI/CD Automation, Accessibility (WCAG)
+
+## Quantified Impact
+- Multi-team AI adoption at Emirates NBD with reusable agent frameworks
+- +27% user engagement lift at The New Yorker through AI personalization
+- -40% release cycle reduction through automated CI/CD pipelines
+- +18% newsletter subscription increase through optimized UI components
+- -40% redundant UI logic removed via server-driven component architecture
+- 60% faster data processing through serverless pipeline optimization
+- 50K+ students served through scalable microservice APIs
+
+## Education
+B.E. in Mechanical Engineering — Arunai Engineering College (2013–2016)
+Diploma in Mechanical Engineering — Kumaran Polytechnic College (2010–2013)
+
+## Contact & Links
+Email: itsjakirhussain@gmail.com
+Phone: +971 551419969
+LinkedIn: https://linkedin.com/in/iam-hussain
+GitHub: https://github.com/iam-hussain
+Portfolio: https://iam-hussain.site
+Resume: https://iam-hussain.site/jakir_hussain-ai-engineer.pdf
+Calendly: https://calendly.com/iamhussain
+WhatsApp: https://wa.me/971551419969

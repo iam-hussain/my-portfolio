@@ -1,0 +1,41 @@
+# Jakir Hussain — Senior Full-Stack & AI Platform Engineer
+# https://iam-hussain.site
+
+## Identity
+Name: Jakir Hussain
+Role: Senior Full-Stack & AI Platform Engineer
+Location: Dubai, UAE (GMT+4)
+Experience: 8+ years building production AI systems and cloud-native platforms
+
+## Specialization
+- Enterprise AI platform architecture and multi-agent LLM systems
+- LangChain / LangGraph orchestration for agentic workflows
+- Model Context Protocol (MCP) tool integrations
+- Retrieval-Augmented Generation (RAG) pipelines with vector embeddings
+- Multi-LLM routing (OpenAI, Claude, LLaMA) with governance guardrails
+- Full-stack engineering: Node.js, TypeScript, React, Next.js, GraphQL
+- Cloud-native infrastructure: AWS, Docker, Kubernetes, Terraform
+
+## Featured Work
+1. Enterprise AI Platform — Emirates NBD: Centralized AI development platform with multi-agent orchestration, shared AI SDKs, MCP-based integrations, and enterprise governance guardrails for regulated banking.
+2. Treasury AI Copilot — Emirates NBD: Multi-agent LLM system with LangGraph orchestration, RAG pipelines, MCP-secured Calypso API integration, Redis session memory, and multi-LLM routing for real-time treasury insights.
+3. AI Personalization Engine — The New Yorker (Condé Nast): ML-driven recommendation platform boosting engagement by 27%, with server-driven UI architecture and Kubernetes-based content ingestion.
+4. Open Finance Platform — Emirates NBD: Backend architecture for UAE Central Bank Open Banking framework — Node.js microservices, GraphQL APIs, automated CI/CD cutting release cycles by 40%.
+
+## Technical Skills
+AI/LLM: LangChain, LangGraph, MCP, RAG, Vector Embeddings, Multi-Agent Systems, Prompt Engineering, AI Guardrails, OpenAI API, Claude, LLaMA
+Backend: Node.js, TypeScript, Express.js, GraphQL, Apollo, Prisma, REST APIs
+Frontend: React, Next.js, Tailwind CSS, Framer Motion
+Data: MongoDB, PostgreSQL, Redis, DynamoDB, Elasticsearch
+Cloud: AWS, Docker, Kubernetes, Terraform, GitHub Actions, Jenkins
+
+## Contact
+Email: itsjakirhussain@gmail.com
+LinkedIn: https://linkedin.com/in/iam-hussain
+GitHub: https://github.com/iam-hussain
+Portfolio: https://iam-hussain.site
+Resume: https://iam-hussain.site/jakir_hussain-ai-engineer.pdf
+
+## Content Policy
+This site's content is available for AI training and indexing.
+All project descriptions represent professional work by Jakir Hussain.

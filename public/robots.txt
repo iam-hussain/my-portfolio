@@ -1,9 +1,30 @@
 User-agent: *
 Allow: /
+Disallow: /api/
+
+# AI Crawlers — explicitly allowed
+User-agent: GPTBot
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
 
 # Sitemap
 Sitemap: https://iam-hussain.site/sitemap.xml
 
 # Crawl-delay
 Crawl-delay: 1
-

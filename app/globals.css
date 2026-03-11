@@ -24,9 +24,20 @@
   --color-gradient-yellow: #ffeb3b;
   --color-gradient-magenta: #d946ef;
 
+  /* State Colors — system-status metaphor */
+  --color-state-active: #22d3ee;
+  --color-state-completed: #8b5cf6;
+  --color-state-success: #10b981;
+  --color-state-progress: #f59e0b;
+
   /* Interactive States (shared) */
   --color-hover-glow: rgba(34, 211, 238, 0.3);
   --color-focus-ring: rgba(34, 211, 238, 0.5);
+
+  /* Canvas */
+  --canvas-dot-opacity: 0.04;
+  --canvas-glow-opacity: 0.07;
+  --canvas-line-opacity: 0.15;
 
   /* Surface (shared) */
   --surface-elevated: #1a1a24;
@@ -68,33 +79,50 @@
 
 /* Light Theme Variables */
 .light {
+  --canvas-dot-opacity: 0.035;
+  --canvas-glow-opacity: 0.05;
+  --canvas-line-opacity: 0.12;
+  --color-state-active: #0e7490;
+  --color-state-completed: #6d28d9;
+  --color-state-success: #047857;
+  --color-state-progress: #b45309;
+
   --color-black: #363131;
   /* Base Background Colors */
-  --color-bg-primary: #ffffff;
-  --color-bg-secondary: #f8f9fa;
-  --color-bg-tertiary: #f1f5f9;
-  --color-bg-card: rgba(255, 255, 255, 0.98);
-  --color-bg-overlay: rgba(255, 255, 255, 0.98);
+  --color-bg-primary: #fafbfc;
+  --color-bg-secondary: #f1f5f9;
+  --color-bg-tertiary: #e2e8f0;
+  --color-bg-card: rgba(255, 255, 255, 0.85);
+  --color-bg-overlay: rgba(255, 255, 255, 0.95);
 
   /* Text Colors - dark for strong contrast on light bg (WCAG AA 4.5:1) */
   --color-text-primary: #0f172a;
-  --color-text-secondary: #334155;
+  --color-text-secondary: #1e293b;
   --color-text-muted: #475569;
-  --color-text-accent: #0891b2;
+  --color-text-accent: #0e7490;
+
+  /* Accent — deeper teal for light bg contrast */
+  --accent-cyan: #0e7490;
+  --accent-violet: #7c3aed;
+  --color-gradient-cyan: #0e7490;
 
   /* Gradient colors for hero title - darker blue for light theme */
-  --gradient-hero-start: #1a1a1a;
-  --gradient-hero-mid: #0d47a1;
-  --gradient-hero-end: #01579b;
+  --gradient-hero-start: #0f172a;
+  --gradient-hero-mid: #0e7490;
+  --gradient-hero-end: #6d28d9;
 
   /* Gradient colors for hero subtitle - very dark and rich for light theme */
   --gradient-subtitle-start: #0c4a6e;
-  --gradient-subtitle-mid: #5b21b6;
-  --gradient-subtitle-end: #134e4a;
+  --gradient-subtitle-mid: #6d28d9;
+  --gradient-subtitle-end: #115e59;
 
   /* Interactive States */
-  --color-border-subtle: rgba(0, 0, 0, 0.12);
-  --color-border-accent: rgba(139, 92, 246, 0.6);
+  --color-border-subtle: rgba(15, 23, 42, 0.1);
+  --color-border-accent: rgba(14, 116, 144, 0.5);
+
+  /* Focus ring — darker for light mode */
+  --color-hover-glow: rgba(14, 116, 144, 0.2);
+  --color-focus-ring: rgba(14, 116, 144, 0.5);
 
   /* Semantic Colors (for shadcn/ui compatibility) */
   --background: var(--color-bg-primary);
@@ -112,6 +140,10 @@
 
 /* Dark Theme Variables - Premium futuristic */
 .dark {
+  --canvas-dot-opacity: 0.06;
+  --canvas-glow-opacity: 0.08;
+  --canvas-line-opacity: 0.2;
+
   --color-black: #363131;
   /* Base Background - near-black / deep graphite */
   --color-bg-primary: #0a0a0f;
@@ -188,6 +220,10 @@
   --color-orbit-pink: var(--color-orbit-pink);
   --color-astro-aqua: var(--color-astro-aqua);
   --color-lens-yellow: var(--color-lens-yellow);
+  --color-state-active: var(--color-state-active);
+  --color-state-completed: var(--color-state-completed);
+  --color-state-success: var(--color-state-success);
+  --color-state-progress: var(--color-state-progress);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -554,6 +590,66 @@ html {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* Canvas dot-grid background */
+.canvas-dots {
+  background-image: radial-gradient(circle, var(--color-accent-cyan) 0.75px, transparent 0.75px);
+  background-size: 28px 28px;
+  opacity: var(--canvas-dot-opacity);
+}
+
+/* Orbit nav node animations */
+@keyframes orbit-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 var(--color-accent-cyan); }
+  50% { box-shadow: 0 0 0 4px transparent; }
+}
+
+.orbit-node-active {
+  animation: orbit-pulse 2s ease-in-out infinite;
+}
+
+/* Connection line drawing */
+@keyframes draw-line {
+  from { stroke-dashoffset: 1; }
+  to { stroke-dashoffset: 0; }
+}
+
+/* Glassmorphic panel */
+.glass-panel {
+  background: var(--color-bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 1.25rem;
+}
+
+/* Light theme: glass panels need shadow for depth since bg is similar to page */
+.light .glass-panel {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 4px 16px rgba(0, 0, 0, 0.04);
+  border-color: rgba(15, 23, 42, 0.08);
+}
+
+.light .glass-panel:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+/* Light theme: canvas dots use neutral color instead of accent */
+.light .canvas-dots {
+  background-image: radial-gradient(circle, #64748b 0.75px, transparent 0.75px);
+}
+
+/* Section reveal — depth-aware */
+.section-reveal {
+  opacity: 0;
+  transform: translateY(30px) scale(0.98);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.section-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
 /* Hide Next.js dev tools portal */

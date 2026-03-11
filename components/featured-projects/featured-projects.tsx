@@ -2,6 +2,7 @@
 
 import { featuredProjects } from '@/lib/data/featured-projects'
 import { FeaturedProjectCard } from './featured-project-card'
+import { SectionReveal } from '@/components/canvas/section-reveal'
 
 export function FeaturedProjects() {
   return (
@@ -11,19 +12,20 @@ export function FeaturedProjects() {
       aria-label="Featured projects"
     >
       <div className="max-w-7xl mx-auto px-0">
-        <div className="text-center mb-8 sm:mb-10 md:mb-14">
+        <SectionReveal className="text-center mb-8 sm:mb-10 md:mb-14">
           <h2 className="text-section-title font-bold text-foreground mb-3 sm:mb-4 tracking-tight">
-            Enterprise AI Platforms & Full-Stack Applications
+            Featured Work
           </h2>
           <p className="text-body text-muted-foreground max-w-2xl mx-auto">
-            Enterprise AI platforms enabling secure LLM development, multi-agent orchestration, RAG
-            pipelines, and fintech systems—deployed at scale.
+            AI platforms, multi-agent systems, and production LLM applications &mdash; shipped across regulated fintech and global media
           </p>
-        </div>
+        </SectionReveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 md:gap-6">
           {featuredProjects.map((project, index) => (
-            <FeaturedProjectCard key={project.id} project={project} index={index} />
+            <SectionReveal key={project.id} delay={index + 1}>
+              <FeaturedProjectCard project={project} index={index} />
+            </SectionReveal>
           ))}
         </div>
       </div>

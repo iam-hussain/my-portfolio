@@ -44,12 +44,12 @@ export const metadata: Metadata = {
   },
   category: 'Portfolio',
   classification: 'Personal Portfolio',
-}
-
-export const viewport = {
-  width: 'device-width',
-  initialScale: 1,
-  maximumScale: 5,
+  other: {
+    'profile:first_name': 'Jakir',
+    'profile:last_name': 'Hussain',
+    'article:author': 'https://linkedin.com/in/iam-hussain',
+    'ai:llms_txt': 'https://iam-hussain.site/llms.txt',
+  },
 }
 
 export default function RootLayout({
@@ -64,6 +64,7 @@ export default function RootLayout({
       <head>
         <meta name="format-detection" content="telephone=no" />
         <link rel="preload" href="/share.jpg" as="image" type="image/jpeg" />
+        <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Context" />
         {structuredData.map((data, i) => (
           <script
             key={i}

@@ -81,6 +81,7 @@ export interface FeaturedProject {
 export interface SkillCluster {
   id: string
   title: string
+  primary?: string[]
   skills: string[]
 }
 
