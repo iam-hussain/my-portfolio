@@ -12,7 +12,7 @@ export default async function TwitterImage() {
     (
       <div
         style={{
-          background: 'linear-gradient(135deg, #0d0d0d 0%, #1a1a2e 50%, #0d0d0d 100%)',
+          background: '#0f172a',
           width: '100%',
           height: '100%',
           display: 'flex',
@@ -24,28 +24,28 @@ export default async function TwitterImage() {
           overflow: 'hidden',
         }}
       >
-        {/* Decorative gradient circles */}
+        {/* Decorative gradient orbs */}
         <div
           style={{
             position: 'absolute',
-            top: '-100px',
-            right: '-100px',
-            width: '400px',
-            height: '400px',
+            top: '-120px',
+            right: '-80px',
+            width: '450px',
+            height: '450px',
             borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(33,150,243,0.15) 0%, transparent 70%)',
+            background: 'radial-gradient(circle, rgba(56,189,248,0.12) 0%, transparent 70%)',
             display: 'flex',
           }}
         />
         <div
           style={{
             position: 'absolute',
-            bottom: '-80px',
-            left: '-80px',
-            width: '300px',
-            height: '300px',
+            bottom: '-100px',
+            left: '-60px',
+            width: '350px',
+            height: '350px',
             borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(0,230,180,0.1) 0%, transparent 70%)',
+            background: 'radial-gradient(circle, rgba(56,189,248,0.08) 0%, transparent 70%)',
             display: 'flex',
           }}
         />
@@ -58,18 +58,49 @@ export default async function TwitterImage() {
             left: 0,
             right: 0,
             height: '4px',
-            background: 'linear-gradient(90deg, #2196f3, #00e6b4, #2196f3)',
+            background: 'linear-gradient(90deg, #0f172a, #38bdf8, #0f172a)',
             display: 'flex',
           }}
         />
 
+        {/* Monogram badge */}
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '20px',
+            marginBottom: '12px',
+          }}
+        >
+          <div
+            style={{
+              width: '56px',
+              height: '56px',
+              borderRadius: '14px',
+              background: '#1e293b',
+              border: '2px solid #334155',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: 24,
+              fontWeight: 800,
+              color: '#38bdf8',
+            }}
+          >
+            JH
+          </div>
+          <div style={{ fontSize: 16, color: '#64748b', display: 'flex' }}>
+            iam-hussain.site
+          </div>
+        </div>
+
         {/* Name */}
         <div
           style={{
-            fontSize: 56,
+            fontSize: 58,
             fontWeight: 800,
-            color: '#ffffff',
-            letterSpacing: '-1px',
+            color: '#f1f5f9',
+            letterSpacing: '-1.5px',
             lineHeight: 1.1,
             display: 'flex',
           }}
@@ -82,8 +113,8 @@ export default async function TwitterImage() {
           style={{
             fontSize: 28,
             fontWeight: 600,
-            color: '#2196f3',
-            marginTop: '16px',
+            color: '#38bdf8',
+            marginTop: '14px',
             display: 'flex',
           }}
         >
@@ -94,8 +125,8 @@ export default async function TwitterImage() {
         <div
           style={{
             fontSize: 20,
-            color: '#a0a0b0',
-            marginTop: '24px',
+            color: '#94a3b8',
+            marginTop: '20px',
             lineHeight: 1.5,
             display: 'flex',
           }}
@@ -108,7 +139,7 @@ export default async function TwitterImage() {
           style={{
             display: 'flex',
             gap: '12px',
-            marginTop: '36px',
+            marginTop: '32px',
             flexWrap: 'wrap',
           }}
         >
@@ -119,8 +150,9 @@ export default async function TwitterImage() {
                 style={{
                   padding: '8px 20px',
                   borderRadius: '20px',
-                  border: '1px solid rgba(33,150,243,0.3)',
-                  color: '#7cb8f0',
+                  border: '1px solid #1e293b',
+                  background: '#1e293b',
+                  color: '#38bdf8',
                   fontSize: 16,
                   fontWeight: 500,
                   display: 'flex',
@@ -136,7 +168,7 @@ export default async function TwitterImage() {
         <div
           style={{
             position: 'absolute',
-            bottom: '40px',
+            bottom: '36px',
             left: '80px',
             right: '80px',
             display: 'flex',
@@ -144,10 +176,7 @@ export default async function TwitterImage() {
             alignItems: 'center',
           }}
         >
-          <div style={{ fontSize: 18, color: '#606070', display: 'flex' }}>
-            iam-hussain.site
-          </div>
-          <div style={{ fontSize: 16, color: '#505060', display: 'flex' }}>
+          <div style={{ fontSize: 16, color: '#475569', display: 'flex' }}>
             Dubai · 8+ Years · Open to Opportunities
           </div>
         </div>
