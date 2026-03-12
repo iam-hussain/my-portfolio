@@ -10,18 +10,25 @@ export function getPersonSchema() {
     '@id': `${baseUrl}/#person`,
     name: siteConfig.personal.fullName,
     givenName: siteConfig.personal.shortName,
+    familyName: 'Hussain',
     jobTitle: siteConfig.personal.role,
     description:
       'Senior Full-Stack & AI Platform Engineer with 8+ years of experience building enterprise AI platforms, multi-agent LLM systems, RAG pipelines, and scalable cloud-native applications across fintech and media.',
     url: baseUrl,
     email: siteConfig.contact.email,
     telephone: siteConfig.contact.phone,
-    image: `${baseUrl}/share.jpg`,
+    image: `${baseUrl}/opengraph-image`,
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Dubai',
+      addressRegion: 'Dubai',
       addressCountry: 'AE',
     },
+    nationality: {
+      '@type': 'Country',
+      name: 'India',
+    },
+    knowsLanguage: ['en', 'ta', 'hi'],
     sameAs: [
       siteConfig.links.linkedin,
       siteConfig.links.github,
@@ -49,6 +56,19 @@ export function getPersonSchema() {
       'Microservices',
       'Kubernetes',
       'AWS',
+      'Docker',
+      'Terraform',
+    ],
+    hasCredential: [
+      {
+        '@type': 'EducationalOccupationalCredential',
+        credentialCategory: 'degree',
+        name: 'B.E. in Mechanical Engineering',
+        recognizedBy: {
+          '@type': 'EducationalOrganization',
+          name: 'Arunai Engineering College',
+        },
+      },
     ],
     worksFor: {
       '@type': 'Organization',
@@ -59,6 +79,10 @@ export function getPersonSchema() {
       {
         '@type': 'EducationalOrganization',
         name: 'Arunai Engineering College',
+      },
+      {
+        '@type': 'EducationalOrganization',
+        name: 'Kumaran Polytechnic College',
       },
     ],
   }
@@ -92,14 +116,7 @@ export function getWebSiteSchema() {
     inLanguage: 'en-US',
     author: { '@id': `${baseUrl}/#person` },
     publisher: { '@id': `${baseUrl}/#person` },
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: {
-        '@type': 'EntryPoint',
-        urlTemplate: `${baseUrl}/#projects`,
-      },
-      'query-input': 'required name=search_term_string',
-    },
+    copyrightYear: 2024,
   }
 }
 
@@ -225,13 +242,35 @@ export function getOccupationalExperienceSchema() {
   }
 }
 
+export function getStructuredDataGraph() {
+  const person = getPersonSchema()
+  const profilePage = getProfilePageSchema()
+  const webSite = getWebSiteSchema()
+  const breadcrumb = getBreadcrumbSchema()
+  const experience = getOccupationalExperienceSchema()
+  const projects = getCreativeWorkSchemas()
+
+  // Remove @context from individual schemas — the graph provides it
+  const stripContext = <T extends Record<string, unknown>>(obj: T) => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { '@context': _context, ...rest } = obj
+    return rest
+  }
+
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      stripContext(person),
+      stripContext(profilePage),
+      stripContext(webSite),
+      stripContext(breadcrumb),
+      stripContext(experience),
+      ...projects.map(stripContext),
+    ],
+  }
+}
+
+/** @deprecated Use getStructuredDataGraph() for consolidated @graph output */
 export function getAllStructuredData() {
-  return [
-    getPersonSchema(),
-    getProfilePageSchema(),
-    getWebSiteSchema(),
-    getBreadcrumbSchema(),
-    getOccupationalExperienceSchema(),
-    ...getCreativeWorkSchemas(),
-  ]
+  return [getStructuredDataGraph()]
 }

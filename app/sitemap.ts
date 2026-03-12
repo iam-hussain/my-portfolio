@@ -13,34 +13,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: `${baseUrl}/#about`,
+      url: `${baseUrl}/llms.txt`,
       lastModified: now,
       changeFrequency: 'monthly' as const,
-      priority: 0.8,
+      priority: 0.3,
     },
     {
-      url: `${baseUrl}/#projects`,
+      url: `${baseUrl}/llms-full.txt`,
       lastModified: now,
       changeFrequency: 'monthly' as const,
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/#experience`,
-      lastModified: now,
-      changeFrequency: 'monthly' as const,
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/#skills`,
-      lastModified: now,
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/#contact`,
-      lastModified: now,
-      changeFrequency: 'yearly' as const,
-      priority: 0.6,
+      priority: 0.3,
     },
   ]
 }

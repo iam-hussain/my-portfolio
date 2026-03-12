@@ -652,6 +652,43 @@ html {
   transform: translateY(0) scale(1);
 }
 
+/* Mobile sidebar — GPU-accelerated smooth transitions */
+.sidebar-panel {
+  will-change: transform;
+  transform: translate3d(100%, 0, 0);
+  transition: transform 0.38s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.sidebar-panel.sidebar-open {
+  transform: translate3d(0, 0, 0);
+}
+
+.sidebar-panel.sidebar-closed {
+  transform: translate3d(100%, 0, 0);
+  transition-duration: 0.28s;
+  transition-timing-function: cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+/* Staggered menu items */
+.sidebar-item {
+  opacity: 0;
+  transform: translate3d(20px, 0, 0);
+  transition: opacity 0.35s ease-out, transform 0.35s ease-out;
+  transition-delay: calc(0.06s + var(--item-index, 0) * 0.05s);
+}
+
+.sidebar-content-open .sidebar-item {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.sidebar-content-closed .sidebar-item {
+  opacity: 0;
+  transform: translate3d(20px, 0, 0);
+  transition-delay: 0s;
+  transition-duration: 0.12s;
+}
+
 /* Hide Next.js dev tools portal */
 nextjs-portal {
   display: none !important;

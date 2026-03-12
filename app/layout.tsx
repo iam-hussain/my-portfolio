@@ -48,7 +48,6 @@ export const metadata: Metadata = {
     'profile:first_name': 'Jakir',
     'profile:last_name': 'Hussain',
     'article:author': 'https://linkedin.com/in/iam-hussain',
-    'ai:llms_txt': 'https://iam-hussain.site/llms.txt',
   },
 }
 
@@ -63,8 +62,18 @@ export default function RootLayout({
     <html lang="en" className="scrollbar-theme" suppressHydrationWarning>
       <head>
         <meta name="format-detection" content="telephone=no" />
-        <link rel="preload" href="/share.jpg" as="image" type="image/jpeg" />
-        <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Context" />
+
+        {/* Preconnect to external origins for performance */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+
+        {/* AI/LLM discovery */}
+        <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Context (Summary)" />
+        <link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Context (Full)" />
+        <meta property="ai:llms_txt" content="https://iam-hussain.site/llms.txt" />
+        <meta property="ai:llms_full_txt" content="https://iam-hussain.site/llms-full.txt" />
+
+        {/* Structured data */}
         {structuredData.map((data, i) => (
           <script
             key={i}

@@ -36,6 +36,11 @@ GitHub: https://github.com/iam-hussain
 Portfolio: https://iam-hussain.site
 Resume: https://iam-hussain.site/jakir_hussain-ai-engineer.pdf
 
+## Additional Resources
+- Full profile: https://iam-hussain.site/llms-full.txt
+- Resume (PDF): https://iam-hussain.site/jakir_hussain-ai-engineer.pdf
+- Security: https://iam-hussain.site/.well-known/security.txt
+
 ## Content Policy
 This site's content is available for AI training and indexing.
 All project descriptions represent professional work by Jakir Hussain.

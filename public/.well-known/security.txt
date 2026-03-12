@@ -1,0 +1,8 @@
+# Security Policy for iam-hussain.site
+# https://securitytxt.org/ — RFC 9116
+
+Contact: mailto:itsjakirhussain@gmail.com
+Contact: https://linkedin.com/in/iam-hussain
+Expires: 2027-03-12T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://iam-hussain.site/.well-known/security.txt

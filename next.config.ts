@@ -78,6 +78,34 @@ const nextConfig: NextConfig = {
           },
         ],
       },
+      // Cache text files (llms.txt, etc.) for 1 day — updated more frequently
+      {
+        source: '/:path*\\.(txt)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=86400, stale-while-revalidate=604800',
+          },
+          {
+            key: 'Content-Type',
+            value: 'text/plain; charset=utf-8',
+          },
+        ],
+      },
+      // .well-known directory
+      {
+        source: '/.well-known/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=86400',
+          },
+          {
+            key: 'Access-Control-Allow-Origin',
+            value: '*',
+          },
+        ],
+      },
     ]
   },
 }
