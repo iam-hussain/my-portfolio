@@ -59,7 +59,7 @@ export default function RootLayout({
   const structuredData = getAllStructuredData()
 
   return (
-    <html lang="en" className="scrollbar-theme" suppressHydrationWarning>
+    <html lang="en" className="dark scrollbar-theme" suppressHydrationWarning>
       <head>
         <meta name="format-detection" content="telephone=no" />
 
